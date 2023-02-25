@@ -22,6 +22,7 @@
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 1.5rem;
+  padding-left: 1rem;
 }
 
 .label {
@@ -41,7 +42,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 input.checkboxInput {
@@ -73,5 +74,12 @@ input.checkboxInput {
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .labelValueRow {
+    width: 100%;
+    justify-content: space-between;
   }
 }

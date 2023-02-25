@@ -1,5 +1,6 @@
 
 import Button from "@/components/ui/CustomButton";
+import useWindowSize from "@/hooks/useWindowSize";
 import { PurchaseInit } from "@/types/purchaseInit.type";
 import styles from "./index.module.scss";
 
@@ -13,22 +14,10 @@ const ConfirmPurchaseDetails = ({
     onTermsCheckedChange,
     termsChecked
 }: Props) => {
+    const width = useWindowSize().width;
     return (
         <div className={styles.card}>
-            <div className={styles.btnCard}>
-                <Button
-                    color="white"
-                    onClick={() => { }}
-                    width="100px"
-                    height="70px"
-                    fontSize={14}
-                    fontWeight={700}
-                    bgColor='#D9D9D9'
-                    text={"5secs"}
-                    borderRadius={150}
-                ></Button>
-            </div>
-            <div style={{ width: "80%", fontFamily: "Graphik" }}>
+            <div style={{ width: width < 551 ? "100%" : "80%", fontFamily: "Graphik" }}>
                 <p className={styles.confirmText}>Confirm Purchase</p>
                 <div className={styles.labelValueRow}>
                     <div>
@@ -50,7 +39,7 @@ const ConfirmPurchaseDetails = ({
                         </div>
                     );
                 })}
-                <div className={styles.labelValueRow}>
+                <div className={styles.labelValueRow} style={{ paddingLeft: 0, marginTop: "3rem", marginBottom: "4rem" }}>
                     <div>
                         <p className={styles.label} style={{ fontWeight: 700 }}>Delivery Address:</p>
                     </div>

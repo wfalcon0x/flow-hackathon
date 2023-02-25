@@ -3,20 +3,25 @@
   border-radius: 53px;
   background-color: white;
   padding: 32px 0;
+  height: 1050px;
 }
 
 .imageSection {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  padding: 0 50px;
+  padding: 0 40px;
 }
 
 .imgCard {
-  width: 45%;
+  width: 240px;
   height: 200px;
   border-radius: 20px;
   background-color: black;
+}
+
+.nftImg {
+  border-radius: 20px;
 }
 
 .descriptionSection {
@@ -24,19 +29,21 @@
   padding: 1rem;
 }
 
-.tryPayGlideText {
+.tryPayGlideText,
+.tryPayGlideTextCongratz {
   font-family: "Graphik";
   font-weight: 700;
-  font-size: 32px;
+  font-size: 29px;
   color: black;
 }
 
 .tryPayGlideDescription {
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
   font-family: "Graphik";
   font-weight: 400;
-  font-size: 20px;
+  font-size: 16px;
   width: 100%;
+  margin-bottom: 1rem;
   color: black;
 }
 
@@ -44,7 +51,7 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
-  margin-top: 0.5rem;
+  margin-top: 0rem;
   align-items: center;
 }
 
@@ -63,11 +70,12 @@
 
 .payWithCardCard {
   width: 100%;
-  padding-top: 2.5rem;
-  padding: 2.5rem 4rem;
+  padding-top: 1rem;
+  margin-top: 4rem;
+  padding: 1rem 4rem;
   display: flex;
   flex-direction: column;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
 .poweredSection {
@@ -97,14 +105,14 @@
 
 .stepTitle {
   font-family: "Graphik";
-  font-weight: 700;
+  font-weight: 600;
   font-size: 24px;
   color: black;
   margin-bottom: 1.5rem;
 }
 
 .walletInput {
-  width: 95%;
+  width: 100%;
   height: 78px;
   background-color: #d9d9d9;
   align-items: center;
@@ -114,6 +122,59 @@
   font-size: 24px;
   color: black;
   border: none;
+  margin-top: 2rem;
+}
+
+.cardNumberInput {
+  width: 45%;
+  height: 78px;
+  background-color: #d9d9d9;
+  padding-left: 1rem;
+  font-family: "Graphik";
+  font-weight: 400;
+  font-size: 24px;
+  color: black;
+  border: none;
+  margin-top: 2rem;
+}
+
+.cardDateInput {
+  width: 20%;
+  height: 78px;
+  background-color: #d9d9d9;
+  padding-left: 1rem;
+  font-family: "Graphik";
+  font-weight: 400;
+  font-size: 24px;
+  color: black;
+  border: none;
+  margin-top: 2rem;
+}
+
+.cardCvcInput {
+  width: 15%;
+  height: 78px;
+  background-color: #d9d9d9;
+  padding-left: 1rem;
+  font-family: "Graphik";
+  font-weight: 400;
+  font-size: 24px;
+  color: black;
+  border: none;
+  margin-top: 2rem;
+}
+
+.cardPostcodeInput {
+  width: 20%;
+  height: 78px;
+  background-color: #d9d9d9;
+  padding-left: 1rem;
+  font-family: "Graphik";
+  font-weight: 400;
+  font-size: 24px;
+  color: black;
+  border: none;
+  margin-top: 2rem;
 }
 
 .btnsSection {
@@ -189,4 +250,58 @@
   justify-content: center;
   margin: 2rem 0;
   width: 90%;
+}
+
+.firstStepSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.cardsDetail {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+@media screen and (max-width: 550px) {
+  .card {
+    height: 1150px;
+  }
+  .imageSection {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .descriptionSection {
+    width: 100%;
+    text-align: center;
+  }
+  .backBtn {
+    width: 40%;
+  }
+  .socialSection {
+    width: 100%;
+    justify-content: center;
+  }
+  .imgCard {
+    width: 200px;
+    height: 160px;
+  }
+  .tryPayGlideText {
+    font-size: 24px;
+  }
+  .tryPayGlideDescription {
+    font-size: 14px;
+  }
+  .walletInput,
+  .cardNumberInput,
+  .cardDateInput,
+  .cardCvcInput,
+  .cardPostcodeInput {
+    font-size: 19px;
+    padding-left: 0.4rem;
+  }
 }

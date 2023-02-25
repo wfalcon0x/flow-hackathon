@@ -1,3 +1,4 @@
+import styles from "./index.module.scss";
 import { BaseSyntheticEvent } from "react";
 
 type Props = {
@@ -59,6 +60,7 @@ const Button: React.FC<Props> = ({
                 height: height ?? "unset",
                 cursor: "pointer",
             }}
+            className={styles.btn}
         >
             {text}
         </button>

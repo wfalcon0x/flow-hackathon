@@ -1,6 +1,8 @@
 
+import useWindowSize from "@/hooks/useWindowSize";
 import { NftType } from "@/types/nftType.type";
 import { PurchaseInit } from "@/types/purchaseInit.type";
+import { DiscordIcon, FlowIcon, TwitterIcon, WebIcon } from "@/utils/icons";
 import Image from "next/image";
 import { useState } from "react";
 import Button from "../ui/CustomButton";
@@ -22,6 +24,13 @@ const PaymentCard = ({
     const [walletAddress, setWalletAddress] = useState("");
     const [purchaseInit, setPurchaseInit] = useState<PurchaseInit | undefined>();
     const [termsChecked, setTermsChecked] = useState(false);
+    const [cardWallet, setCardWallet] = useState("4242424242424242");
+    const [cardName, setCardName] = useState("Test Name");
+    const [cardDate, setCardDate] = useState("02/24");
+    const [cardCVC, setCardCVC] = useState("424");
+    const [cardPostCode, setCardPostCode] = useState("0000");
+    const width = useWindowSize().width;
+
 
     const initPayment = () => {
 
@@ -48,6 +57,8 @@ const PaymentCard = ({
         }
     }
 
+    console.log(width)
+
 
     return (
         <div className={styles.card}>
@@ -58,17 +69,23 @@ const PaymentCard = ({
                             <Image src="/uiIcons/celebrationIcon.png" alt="celebration" width={56} height={57} />
                         </div>
                         <div>
-                            <p className={styles.tryPayGlideText} >Congratulations!</p>
+                            <p className={styles.tryPayGlideTextCongratz} >Congratulations!</p>
                         </div>
                     </div>
-                    <p className={styles.tryPayGlideDescription} style={{ textAlign: "center", width: "100%", marginBottom: "3rem" }}>{`Your purchase is now in wallet ${purchaseInit?.recipient}`}</p>
+                    <p className={styles.tryPayGlideDescription} style={{ textAlign: "center", width: "100%", marginBottom: "3rem", marginTop: 30 }}>{`Your purchase is now in wallet ${purchaseInit?.recipient}`}</p>
                     <div className={styles.imgCard}>
-
+                        <Image
+                            src={nft.image}
+                            alt="nft"
+                            width={width < 551 ? 200 : 240}
+                            height={width < 551 ? 160 : 200}
+                            className={styles.nftImg}
+                        />
                     </div>
-                    <p className={styles.tryText}>Try PayGlide</p>
+                    <p className={styles.tryText}>{nft.name}</p>
                     <div className={styles.viewFlowScanSection} style={{ cursor: "pointer" }}>
-                        <div style={{ marginRight: "1rem" }}>
-                            <p className={styles.tryPayGlideDescription} style={{ marginTop: 0 }}>View in flowscan here</p>
+                        <div style={{ marginRight: "1rem", height: "100%", paddingTop: 10 }}>
+                            <p className={styles.tryPayGlideDescription} style={{ marginTop: 0, fontWeight: 500 }}>View in flowscan here</p>
                         </div>
                         <div>
                             <Image src="/socialIcons/FlowScanIcon.png" alt="flow" width={51} height={47} />
@@ -88,19 +105,25 @@ const PaymentCard = ({
                     </div>
                 </div>
             ) : (
-                <div>
+                <div style={{ height: "55%" }}>
                     <div className={styles.imageSection}>
                         <div className={styles.imgCard}>
-
+                            <Image
+                                src={nft.image}
+                                alt="nft"
+                                width={width < 551 ? 200 : 240}
+                                height={width < 551 ? 160 : 200}
+                                className={styles.nftImg}
+                            />
                         </div>
                         <div className={styles.descriptionSection}>
-                            <p className={styles.tryPayGlideText}>Try PayGlide</p>
-                            <p className={styles.tryPayGlideDescription}>{`Buy ${nft.name.toUpperCase()} NFT direct with card first time ever!`}</p>
+                            <p className={styles.tryPayGlideText}>{nft.name}</p>
+                            <p className={styles.tryPayGlideDescription}>{nft.description}</p>
                             <div className={styles.socialSection}>
-                                <Image src="/socialIcons/FlowScanIcon.png" alt="flow" width={51} height={47} />
-                                <Image src="/socialIcons/TwitterIcon.png" alt="twitter" width={46} height={47} />
-                                <Image src="/socialIcons/DiscordIcon.png" alt="discord" width={92} height={83} />
-                                <Image src="/socialIcons/Webicon.png" alt="web" width={39} height={38} />
+                                <FlowIcon width={51} height={47} />
+                                <TwitterIcon width={46} height={47} />
+                                <DiscordIcon width={50} height={50} />
+                                <WebIcon width={39} height={38} />
                             </div>
                         </div>
                     </div>
@@ -111,7 +134,7 @@ const PaymentCard = ({
                             </div>
                             <div className={styles.breakLine} />
                             {step == 1 && (
-                                <>
+                                <div className={styles.firstStepSection}>
                                     <div className={styles.payWithCardCard}>
                                         <Button
                                             color="white"
@@ -127,17 +150,17 @@ const PaymentCard = ({
                                     <div className={styles.poweredSection}>
                                         <p className={styles.poweredText}>powered by PayGlide</p>
                                     </div>
-                                </>
+                                </div>
                             )}
                             {step == 2 && (
                                 <div className={styles.secondStepSection}>
                                     <p className={styles.stepTitle}>Your NFT will be delivered to this wallet address</p>
                                     <input placeholder="Enter Wallet Address" className={styles.walletInput} type="text" value={walletAddress} onChange={(e) => setWalletAddress(e.target.value)} />
-                                    <div className={styles.btnsSection}>
+                                    <div className={styles.btnsSection} style={{ marginTop: 100 }}>
                                         <div className={styles.backBtn} onClick={() => onStepChange(1)}>
                                             <p className={styles.backText}>{"< back"}</p>
                                         </div>
-                                        <div style={{ width: "30%" }}>
+                                        <div style={{ width: width < 550 ? "40%" : "30%" }}>
                                             <Button
                                                 color="white"
                                                 onClick={() => { initPayment() }}
@@ -156,12 +179,18 @@ const PaymentCard = ({
                                 <div className={styles.thirdStepSection}>
                                     <p className={styles.stepTitle}>Enter Card Details</p>
                                     <p className={styles.stepDescription}>You’ll review details before paying</p>
-                                    <input placeholder="Cardholder Name" className={styles.walletInput} type="text" value={""} onChange={(e) => console.log(e.target.value)} />
+                                    <input placeholder="Cardholder Name" className={styles.walletInput} type="text" value={cardName} onChange={(e) => setCardName(e.target.value)} />
+                                    <div className={styles.cardsDetail}>
+                                        <input placeholder="Card Number" className={styles.cardNumberInput} type="text" value={cardWallet} onChange={(e) => setCardWallet(e.target.value)} />
+                                        <input placeholder="MM/YY" className={styles.cardDateInput} type="text" value={cardDate} onChange={(e) => setCardDate(e.target.value)} />
+                                        <input placeholder="CVC" className={styles.cardCvcInput} type="text" value={cardCVC} onChange={(e) => setCardCVC(e.target.value)} />
+                                        <input placeholder="Postcode" className={styles.cardPostcodeInput} type="text" value={cardPostCode} onChange={(e) => setCardPostCode(e.target.value)} />
+                                    </div>
                                     <div className={styles.btnsSection}>
                                         <div className={styles.backBtn} onClick={() => onStepChange(2)}>
                                             <p className={styles.backText}>{"< back"}</p>
                                         </div>
-                                        <div style={{ width: "30%" }}>
+                                        <div style={{ width: width < 551 ? "40%" : "30%" }}>
                                             <Button
                                                 color="white"
                                                 onClick={() => { onStepChange(4); }}
@@ -201,6 +230,7 @@ const PaymentCard = ({
                                             fontWeight={700}
                                             bgColor='black'
                                             text={"Pay"}
+                                            disabled={!termsChecked}
                                         ></Button>
                                     </div>
                                 </div>

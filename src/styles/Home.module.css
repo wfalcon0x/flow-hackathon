@@ -7,33 +7,88 @@
 .container {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   width: 100%;
   /* min-width: 100vh; */
   min-height: 100%;
 }
 
 .TitleSection {
-  width: 65%;
+  width: 60%;
+  height: 100%;
+  display: flex;
   background-color: white;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: start;
-  padding: 1rem;
+  padding: 1.5rem;
   padding-top: 3rem;
 }
 
 .paymentSection {
-  width: 35%;
+  min-width: 40%;
   padding: 1.5rem;
 
   background-color: #d9d9d9;
   min-height: 100%;
 }
 .paymentCardSection {
-  width: 35%;
-  padding: 1.5rem;
+  width: 40%;
+  padding: 2% 3%;
+  overflow-y: scroll;
+  max-height: 100vh;
 
   background-color: black;
-  min-height: 100%;
+}
+
+@media screen and (max-width: 1510px) {
+  .TitleSection {
+    width: 50%;
+  }
+  .paymentCardSection {
+    width: 50%;
+    padding: 6% 3%;
+  }
+}
+
+@media screen and (max-width: 1170px) {
+  .container {
+    flex-direction: column;
+  }
+  .TitleSection {
+    width: 100%;
+    min-height: 100vh;
+  }
+  .paymentCardSection {
+    width: 100%;
+    height: 100%;
+    overflow-y: inherit;
+  }
+  .mainTitle {
+    text-align: center;
+  }
+  .mainTitleDescription {
+    text-align: center;
+  }
+  .btnContainer {
+    justify-content: center;
+  }
+}
+
+.firstHomeBtn {
+  margin-right: 2rem;
+}
+
+@media screen and (max-width: 560px) {
+  .btnContainer {
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .firstHomeBtn {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
 }
 
 .tryNowTitle {
@@ -59,10 +114,9 @@
 
 .btnContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   /* align-items: center; */
-  margin-left: 5rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .stepText {
@@ -74,4 +128,53 @@
   text-align: center;
   color: white;
   margin: 2.5rem 0;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 1rem;
+  padding-left: 1rem;
+}
+
+.mainTitle {
+  font-family: "Graphik";
+  font-weight: 700;
+  font-size: 64px;
+  color: black;
+  margin-bottom: 2rem;
+}
+
+.mainTitleDescription {
+  font-family: "Graphik";
+  font-weight: 400;
+  font-size: 24px;
+  color: black;
+  margin-bottom: 4rem;
+}
+
+.demoText {
+  font-family: "Graphik";
+  font-weight: 600;
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.bottomSectionBtn {
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottomSection {
+  display: flex;
+  color: black;
+  justify-content: center;
+  font-family: "Graphik";
 }

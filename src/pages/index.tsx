@@ -2,16 +2,15 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import { LogoIcon } from '@/utils/icons'
 import Button from '@/components/ui/CustomButton'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import PaymentCard from '@/components/paymentCard'
 import { NftType } from '@/types/nftType.type'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(1);
   const [nft, setNft] = useState<NftType | undefined>(undefined)
 
   const getNftDetail = () => {
@@ -26,6 +25,17 @@ export default function Home() {
       .catch(error => console.error(error));
   }
 
+  const scrollToNextViewHeight = () => {
+    const element = document.getElementById("paymentCardSection");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    }
+  }
+
+  useEffect(() => {
+    getNftDetail();
+  }, [])
+
   return (
     <>
       <Head>
@@ -37,51 +47,66 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.container}>
           <div className={styles.TitleSection}>
-            <LogoIcon width="649px" height="175px" style={{ textAlign: "start", marginTop: "4rem" }} />
-            <Image src="/descriptionTitle.png" alt="flow" width={763} height={63} />
-            <div className={styles.btnContainer}>
-              <Button
-                color="black"
-                onClick={() => { }}
-                width="300px"
-                height="60px"
-                fontSize={20}
-                fontWeight={500}
-                bgColor='#7EB2FF'
-                text={"Join Waitlist"}
-              ></Button>
-            </div>
-          </div>
-          {step === 0 && (
-            <div className={styles.paymentSection}>
-              <div>
-                <p className={styles.tryNowTitle}>TRY NOW!</p>
-                <p className={styles.tryNowDescription}>BUY FIRST EVER FLOW NFT DIRECT WITH CARD PAYMENT</p>
+            <div className={styles.textContainer}>
+              <Image src="/payGlide-logo.png" alt="flow" width={276} height={58} style={{ marginBottom: "3rem" }} />
+              <p className={styles.mainTitle}>Freedom of Payments</p>
+              <p className={styles.mainTitleDescription}>PayGlide enables direct fiat to NFT payments onFLOW blockchain</p>
+              <div className={styles.btnContainer}>
+                <div className={styles.firstHomeBtn}>
+                  <Button
+                    color="white"
+                    onClick={() => { }}
+                    width="230px"
+                    height="60px"
+                    fontSize={20}
+                    fontWeight={700}
+                    bgColor='black'
+                    text={"JOIN WAITLIST"}
+                    borderRadius={15}
+                  ></Button>
+                </div>
                 <div>
                   <Button
                     color="white"
-                    onClick={() => { getNftDetail(); }}
-                    width="100%"
-                    height="264px"
+                    onClick={() => { scrollToNextViewHeight() }}
+                    width="230px"
+                    height="60px"
+                    borderRadius={15}
                     fontSize={20}
-                    fontWeight={500}
-                    bgColor='#0C8909'
-                    text={"WALLETLESS UI"}
+                    fontWeight={700}
+                    bgColor='#BF3DDB'
+                    text={"TRY DEMO"}
                   ></Button>
                 </div>
               </div>
             </div>
-          )}
+            <div className={styles.bottomSection}>
+              <div style={{ marginRight: 50 }}>
+                <p className={styles.bottomSectionTitle}>Privacy Policy</p>
+              </div>
+              <div>
+                <p className={styles.bottomSectionTitle}>PayGlide © 2022</p>
+              </div>
+            </div>
+          </div>
           {(!!nft) && (
-            <div className={styles.paymentCardSection}>
+            <div className={styles.paymentCardSection} id="paymentCardSection">
+
+              <p className={styles.demoText} style={{ color: "white" }}>DEMO ON TESTNET</p>
               <PaymentCard step={step} onStepChange={setStep} nft={nft} />
-              <p className={styles.stepText}>{
-                step == 1 ? "CLICK PAY WITH CARD" :
-                  step == 2 ? "ENTER ADDRESS AND CLICK NEXT" :
-                    step == 3 ? "ENTER CARD DETAILS AND CLICK REVIEW" :
-                      step == 4 ? "CHECK TERMS BOX AND CLICK PAY" :
-                        "END OF PURCHASE"
-              }</p>
+              {/* <div className={styles.bottomSectionBtn}>
+                <Button
+                  color="white"
+                  onClick={() => { }}
+                  width="65%"
+                  height="60px"
+                  borderRadius={15}
+                  fontSize={20}
+                  fontWeight={700}
+                  bgColor='#BF3DDB'
+                  text={"CREATE FLOAT CHECKOUT"}
+                ></Button>
+              </div> */}
             </div>
           )}
         </div>
