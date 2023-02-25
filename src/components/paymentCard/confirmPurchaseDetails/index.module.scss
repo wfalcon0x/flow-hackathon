@@ -1,0 +1,77 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.btnCard {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.confirmText {
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 2rem;
+}
+
+.labelValueRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  font-size: 20px;
+  font-weight: 400;
+  color: black;
+}
+
+.value {
+  font-size: 20px;
+  font-weight: 400;
+  color: black;
+  min-width: 120px;
+}
+
+.checkBoxSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+input.checkboxInput {
+  width: 55px;
+  height: 30px;
+  background-color: #d9d9d9;
+
+  &:checked {
+    width: 55px;
+    height: 30px;
+    background-color: #d9d9d9;
+  }
+}
+
+.terms {
+  font-family: "Graphik";
+  font-weight: 400;
+  font-size: 24px;
+  color: black;
+}
+
+.termsLinkText {
+  font-family: "Graphik";
+  font-size: 20px;
+  color: black;
+  font-weight: 700;
+  display: inline;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

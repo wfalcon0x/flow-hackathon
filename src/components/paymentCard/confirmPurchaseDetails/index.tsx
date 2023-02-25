@@ -1,0 +1,74 @@
+
+import Button from "@/components/ui/CustomButton";
+import { PurchaseInit } from "@/types/purchaseInit.type";
+import styles from "./index.module.scss";
+
+type Props = {
+    purchaseInitDetails: PurchaseInit;
+    termsChecked: boolean;
+    onTermsCheckedChange: (checked: boolean) => void;
+};
+const ConfirmPurchaseDetails = ({
+    purchaseInitDetails,
+    onTermsCheckedChange,
+    termsChecked
+}: Props) => {
+    return (
+        <div className={styles.card}>
+            <div className={styles.btnCard}>
+                <Button
+                    color="white"
+                    onClick={() => { }}
+                    width="100px"
+                    height="70px"
+                    fontSize={14}
+                    fontWeight={700}
+                    bgColor='#D9D9D9'
+                    text={"5secs"}
+                    borderRadius={150}
+                ></Button>
+            </div>
+            <div style={{ width: "80%", fontFamily: "Graphik" }}>
+                <p className={styles.confirmText}>Confirm Purchase</p>
+                <div className={styles.labelValueRow}>
+                    <div>
+                        <p className={styles.label} style={{ fontSize: 24 }}>{purchaseInitDetails.quote.total.description}</p>
+                    </div>
+                    <div>
+                        <p className={styles.value} style={{ fontSize: 24 }}>{`${purchaseInitDetails.quote.total.currency == "USD" ? "$" : ""}${purchaseInitDetails.quote.total.amount}`}</p>
+                    </div>
+                </div>
+                {purchaseInitDetails.quote.details.map((item, index) => {
+                    return (
+                        <div key={index} className={styles.labelValueRow}>
+                            <div>
+                                <p className={styles.label}>{item.description}</p>
+                            </div>
+                            <div>
+                                <p className={styles.value}>{`${item.currency == "USD" ? "$" : ""}${item.amount}`}</p>
+                            </div>
+                        </div>
+                    );
+                })}
+                <div className={styles.labelValueRow}>
+                    <div>
+                        <p className={styles.label} style={{ fontWeight: 700 }}>Delivery Address:</p>
+                    </div>
+                    <div>
+                        <p className={styles.value}>{purchaseInitDetails.recipient}</p>
+                    </div>
+                </div>
+            </div>
+            <div className={styles.checkBoxSection}>
+                <div>
+                    <input type="checkbox" className={styles.checkboxInput} checked={termsChecked} onChange={(event) => onTermsCheckedChange(event.target.checked)} />
+                </div>
+                <div>
+                    <p className={styles.terms}>I understant that this is a non-refundable digital good and accept the <p className={styles.termsLinkText}>Terms of Service</p></p>
+                </div>
+            </div>
+
+        </div>
+    );
+};
+export default ConfirmPurchaseDetails;

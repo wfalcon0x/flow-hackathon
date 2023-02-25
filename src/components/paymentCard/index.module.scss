@@ -1,0 +1,192 @@
+.card {
+  width: 100%;
+  border-radius: 53px;
+  background-color: white;
+  padding: 32px 0;
+}
+
+.imageSection {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 0 50px;
+}
+
+.imgCard {
+  width: 45%;
+  height: 200px;
+  border-radius: 20px;
+  background-color: black;
+}
+
+.descriptionSection {
+  width: 55%;
+  padding: 1rem;
+}
+
+.tryPayGlideText {
+  font-family: "Graphik";
+  font-weight: 700;
+  font-size: 32px;
+  color: black;
+}
+
+.tryPayGlideDescription {
+  margin-top: 1.5rem;
+  font-family: "Graphik";
+  font-weight: 400;
+  font-size: 20px;
+  width: 100%;
+  color: black;
+}
+
+.socialSection {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  margin-top: 0.5rem;
+  align-items: center;
+}
+
+.nftDetail {
+  width: 100%;
+  padding: 0 50px;
+}
+
+.breakLine {
+  width: 100%;
+  height: 0px;
+  border: 1px solid #000000;
+  //make the width of the line 100% of the parent
+  margin: 1rem 0;
+}
+
+.payWithCardCard {
+  width: 100%;
+  padding-top: 2.5rem;
+  padding: 2.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5rem;
+}
+
+.poweredSection {
+  width: 100%;
+  justify-content: center;
+}
+
+.poweredText {
+  font-family: "Graphik";
+  font-weight: 400;
+  font-size: 20px;
+  color: black;
+  text-align: center;
+}
+
+.secondStepSection {
+  width: 100%;
+  padding: 2rem 10%;
+  margin-bottom: 1rem;
+}
+
+.thirdStepSection {
+  width: 100%;
+  padding: 1rem 5%;
+  padding-top: 3rem;
+}
+
+.stepTitle {
+  font-family: "Graphik";
+  font-weight: 700;
+  font-size: 24px;
+  color: black;
+  margin-bottom: 1.5rem;
+}
+
+.walletInput {
+  width: 95%;
+  height: 78px;
+  background-color: #d9d9d9;
+  align-items: center;
+  padding-left: 2rem;
+  font-family: "Graphik";
+  font-weight: 400;
+  font-size: 24px;
+  color: black;
+  border: none;
+}
+
+.btnsSection {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 2rem 0;
+  align-items: flex-end;
+}
+
+.backBtn {
+  width: 20%;
+  cursor: pointer;
+}
+
+.backText {
+  font-family: "Graphik";
+  font-weight: 700;
+  font-size: 24px;
+  color: black;
+}
+
+.stepDescription {
+  font-family: "Graphik";
+  font-weight: 400;
+  font-size: 24px;
+  color: black;
+}
+
+.fourthStepSection {
+  width: 100%;
+  padding: 1rem 5%;
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.finalStepSection {
+  padding: 2rem 10%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.finalStepTitleSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.tryText {
+  font-family: "Graphik";
+  font-weight: 700;
+  font-size: 32px;
+  color: black;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.viewFlowScanSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.buyAgainBtnSection {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  width: 90%;
+}
