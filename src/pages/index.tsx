@@ -6,12 +6,15 @@ import Button from '@/components/ui/CustomButton'
 import { useEffect, useState } from 'react'
 import PaymentCard from '@/components/paymentCard'
 import { NftType } from '@/types/nftType.type'
+import { MainLogoIcon } from '@/utils/icons'
+import useWindowSize from '@/hooks/useWindowSize'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [step, setStep] = useState(1);
-  const [nft, setNft] = useState<NftType | undefined>(undefined)
+  const [nft, setNft] = useState<NftType | undefined>(undefined);
+  const width = useWindowSize().width;
 
   const getNftDetail = () => {
 
@@ -48,7 +51,7 @@ export default function Home() {
         <div className={styles.container}>
           <div className={styles.TitleSection}>
             <div className={styles.textContainer}>
-              <Image src="/payGlide-logo.png" alt="flow" width={276} height={58} style={{ marginBottom: "3rem" }} />
+              <MainLogoIcon width={width < 551 ? 180 : 206} height={50} style={{ marginBottom: "3rem" }} />
               <p className={styles.mainTitle}>Freedom of Payments</p>
               <p className={styles.mainTitleDescription}>PayGlide enables direct fiat to NFT payments onFLOW blockchain</p>
               <div className={styles.btnContainer}>
@@ -57,9 +60,9 @@ export default function Home() {
                     color="white"
                     onClick={() => { }}
                     width="230px"
-                    height="60px"
+                    height="52px"
                     fontSize={20}
-                    fontWeight={700}
+                    fontWeight={300}
                     bgColor='black'
                     text={"JOIN WAITLIST"}
                     borderRadius={15}
@@ -70,10 +73,10 @@ export default function Home() {
                     color="white"
                     onClick={() => { scrollToNextViewHeight() }}
                     width="230px"
-                    height="60px"
+                    height="52px"
                     borderRadius={15}
                     fontSize={20}
-                    fontWeight={700}
+                    fontWeight={300}
                     bgColor='#BF3DDB'
                     text={"TRY DEMO"}
                   ></Button>
@@ -92,7 +95,7 @@ export default function Home() {
           {(!!nft) && (
             <div className={styles.paymentCardSection} id="paymentCardSection">
 
-              <p className={styles.demoText} style={{ color: "white" }}>DEMO ON TESTNET</p>
+              <p className={styles.demoText} style={{ color: "white" }}>TESTNET DEMO</p>
               <PaymentCard step={step} onStepChange={setStep} nft={nft} />
               {/* <div className={styles.bottomSectionBtn}>
                 <Button

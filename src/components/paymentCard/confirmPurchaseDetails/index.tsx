@@ -21,10 +21,10 @@ const ConfirmPurchaseDetails = ({
                 <p className={styles.confirmText}>Confirm Purchase</p>
                 <div className={styles.labelValueRow}>
                     <div>
-                        <p className={styles.label} style={{ fontSize: 24 }}>{purchaseInitDetails.quote.total.description}</p>
+                        <p className={styles.label} style={{ fontSize: 16 }}>{purchaseInitDetails.quote.total.description}</p>
                     </div>
                     <div>
-                        <p className={styles.value} style={{ fontSize: 24 }}>{`${purchaseInitDetails.quote.total.currency == "USD" ? "$" : ""}${purchaseInitDetails.quote.total.amount}`}</p>
+                        <p className={styles.value} style={{ fontSize: 16 }}>{`${purchaseInitDetails.quote.total.currency == "USD" ? "$" : ""}${purchaseInitDetails.quote.total.amount}`}</p>
                     </div>
                 </div>
                 {purchaseInitDetails.quote.details.map((item, index) => {

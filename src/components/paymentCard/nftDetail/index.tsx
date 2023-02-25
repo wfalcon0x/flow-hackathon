@@ -23,7 +23,7 @@ const NftDetail = ({
                     <p className={styles.labelText}>Quantity</p>
                 </div>
                 <div>
-                    <input className={styles.quantityInput} type="number" value={quantity} onChange={(e) => onQuantityChange(+e.target.value)} />
+                    <input disabled className={styles.quantityInput} type="number" value={quantity} onChange={(e) => onQuantityChange(+e.target.value)} />
                 </div>
             </div>
             <div className={styles.labelValueSection}>

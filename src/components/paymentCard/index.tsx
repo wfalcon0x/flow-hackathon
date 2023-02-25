@@ -94,11 +94,11 @@ const PaymentCard = ({
                     <div className={styles.buyAgainBtnSection}>
                         <Button
                             color="white"
-                            onClick={() => { alert("Buy Again") }}
-                            width="100%"
-                            height="60px"
-                            fontSize={24}
-                            fontWeight={700}
+                            onClick={() => { onStepChange(1) }}
+                            width="70%"
+                            height="52px"
+                            fontSize={20}
+                            fontWeight={300}
                             bgColor='black'
                             text={"Buy Again"}
                         ></Button>
@@ -120,10 +120,10 @@ const PaymentCard = ({
                             <p className={styles.tryPayGlideText}>{nft.name}</p>
                             <p className={styles.tryPayGlideDescription}>{nft.description}</p>
                             <div className={styles.socialSection}>
-                                <FlowIcon width={51} height={47} />
-                                <TwitterIcon width={46} height={47} />
-                                <DiscordIcon width={50} height={50} />
-                                <WebIcon width={39} height={38} />
+                                <FlowIcon width={51} height={47} style={{ cursor: "pointer" }} />
+                                <TwitterIcon width={46} height={47} style={{ cursor: "pointer" }} />
+                                <DiscordIcon width={50} height={50} style={{ cursor: "pointer" }} />
+                                <WebIcon width={39} height={38} style={{ cursor: "pointer" }} />
                             </div>
                         </div>
                     </div>
@@ -140,9 +140,9 @@ const PaymentCard = ({
                                             color="white"
                                             onClick={() => { onStepChange(2); }}
                                             width="100%"
-                                            height="75px"
-                                            fontSize={24}
-                                            fontWeight={700}
+                                            height="52px"
+                                            fontSize={20}
+                                            fontWeight={300}
                                             bgColor='black'
                                             text={"Pay with Card"}
                                         ></Button>
@@ -165,9 +165,9 @@ const PaymentCard = ({
                                                 color="white"
                                                 onClick={() => { initPayment() }}
                                                 width="100%"
-                                                height="60px"
-                                                fontSize={24}
-                                                fontWeight={700}
+                                                height="52px"
+                                                fontSize={20}
+                                                fontWeight={300}
                                                 bgColor='black'
                                                 text={"Next"}
                                             ></Button>
@@ -195,9 +195,9 @@ const PaymentCard = ({
                                                 color="white"
                                                 onClick={() => { onStepChange(4); }}
                                                 width="100%"
-                                                height="60px"
-                                                fontSize={24}
-                                                fontWeight={700}
+                                                height="52px"
+                                                fontSize={20}
+                                                fontWeight={300}
                                                 bgColor='black'
                                                 text={"Review"}
                                             ></Button>
@@ -225,9 +225,9 @@ const PaymentCard = ({
                                             color="white"
                                             onClick={() => { onStepChange(5); }}
                                             width="100%"
-                                            height="60px"
-                                            fontSize={24}
-                                            fontWeight={700}
+                                            height="52px"
+                                            fontSize={20}
+                                            fontWeight={300}
                                             bgColor='black'
                                             text={"Pay"}
                                             disabled={!termsChecked}

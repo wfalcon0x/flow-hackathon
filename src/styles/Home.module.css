@@ -22,7 +22,7 @@
   justify-content: space-between;
   text-align: start;
   padding: 1.5rem;
-  padding-top: 3rem;
+  padding-top: 1.5rem;
 }
 
 .paymentSection {
@@ -58,14 +58,17 @@
   .TitleSection {
     width: 100%;
     min-height: 100vh;
+    padding: 1rem;
   }
   .paymentCardSection {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
+    height: 100vh;
     overflow-y: inherit;
   }
   .mainTitle {
     text-align: center;
+    font-size: 40px;
   }
   .mainTitleDescription {
     text-align: center;
@@ -88,6 +91,20 @@
   .firstHomeBtn {
     margin-right: 0;
     margin-bottom: 2rem;
+  }
+  .TitleSection {
+    width: 100%;
+    min-height: 70vh;
+    padding: 1rem;
+  }
+
+  .mainTitle {
+    text-align: center;
+    font-size: 50px !important;
+  }
+
+  .mainTitleDescription {
+    font-size: 19px !important;
   }
 }
 
@@ -134,16 +151,22 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-top: 1rem;
   padding-left: 1rem;
+}
+
+@media screen and (max-width: 560px) {
+  .textContainer {
+    padding-left: 0;
+  }
 }
 
 .mainTitle {
   font-family: "Graphik";
-  font-weight: 700;
+  font-weight: 600;
   font-size: 64px;
   color: black;
   margin-bottom: 2rem;
+  margin-top: 1rem;
 }
 
 .mainTitleDescription {
@@ -152,6 +175,7 @@
   font-size: 24px;
   color: black;
   margin-bottom: 4rem;
+  letter-spacing: 0.1rem;
 }
 
 .demoText {

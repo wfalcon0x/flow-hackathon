@@ -12,7 +12,7 @@
 
 .confirmText {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 500;
   color: black;
   margin-bottom: 2rem;
 }
@@ -26,13 +26,13 @@
 }
 
 .label {
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 400;
   color: black;
 }
 
 .value {
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 400;
   color: black;
   min-width: 120px;
@@ -60,15 +60,15 @@ input.checkboxInput {
 .terms {
   font-family: "Graphik";
   font-weight: 400;
-  font-size: 24px;
+  font-size: 16px;
   color: black;
 }
 
 .termsLinkText {
   font-family: "Graphik";
-  font-size: 20px;
+  font-size: 16px;
   color: black;
-  font-weight: 700;
+  font-weight: 600;
   display: inline;
   cursor: pointer;
 
