@@ -29,6 +29,7 @@ const SocialsSection = ({
 
     return (
         <div className={styles.container}>
+            <p className={styles.subTitle}>Socials</p>
             <div className={styles.socialRow}>
                 <p className={styles.label}>Twitter</p>
                 <div style={{ width: width < 550 ? "60%" : "40%" }}>
@@ -47,6 +48,7 @@ const SocialsSection = ({
                     <input placeholder="Discord Link" className={styles.eventInput} type="text" value={discord} onChange={(e) => setDiscord(e.target.value)} />
                 </div>
             </div>
+            <p className={styles.subTitle}>Payment</p>
             <div className={styles.labelValueSection}>
                 <p className={styles.label}>Wallet address to receive FLOW <p className={styles.requiredDot}> *</p></p>
                 <input placeholder="Wallet Address" className={styles.eventInput} type="text" value={walletAddress} onChange={(e) => setWalletAddress(e.target.value)} />
