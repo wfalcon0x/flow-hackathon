@@ -11,13 +11,49 @@
   width: 100%;
   /* min-width: 100vh; */
   min-height: 100%;
+  background: linear-gradient(
+    151.67deg,
+    #bf3ddb -26.8%,
+    #36113e 24.26%,
+    #000000 82.49%
+  );
+}
+
+.animatedIcon {
+  -webkit-animation: mover 1.5s infinite alternate;
+  animation: mover 1.5s infinite alternate;
+  transform: rotate(-30deg);
+  margin-left: 10rem;
+}
+@-webkit-keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+@keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+.bgContainer {
+  background-image: url("/bgDesign.png");
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .TitleSection {
   width: 60%;
   height: 100%;
   display: flex;
-  background-color: white;
   flex-direction: column;
   justify-content: space-between;
   text-align: start;
@@ -52,8 +88,11 @@
 }
 
 @media screen and (max-width: 1170px) {
-  .container {
+  .bgContainer {
     flex-direction: column;
+  }
+  .animatedIcon {
+    margin-left: 5rem;
   }
   .TitleSection {
     width: 100%;
@@ -82,11 +121,24 @@
   margin-right: 2rem;
 }
 
+.bottomSectionTitle {
+  color: white;
+}
+
+.gradientText {
+  background-image: linear-gradient(90deg, #bf3ddb 0%, #0cb6ec 143.48%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @media screen and (max-width: 560px) {
   .btnContainer {
     flex-direction: column !important;
     justify-content: center;
     align-items: center;
+  }
+  .animatedIcon {
+    margin-left: 5rem;
   }
   .firstHomeBtn {
     margin-right: 0;
@@ -105,6 +157,24 @@
 
   .mainTitleDescription {
     font-size: 19px !important;
+  }
+
+  .paymentCardSection {
+    width: 100%;
+    /* height: 100%; */
+    height: 100vh;
+    overflow-y: inherit;
+  }
+  .bottomSectionTitle {
+    color: white;
+    margin: 2rem 0;
+  }
+  .textContainer {
+    padding-left: 0;
+  }
+
+  .animatedIcon {
+    margin-left: 5rem;
   }
 }
 
@@ -154,17 +224,10 @@
   padding-left: 1rem;
 }
 
-@media screen and (max-width: 560px) {
-  .textContainer {
-    padding-left: 0;
-  }
-}
-
 .mainTitle {
-  font-family: "Graphik";
-  font-weight: 600;
+  font-family: "groupeMedium";
   font-size: 64px;
-  color: black;
+  color: white;
   margin-bottom: 2rem;
   margin-top: 1rem;
 }
@@ -173,7 +236,7 @@
   font-family: "Graphik";
   font-weight: 400;
   font-size: 24px;
-  color: black;
+  color: white;
   margin-bottom: 4rem;
   letter-spacing: 0.1rem;
 }

@@ -1,0 +1,48 @@
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 0% 3%;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-family: "Graphik";
+  font-size: 18px;
+  font-weight: 400;
+  color: black;
+  margin-bottom: 1rem;
+}
+
+.eventInput {
+  width: 100%;
+  height: 52px;
+  background-color: #d9d9d9;
+  align-items: center;
+  padding-left: 1rem;
+  font-family: "Graphik";
+  font-weight: 300;
+  font-size: 17px;
+  color: black;
+  border-radius: 50px;
+  border: none;
+  align-items: flex-start;
+}
+
+.socialRow {
+  margin-bottom: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.btnSection {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1rem;
+}

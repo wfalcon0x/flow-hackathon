@@ -57,9 +57,6 @@ const PaymentCard = ({
         }
     }
 
-    console.log(width)
-
-
     return (
         <div className={styles.card}>
             {step == 5 ? (

@@ -105,3 +105,9 @@ a {
     color-scheme: dark;
   }
 }
+
+@font-face {
+  font-family: "groupeMedium";
+  src: local("groupeMedium"),
+    url(./fonts/groupemedium-8mxgn.otf) format("opentype");
+}

@@ -21,6 +21,7 @@ type Props = {
     height?: string;
     bgColor?: string;
     fontWeight?: number;
+    border?: string;
 };
 
 const Button: React.FC<Props> = ({
@@ -39,7 +40,8 @@ const Button: React.FC<Props> = ({
     height,
     bgColor,
     width,
-    fontWeight
+    fontWeight,
+    border
 }) => {
     return (
         <button
@@ -47,7 +49,7 @@ const Button: React.FC<Props> = ({
             disabled={disabled}
             style={{
                 padding: padding ?? "0.75rem 2rem",
-                border: bordered ? "2px solid var(--primary-color)" : "none",
+                border: border ? border : "none",
                 color: color ?? "var(--primary-color)",
                 backgroundColor: bgColor ?? "var(--text-color-light)",
                 width: width ?? "100%",
