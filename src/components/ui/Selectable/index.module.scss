@@ -23,3 +23,12 @@
   color: black;
   margin-bottom: 0.5rem;
 }
+
+@media screen and (max-width: 550px) {
+  .titleText {
+    text-align: center;
+  }
+  .description {
+    text-align: center;
+  }
+}

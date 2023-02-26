@@ -1,5 +1,4 @@
 
-import Button from "@/components/ui/CustomButton";
 import useWindowSize from "@/hooks/useWindowSize";
 import { PurchaseInit } from "@/types/purchaseInit.type";
 import styles from "./index.module.scss";

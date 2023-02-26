@@ -1,14 +1,13 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-import Button from '@/components/ui/CustomButton'
-import { useEffect, useState } from 'react'
-import PaymentCard from '@/components/paymentCard'
-import { NftType } from '@/types/nftType.type'
-import { BigLogoIcon, MainLogoIcon, HeartIcon } from '@/utils/icons'
-import useWindowSize from '@/hooks/useWindowSize'
 import CreatePaymentCard from '@/components/createPaymentCard'
+import PaymentCard from '@/components/paymentCard'
+import Button from '@/components/ui/CustomButton'
+import useWindowSize from '@/hooks/useWindowSize'
+import styles from '@/styles/Home.module.css'
+import { NftType } from '@/types/nftType.type'
+import { BigLogoIcon, HeartIcon, MainLogoIcon } from '@/utils/icons'
+import { Inter } from 'next/font/google'
+import Head from 'next/head'
+import { useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -115,11 +114,11 @@ export default function Home() {
                   <Button
                     color="white"
                     onClick={() => { setCreateFlowSelected(true) }}
-                    width="65%"
+                    width={width < 550 ? "90%" : "65%"}
                     height="60px"
                     borderRadius={15}
                     fontSize={20}
-                    fontWeight={700}
+                    fontWeight={500}
                     bgColor='#BF3DDB'
                     text={"CREATE FLOAT CHECKOUT"}
                   ></Button>
@@ -142,12 +141,17 @@ export default function Home() {
                 <p className={styles.demoText} style={{ color: "white" }}>TESTNET DEMO</p>
                 <CreatePaymentCard step={createStep} onStepChange={setCreateStep} />
                 {width < 551 && (
-                  <div className={styles.bottomSection}>
-                    <div style={{ marginRight: 50 }}>
+                  <div className={styles.bottomSection} style={{ flexDirection: "column", alignItems: "center" }}>
+                    <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+                      <p className={[styles.bottomSectionTitle, styles.gradientText].join(" ")}  >Made with </p>
+                      <HeartIcon width={19} height={19} style={{ margin: "0 1rem" }} />
+                      <p className={[styles.bottomSectionTitle, styles.gradientText].join(" ")}  >by PayGlide</p>
+                    </div>
+                    <div>
                       <p className={styles.bottomSectionTitle}>Privacy Policy</p>
                     </div>
                     <div>
-                      <p className={styles.bottomSectionTitle}>PayGlide © 2022</p>
+                      <p className={styles.bottomSectionTitle} style={{ textDecoration: "underline" }}>Get in touch</p>
                     </div>
                   </div>
                 )}

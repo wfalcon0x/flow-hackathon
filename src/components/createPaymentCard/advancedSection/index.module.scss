@@ -54,6 +54,12 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 550px) {
+  .dateInput {
+    padding-right: 1rem;
+  }
+}
+
 .labelValueSection {
   margin-bottom: 2rem;
 }
