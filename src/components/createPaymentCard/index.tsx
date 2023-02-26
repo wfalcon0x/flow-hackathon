@@ -2,6 +2,7 @@
 import useWindowSize from "@/hooks/useWindowSize";
 import Button from "../ui/CustomButton";
 import AdvancedSection from "./advancedSection";
+import FinalSection from "./finalSection";
 import FloatInfoSection from "./floatInfoSection";
 import styles from "./index.module.scss";
 import LoginPage from "./loginPage";
@@ -48,8 +49,10 @@ const CreatePaymentCard = ({
                     {step === 3 && <AdvancedSection onNext={() => { onStepChange(step + 1) }} onBack={() => { onStepChange(step - 1) }} />}
                     {step === 4 && <SocialsSection onNext={() => { onStepChange(step + 1) }} onBack={() => { onStepChange(step - 1) }} />}
                     {step === 5 && <PreviewSection onNext={() => { onStepChange(step + 1) }} onBack={() => { onStepChange(step - 1) }} />}
-
                 </>
+            )}
+            {step === 6 && (
+                <FinalSection img="" name="Try Payglide" url="google.com" />
             )}
         </div>
     );

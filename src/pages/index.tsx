@@ -56,8 +56,8 @@ export default function Home() {
             <div className={styles.TitleSection}>
               <div className={styles.textContainer}>
                 <MainLogoIcon width={width < 551 ? 180 : 206} height={50} style={{ marginBottom: "3rem" }} />
-                <p className={styles.mainTitle}>Freedom of Payments</p>
-                <p className={styles.mainTitleDescription}>PayGlide enables direct fiat to NFT payments onFLOW blockchain</p>
+                <p className={styles.mainTitle}>FrEEDOM OF PayMENTS</p>
+                <p className={[styles.mainTitleDescription, styles.gradientText].join(" ")}>PayGlide enables direct fiat to NFT payments onFLOW blockchain</p>
                 <div className={styles.btnContainer}>
                   <div className={styles.firstHomeBtn}>
                     <Button
@@ -70,7 +70,7 @@ export default function Home() {
                       bgColor='transparent'
                       text={"JOIN WAITLIST"}
                       border="1px solid white"
-                      borderRadius={15}
+                      borderRadius={30}
                     ></Button>
                   </div>
                   <div>
@@ -79,7 +79,7 @@ export default function Home() {
                       onClick={() => { scrollToNextViewHeight() }}
                       width="230px"
                       height="52px"
-                      borderRadius={15}
+                      borderRadius={30}
                       fontSize={20}
                       fontWeight={300}
                       bgColor='#BF3DDB'

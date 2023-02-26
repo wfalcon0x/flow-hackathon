@@ -1,0 +1,80 @@
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 5% 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.finalStepTitleSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.tryPayGlideTextCongratz {
+  font-family: "Graphik";
+  font-weight: 600;
+  font-size: 29px;
+  color: black;
+}
+
+.subTitle {
+  font-family: "Graphik";
+  font-size: 20px;
+  font-weight: 400;
+  color: black;
+  margin-top: 2rem;
+}
+
+.imgCard {
+  width: 240px;
+  height: 200px;
+  border-radius: 20px;
+  background-color: black;
+  margin-top: 2rem;
+}
+
+.nftImg {
+  border-radius: 20px;
+}
+
+.nftTitle {
+  font-family: "Graphik";
+  font-weight: 600;
+  font-size: 24px;
+  color: black;
+  margin: 2rem 0;
+}
+
+.urlSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  margin: 2rem 2rem;
+  border-radius: 20px;
+  padding: 2% 5%;
+  align-items: center;
+  border: 2px solid #e5e5e5;
+}
+
+.urlText {
+  font-family: "Graphik";
+  font-weight: 400;
+  font-size: 16px;
+  color: black;
+}
+
+.urlDescription {
+  font-family: "Graphik";
+  font-weight: 400;
+  font-size: 16px;
+  color: black;
+  margin-top: 1rem;
+  text-align: center;
+  margin: 2rem;
+  margin-top: 0rem;
+}
