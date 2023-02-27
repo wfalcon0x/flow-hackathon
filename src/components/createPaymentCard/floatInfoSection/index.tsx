@@ -3,11 +3,19 @@ import Button from "@/components/ui/CustomButton";
 import useWindowSize from "@/hooks/useWindowSize";
 import Image from "next/image";
 import { useRef, useState } from "react";
+import { toast } from "react-toastify";
 import styles from "./index.module.scss";
 
 type Props = {
-    onNext: () => void;
+    onNext: (result: FloatInfo) => void;
 };
+
+export interface FloatInfo {
+    eventName: string;
+    description: string;
+    image: string;
+    price: number;
+}
 const FloatInfoSection = ({
     onNext
 }: Props) => {
@@ -16,7 +24,6 @@ const FloatInfoSection = ({
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
     const [price, setPrice] = useState(1);
-    const [postPurchaseUrl, setPostPurchaseUrl] = useState("");
     const inputFile = useRef<HTMLInputElement | null>(null);
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,11 +40,16 @@ const FloatInfoSection = ({
     };
 
     const onNextStepHandler = () => {
-        if (eventName.length === 0 || price === 0 || postPurchaseUrl.length === 0) {
-            alert("Please fill out all required fields");
+        if (eventName.length === 0 || price === 0) {
+            toast.error("Please fill out all required fields");
             return;
         }
-        onNext();
+        onNext({
+            eventName,
+            description,
+            image,
+            price
+        });
     }
 
 
@@ -82,20 +94,20 @@ const FloatInfoSection = ({
             <div className={styles.labelValueSection}>
                 <p className={styles.label}>Price  <p className={styles.requiredDot}> *</p></p>
                 <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
-                    <div style={{ width: "20%" }}>
+                    <div style={{ width: "30%" }}>
                         <input placeholder="Currency" disabled className={styles.eventInput} type="text" value={"FLOW"} />
                     </div>
-                    <div style={{ width: "75%" }}>
+                    <div style={{ width: "65%" }}>
                         <input placeholder="Price" className={styles.eventInput} style={{ paddingLeft: "2rem" }} type="number" value={price} onChange={(e) => setPrice(+e.target.value)} />
                     </div>
                 </div>
-                <p className={styles.labelNotice}>Make sure price on the contract is the same</p>
+                {/* <p className={styles.labelNotice}>Make sure price on the contract is the same</p> */}
             </div>
-            <div className={styles.labelValueSection}>
+            {/* <div className={styles.labelValueSection}>
                 <p className={styles.label}>Post-Purchase Redirect URL <p className={styles.requiredDot}> *</p></p>
                 <input placeholder="Redirect URL" className={styles.eventInput} type="text" value={postPurchaseUrl} onChange={(e) => setPostPurchaseUrl(e.target.value)} />
                 <p className={styles.labelNotice}>Users will be redirected to purchase page for failed transactions</p>
-            </div>
+            </div> */}
             <div className={styles.btnSection}>
                 <Button
                     color="white"

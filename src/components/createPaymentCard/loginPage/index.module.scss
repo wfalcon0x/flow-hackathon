@@ -24,3 +24,12 @@
   color: black;
   font-size: 17px;
 }
+
+@media screen and (max-width: 550px) {
+  .loginDescription {
+    text-align: center;
+  }
+  .container {
+    padding: 3% 5%;
+  }
+}

@@ -1,9 +1,7 @@
 
-import Button from "@/components/ui/CustomButton";
 import useWindowSize from "@/hooks/useWindowSize";
 import { CopyIcon } from "@/utils/icons";
 import Image from "next/image";
-import { useState } from "react";
 import { toast } from "react-toastify";
 import styles from "./index.module.scss";
 
@@ -50,7 +48,6 @@ const FinalSection = ({
             </div>
             <p className={styles.urlDescription}>Share the link to start accepting card payments
                 Currently, you will not be able edit the FLOAT</p>
-
         </div>
     );
 };

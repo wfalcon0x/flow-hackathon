@@ -24,8 +24,8 @@ const StepSection = ({
             <div className={styles.textSection}>
                 <p className={styles.text}>{
                     step == 2 ? "FLOAT Information"
-                        : step == 3 ? "Advanced"
-                            : step == 4 ? "Socials"
+                        : step == 3 ? "FLOAT Advanced"
+                            : step == 4 ? "PayGlide Setup"
                                 : "Preview"
                 }</p>
             </div>

@@ -29,6 +29,23 @@
   align-items: flex-start;
 }
 
+.subTitle {
+  font-family: "Graphik";
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 1rem;
+}
+
+.requiredDot {
+  color: red;
+  display: inline;
+}
+
+.labelValueSection {
+  margin-bottom: 2rem;
+}
+
 .socialRow {
   margin-bottom: 2rem;
   width: 100%;

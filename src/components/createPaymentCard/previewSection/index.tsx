@@ -4,14 +4,24 @@ import Button from "@/components/ui/CustomButton";
 import useWindowSize from "@/hooks/useWindowSize";
 import { DiscordIcon, FlowIcon, TwitterIcon, WebIcon } from "@/utils/icons";
 import Image from "next/image";
-import { useState } from "react";
 import styles from "./index.module.scss";
 
 type Props = {
     onNext: () => void;
     onBack: () => void;
+    nftPreview: NftPreview;
 };
+
+export interface NftPreview {
+    name: string;
+    description: string;
+    image: string;
+    price: number;
+    remaining: number;
+}
+
 const PreviewSection = ({
+    nftPreview,
     onNext,
     onBack
 }: Props) => {
@@ -23,16 +33,16 @@ const PreviewSection = ({
                 <div className={styles.imageSection}>
                     <div className={styles.imgCard}>
                         <Image
-                            src={""}
+                            src={nftPreview.image}
                             alt="nft"
-                            width={width < 551 ? 200 : 240}
-                            height={width < 551 ? 160 : 200}
+                            width={width < 551 ? 200 : 210}
+                            height={width < 551 ? 160 : 170}
                             className={styles.nftImg}
                         />
                     </div>
                     <div className={styles.descriptionSection}>
-                        <p className={styles.tryPayGlideText}>{"nft.name"}</p>
-                        <p className={styles.tryPayGlideDescription}>{"nft.description"}</p>
+                        <p className={styles.tryPayGlideText}>{nftPreview.name}</p>
+                        <p className={styles.tryPayGlideDescription}>{nftPreview.description}</p>
                         <div className={styles.socialSection}>
                             <FlowIcon width={51} height={47} style={{ cursor: "pointer" }} />
                             <TwitterIcon width={46} height={47} style={{ cursor: "pointer" }} />
@@ -42,7 +52,7 @@ const PreviewSection = ({
                     </div>
                 </div>
                 <div className={styles.nftDetail}>
-                    <NftDetail currency={"FLOW"} onQuantityChange={() => { }} quantity={1} price={"1"} remainingQuantity={10000} />
+                    <NftDetail currency={"FLOW"} onQuantityChange={() => { }} quantity={1} price={nftPreview.price.toString()} remainingQuantity={nftPreview.remaining} />
                 </div>
                 <div className={styles.breakLine} />
                 <div className={styles.firstStepSection}>
@@ -50,7 +60,7 @@ const PreviewSection = ({
                         <Button
                             color="white"
                             onClick={() => { }}
-                            width="60%"
+                            width={width < 550 ? "100%" : "60%"}
                             height="52px"
                             fontSize={20}
                             fontWeight={300}
@@ -83,6 +93,7 @@ const PreviewSection = ({
                     fontWeight={300}
                     bgColor='#BF3DDB'
                     text={"Create Checkout"}
+                    padding="0 1rem"
                 ></Button>
             </div>
         </div>

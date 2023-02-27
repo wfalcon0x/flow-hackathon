@@ -1,13 +1,14 @@
 
 import useWindowSize from "@/hooks/useWindowSize";
+import { useState } from "react";
 import Button from "../ui/CustomButton";
-import AdvancedSection from "./advancedSection";
+import AdvancedSection, { AdvancedInfo, FloatType, QuantityType, TimeLimitType } from "./advancedSection";
 import FinalSection from "./finalSection";
-import FloatInfoSection from "./floatInfoSection";
+import FloatInfoSection, { FloatInfo } from "./floatInfoSection";
 import styles from "./index.module.scss";
 import LoginPage from "./loginPage";
 import PreviewSection from "./previewSection";
-import SocialsSection from "./socialsSection";
+import SocialsSection, { SocialResult } from "./socialsSection";
 import StepSection from "./stepSection";
 
 type Props = {
@@ -19,6 +20,27 @@ const CreatePaymentCard = ({
     onStepChange,
 }: Props) => {
     const width = useWindowSize().width;
+    const [floatInfo, setFloatInfo] = useState<FloatInfo>({
+        eventName: "",
+        description: "",
+        image: "",
+        price: 0
+    });
+    const [advancedInfo, setAdvancedInfo] = useState<AdvancedInfo>({
+        claimQuantity: 0,
+        endDate: new Date(),
+        float: FloatType.SoulBound,
+        quantityType: QuantityType.Limited,
+        startDate: new Date(),
+        timeLimit: TimeLimitType.NoTimeLimit
+    });
+    const [socialResult, setSocialResult] = useState<SocialResult>({
+        discord: "",
+        twitter: "",
+        walletAddress: "",
+        webpage: ""
+    });
+
 
     return (
         <div className={styles.card}>
@@ -30,7 +52,7 @@ const CreatePaymentCard = ({
                     <Button
                         color="white"
                         onClick={() => { onStepChange(1) }}
-                        width="70%"
+                        width={width < 550 ? "90%" : "70%"}
                         height="52px"
                         fontSize={20}
                         fontWeight={400}
@@ -45,14 +67,22 @@ const CreatePaymentCard = ({
             {step < 6 && (
                 <>
                     <StepSection step={step} />
-                    {step === 2 && <FloatInfoSection onNext={() => { onStepChange(step + 1) }} />}
-                    {step === 3 && <AdvancedSection onNext={() => { onStepChange(step + 1) }} onBack={() => { onStepChange(step - 1) }} />}
-                    {step === 4 && <SocialsSection onNext={() => { onStepChange(step + 1) }} onBack={() => { onStepChange(step - 1) }} />}
-                    {step === 5 && <PreviewSection onNext={() => { onStepChange(step + 1) }} onBack={() => { onStepChange(step - 1) }} />}
+                    {step === 2 && <FloatInfoSection onNext={(result) => { setFloatInfo(result); onStepChange(step + 1) }} />}
+                    {step === 3 && <AdvancedSection onNext={(result) => { setAdvancedInfo(result); onStepChange(step + 1) }} onBack={() => { onStepChange(step - 1) }} />}
+                    {step === 4 && <SocialsSection onNext={(result) => { setSocialResult(result); onStepChange(step + 1) }} onBack={() => { onStepChange(step - 1) }} />}
+                    {step === 5 && <PreviewSection onNext={() => { onStepChange(step + 1) }} onBack={() => { onStepChange(step - 1) }}
+                        nftPreview={{
+                            description: floatInfo.description,
+                            name: floatInfo.eventName,
+                            price: floatInfo.price,
+                            image: floatInfo.image,
+                            remaining: advancedInfo.claimQuantity,
+                        }}
+                    />}
                 </>
             )}
             {step === 6 && (
-                <FinalSection img="" name="Try Payglide" url="google.com" />
+                <FinalSection img={floatInfo.image} name={floatInfo.eventName} url={""} />
             )}
         </div>
     );

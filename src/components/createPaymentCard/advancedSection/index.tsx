@@ -3,10 +3,11 @@ import Button from "@/components/ui/CustomButton";
 import SelectableCard from "@/components/ui/Selectable";
 import useWindowSize from "@/hooks/useWindowSize";
 import { useState } from "react";
+import { toast } from "react-toastify";
 import styles from "./index.module.scss";
 
 type Props = {
-    onNext: () => void;
+    onNext: (result: AdvancedInfo) => void;
     onBack: () => void;
 };
 
@@ -23,6 +24,14 @@ export enum TimeLimitType {
     WithTimeLimit = "WithTimeLimit"
 }
 
+export interface AdvancedInfo {
+    float: FloatType;
+    quantityType: QuantityType;
+    claimQuantity: number;
+    timeLimit: TimeLimitType;
+    startDate: Date;
+    endDate: Date;
+}
 
 const AdvancedSection = ({
     onNext,
@@ -31,16 +40,25 @@ const AdvancedSection = ({
     const width = useWindowSize().width;
     const [float, setFloat] = useState<FloatType | undefined>(undefined);
     const [quantityType, setQuantityType] = useState<QuantityType | undefined>(undefined);
-    const [timeLimit, setTimeLimit] = useState<TimeLimitType | undefined>(undefined);
     const [claimQuantity, setClaimQuantity] = useState<number>(0);
-    const [walletAddress, setWalletAddress] = useState<string>("");
+    const [timeLimit, setTimeLimit] = useState<TimeLimitType | undefined>(undefined);
     const [startDate, setStartDate] = useState<Date>(new Date());
     const [endDate, setEndDate] = useState<Date>(new Date());
 
 
     const onNextStepHandler = () => {
-
-        onNext();
+        if (quantityType == QuantityType.Limited && claimQuantity == 0) {
+            toast.error("Please fill out all required fields");
+            return;
+        }
+        onNext({
+            float: float!,
+            quantityType: quantityType!,
+            claimQuantity: claimQuantity,
+            timeLimit: timeLimit!,
+            startDate: startDate,
+            endDate: endDate
+        });
     }
 
 
@@ -97,10 +115,7 @@ const AdvancedSection = ({
                     </div>
                 </div>
             </div>
-            <div className={styles.labelValueSection}>
-                <p className={styles.label}>Wallet address to receive FLOW <p className={styles.requiredDot}> *</p></p>
-                <input placeholder="Wallet Address" className={styles.eventInput} type="text" value={walletAddress} onChange={(e) => setWalletAddress(e.target.value)} />
-            </div>
+
             <div className={styles.btnSection}>
                 <Button
                     color="white"
