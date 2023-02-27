@@ -31,7 +31,7 @@ const NftDetail = ({
                     <p className={styles.labelText}>Price</p>
                 </div>
                 <div>
-                    <p className={styles.labelText}>{`${price} ${currency.toUpperCase()}`}</p>
+                    <p className={styles.labelValue}>{`${price} ${currency.toUpperCase()}`}</p>
                 </div>
             </div>
             <div className={styles.labelValueSection}>
@@ -39,7 +39,7 @@ const NftDetail = ({
                     <p className={styles.labelText}>Fees</p>
                 </div>
                 <div>
-                    <p className={styles.labelText}>at checkout</p>
+                    <p className={styles.labelValue}>at checkout</p>
                 </div>
             </div>
         </div>

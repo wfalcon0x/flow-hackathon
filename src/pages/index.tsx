@@ -107,56 +107,60 @@ export default function Home() {
             </div>
             {(!!nft) && !createFlowSelected && (
               <div className={styles.paymentCardSection} id="paymentCardSection">
-
-                <p className={styles.demoText} style={{ color: "white" }}>TESTNET DEMO</p>
-                <PaymentCard step={step} onStepChange={setStep} nft={nft} />
-                <div className={styles.bottomSectionBtn}>
-                  <Button
-                    color="white"
-                    onClick={() => { setCreateFlowSelected(true) }}
-                    width={width < 550 ? "90%" : "65%"}
-                    height="60px"
-                    borderRadius={15}
-                    fontSize={20}
-                    fontWeight={500}
-                    bgColor='#BF3DDB'
-                    text={"CREATE FLOAT CHECKOUT"}
-                  ></Button>
-                </div>
-                {width < 551 && (
-                  <div className={styles.bottomSection}>
-                    <div style={{ marginRight: 50 }}>
-                      <p className={styles.bottomSectionTitle}>Privacy Policy</p>
-                    </div>
-                    <div>
-                      <p className={styles.bottomSectionTitle}>PayGlide © 2022</p>
-                    </div>
+                <div className={styles.scrollContainer}>
+                  <p className={styles.demoText} style={{ color: "white" }}>DEMO WITH FLOAT</p>
+                  <PaymentCard step={step} onStepChange={setStep} nft={nft} />
+                  <div className={styles.bottomSectionBtn}>
+                    <Button
+                      color="white"
+                      onClick={() => { setCreateFlowSelected(true) }}
+                      width={width < 550 ? "90%" : "65%"}
+                      height="60px"
+                      borderRadius={30}
+                      fontSize={20}
+                      fontWeight={500}
+                      bgColor='#BF3DDB'
+                      text={"CREATE FLOAT CHECKOUT"}
+                    ></Button>
                   </div>
-                )}
+                  {width < 551 && (
+                    <div className={styles.bottomSection}>
+                      <div style={{ marginRight: 50 }}>
+                        <p className={styles.bottomSectionTitle}>Privacy Policy</p>
+                      </div>
+                      <div>
+                        <p className={styles.bottomSectionTitle}>PayGlide © 2022</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             )}
             {createFlowSelected && (
               <div className={styles.paymentCardSection} id="paymentCardSection">
+                <div className={styles.scrollContainer}>
 
-                <p className={styles.demoText} style={{ color: "white" }}>TESTNET DEMO</p>
-                <CreatePaymentCard step={createStep} onStepChange={setCreateStep} />
-                {width < 551 && (
-                  <div className={styles.bottomSection} style={{ flexDirection: "column", alignItems: "center" }}>
-                    <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
-                      <p className={[styles.bottomSectionTitle, styles.gradientText].join(" ")}  >Made with </p>
-                      <HeartIcon width={19} height={19} style={{ margin: "0 1rem" }} />
-                      <p className={[styles.bottomSectionTitle, styles.gradientText].join(" ")}  >by PayGlide</p>
+                  <p className={styles.demoText} style={{ color: "white" }}>DEMO WITH FLOAT</p>
+                  <CreatePaymentCard step={createStep} onStepChange={setCreateStep} />
+                  {width < 551 && (
+                    <div className={styles.bottomSection} style={{ flexDirection: "column", alignItems: "center" }}>
+                      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+                        <p className={[styles.bottomSectionTitle, styles.gradientText].join(" ")}  >Made with </p>
+                        <HeartIcon width={19} height={19} style={{ margin: "0 1rem" }} />
+                        <p className={[styles.bottomSectionTitle, styles.gradientText].join(" ")}  >by PayGlide</p>
+                      </div>
+                      <div>
+                        <p className={styles.bottomSectionTitle}>Privacy Policy</p>
+                      </div>
+                      <div>
+                        <p className={styles.bottomSectionTitle} style={{ textDecoration: "underline" }}>Get in touch</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className={styles.bottomSectionTitle}>Privacy Policy</p>
-                    </div>
-                    <div>
-                      <p className={styles.bottomSectionTitle} style={{ textDecoration: "underline" }}>Get in touch</p>
-                    </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             )}
+
           </div>
         </div>
       </main>

@@ -2,7 +2,7 @@
 import NftDetail from "@/components/paymentCard/nftDetail";
 import Button from "@/components/ui/CustomButton";
 import useWindowSize from "@/hooks/useWindowSize";
-import { DiscordIcon, FlowIcon, TwitterIcon, WebIcon } from "@/utils/icons";
+import { DiscordIcon, EthIcon, TwitterIcon, WebIcon } from "@/utils/icons";
 import Image from "next/image";
 import styles from "./index.module.scss";
 
@@ -32,22 +32,31 @@ const PreviewSection = ({
             <div className={styles.previewCard}>
                 <div className={styles.imageSection}>
                     <div className={styles.imgCard}>
-                        <Image
-                            src={nftPreview.image}
-                            alt="nft"
-                            width={width < 551 ? 200 : 210}
-                            height={width < 551 ? 160 : 170}
-                            className={styles.nftImg}
-                        />
+                        {nftPreview.image.length > 0 && (
+
+                            <Image
+                                src={nftPreview.image}
+                                alt=""
+                                width={width < 551 ? 200 : 210}
+                                height={width < 551 ? 160 : 170}
+                                className={styles.nftImg}
+                            />
+                        )}
                     </div>
                     <div className={styles.descriptionSection}>
                         <p className={styles.tryPayGlideText}>{nftPreview.name}</p>
                         <p className={styles.tryPayGlideDescription}>{nftPreview.description}</p>
                         <div className={styles.socialSection}>
-                            <FlowIcon width={51} height={47} style={{ cursor: "pointer" }} />
-                            <TwitterIcon width={46} height={47} style={{ cursor: "pointer" }} />
-                            <DiscordIcon width={50} height={50} style={{ cursor: "pointer" }} />
-                            <WebIcon width={39} height={38} style={{ cursor: "pointer" }} />
+                            <Image
+                                src={"/socialIcons/floatIcon.png"}
+                                alt=""
+                                width={51}
+                                height={47}
+                                style={{ cursor: "pointer", marginRight: 5 }}
+                            />
+                            <TwitterIcon width={46} height={47} style={{ cursor: "pointer", marginRight: 5 }} />
+                            <DiscordIcon width={50} height={50} style={{ cursor: "pointer", marginRight: 5 }} />
+                            <WebIcon width={39} height={38} style={{ cursor: "pointer", marginRight: 5 }} />
                         </div>
                     </div>
                 </div>

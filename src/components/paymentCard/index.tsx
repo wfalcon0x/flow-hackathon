@@ -3,7 +3,7 @@ import useWindowSize from "@/hooks/useWindowSize";
 import { NftType } from "@/types/nftType.type";
 import { CheckoutFormOptions } from "@/types/checkoutFormOptions.type";
 import { PaymentDetails } from "@/types/paymentDetails.type";
-import { DiscordIcon, FlowIcon, TwitterIcon, WebIcon } from "@/utils/icons";
+import { DiscordIcon, EthIcon, FlowIcon, TwitterIcon, WebIcon } from "@/utils/icons";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Button from "../ui/CustomButton";
@@ -11,8 +11,9 @@ import ConfirmPurchaseDetails from "./confirmPurchaseDetails";
 import styles from "./index.module.scss";
 import NftDetail from "./nftDetail";
 import { Stripe, loadStripe } from '@stripe/stripe-js';
-import {Elements} from '@stripe/react-stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from "../ui/CheckoutForm";
+import { toast } from "react-toastify";
 
 type Props = {
     step: number;
@@ -31,6 +32,7 @@ const PaymentCard = ({
     const [paymentDetails, setPaymentDetails] = useState<PaymentDetails | null>(null);
     const [checkoutFormOptions, setCheckoutFormOptions] = useState<CheckoutFormOptions | undefined>(undefined);
     const width = useWindowSize().width;
+    const [showPopup, setShowPopup] = useState(false)
 
 
     const initStripe = () => {
@@ -97,7 +99,14 @@ const PaymentCard = ({
                                 },
                                 '.Label': {
                                     fontWeight: '500'
-                                }
+                                },
+                                '.button-text': {
+                                    backgroundColor: 'var(--colorPrimaryText)',
+                                    color: 'white',
+                                    padding: '12px',
+                                    borderRadius: '10px',
+                                    boxShadow: '0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 7px rgba(18, 42, 66, 0.04)'
+                                },
                             }
                         },
                     };
@@ -107,7 +116,7 @@ const PaymentCard = ({
                 .catch(error => console.error(error));
         }
     }
-    
+
     useEffect(() => {
         initStripe();
     }, []);
@@ -172,10 +181,16 @@ const PaymentCard = ({
                             <p className={styles.tryPayGlideText}>{nft.name}</p>
                             <p className={styles.tryPayGlideDescription}>{nft.description}</p>
                             <div className={styles.socialSection}>
-                                <FlowIcon width={51} height={47} style={{ cursor: "pointer" }} />
-                                <TwitterIcon width={46} height={47} style={{ cursor: "pointer" }} />
-                                <DiscordIcon width={50} height={50} style={{ cursor: "pointer" }} />
-                                <WebIcon width={39} height={38} style={{ cursor: "pointer" }} />
+                                <Image
+                                    src={"/socialIcons/floatIcon.png"}
+                                    alt=""
+                                    width={51}
+                                    height={47}
+                                    style={{ cursor: "pointer", marginRight: 5 }}
+                                />
+                                <TwitterIcon width={40} height={41} style={{ cursor: "pointer", marginRight: 5 }} />
+                                <DiscordIcon width={45} height={45} style={{ cursor: "pointer", marginRight: 5 }} />
+                                <WebIcon width={40} height={39} style={{ cursor: "pointer", marginRight: 5 }} />
                             </div>
                         </div>
                     </div>
@@ -198,6 +213,19 @@ const PaymentCard = ({
                                             bgColor='black'
                                             text={"Pay with Card"}
                                         ></Button>
+                                        <div style={{ position: "relative" }}>
+                                            <Button
+                                                color="white"
+                                                onClick={() => { toast.error("Coming Soon") }}
+                                                width="100%"
+                                                height="52px"
+                                                fontSize={20}
+                                                fontWeight={300}
+                                                bgColor='#989898'
+                                                text={"Pay with Crypto"}
+                                                marginTop={3}
+                                            ></Button>
+                                        </div>
                                     </div>
                                     <div className={styles.poweredSection}>
                                         <p className={styles.poweredText}>powered by PayGlide</p>
@@ -229,7 +257,7 @@ const PaymentCard = ({
                             )}
                             {(!!paymentDetails && step == 3) && (
                                 <div className={styles.thirdStepSection}>
-                                    <p className={styles.stepTitle}>Enter Card Details</p>
+                                    {/* <p className={styles.stepTitle}>Enter Card Details</p>
                                     <p className={styles.stepDescription}>You’ll review details before paying</p>
                                     <>
                                         {checkoutFormOptions?.clientSecret && stripePromise && (
@@ -237,7 +265,7 @@ const PaymentCard = ({
                                                 <CheckoutForm />
                                             </Elements>
                                         )}
-                                    </>
+                                    </> */}
                                     {/* <input placeholder="Cardholder Name" className={styles.walletInput} type="text" value={cardName} onChange={(e) => setCardName(e.target.value)} />
                                     <div className={styles.cardsDetail}>
                                         <input placeholder="Card Number" className={styles.cardNumberInput} type="text" value={cardWallet} onChange={(e) => setCardWallet(e.target.value)} />
@@ -268,13 +296,21 @@ const PaymentCard = ({
                     )}
                     {(step == 4 && !!paymentDetails) && (
                         <>
-                            <div className={styles.breakLine} />
+                            <div className={styles.breakLine} style={{ marginTop: "2rem" }} />
                             <div className={styles.fourthStepSection}>
                                 <ConfirmPurchaseDetails
                                     purchaseInitDetails={paymentDetails.session}
                                     termsChecked={termsChecked}
                                     onTermsCheckedChange={(checked) => setTermsChecked(checked)} />
-
+                                <p className={styles.stepTitle}>Enter Card Details</p>
+                                <p className={styles.stepDescription}>You’ll review details before paying</p>
+                                <>
+                                    {checkoutFormOptions?.clientSecret && stripePromise && (
+                                        <Elements stripe={stripePromise} options={checkoutFormOptions}>
+                                            <CheckoutForm />
+                                        </Elements>
+                                    )}
+                                </>
                                 <div className={styles.btnsSection}>
                                     <div className={styles.backBtn} onClick={() => onStepChange(3)}>
                                         <p className={styles.backText}>{"< back"}</p>

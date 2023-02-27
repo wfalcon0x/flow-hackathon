@@ -54,7 +54,7 @@ const Button: React.FC<Props> = ({
                 backgroundColor: bgColor ?? "var(--text-color-light)",
                 width: width ?? "100%",
                 borderRadius: borderRadius ? borderRadius + "px" : "28px",
-                fontFamily: "Graphik",
+                fontFamily: "NeueMontreal",
                 fontWeight: fontWeight ?? 500,
                 fontSize: fontSize ? fontSize + "px" : undefined,
                 boxShadow: boxShadow ? boxShadow : "none",

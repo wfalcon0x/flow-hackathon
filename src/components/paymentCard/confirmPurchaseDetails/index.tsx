@@ -16,7 +16,7 @@ const ConfirmPurchaseDetails = ({
     const width = useWindowSize().width;
     return (
         <div className={styles.card}>
-            <div style={{ width: width < 551 ? "100%" : "80%", fontFamily: "Graphik" }}>
+            <div style={{ width: width < 551 ? "100%" : "80%", fontFamily: "NeueMontreal" }}>
                 <p className={styles.confirmText}>Confirm Purchase</p>
                 <div className={styles.labelValueRow}>
                     <div>

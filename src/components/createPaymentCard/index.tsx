@@ -51,19 +51,20 @@ const CreatePaymentCard = ({
                 <div className={styles.createStepZero}>
                     <Button
                         color="white"
-                        onClick={() => { onStepChange(1) }}
+                        onClick={() => { onStepChange(2) }}
                         width={width < 550 ? "90%" : "70%"}
                         height="52px"
                         fontSize={20}
                         fontWeight={400}
                         bgColor='black'
                         text={"Create FLOAT Checkout"}
+                        borderRadius={30}
                     ></Button>
                 </div>
             )}
-            {step === 1 && (
+            {/* {step === 1 && (
                 <LoginPage onLogin={() => onStepChange(2)} />
-            )}
+            )} */}
             {step < 6 && (
                 <>
                     <StepSection step={step} />
@@ -82,7 +83,7 @@ const CreatePaymentCard = ({
                 </>
             )}
             {step === 6 && (
-                <FinalSection img={floatInfo.image} name={floatInfo.eventName} url={""} />
+                <FinalSection img={floatInfo.image} name={floatInfo.eventName} url={"www.payglide.xyz"} />
             )}
         </div>
     );

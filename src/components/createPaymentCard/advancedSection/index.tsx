@@ -103,18 +103,21 @@ const AdvancedSection = ({
                     </div>
                 </div>
             </div>
-            <div className={styles.labelValueSection}>
-                <div className={styles.selectSection}>
-                    <div className={styles.selectCard}>
-                        <p className={styles.label}>Start (GMT)</p>
-                        <input className={styles.dateInput} type="date" value={startDate.toISOString().substring(0, 10)} onChange={(e) => setStartDate(new Date(e.target.value))} />
-                    </div>
-                    <div className={styles.selectCard}>
-                        <p className={styles.label}>End (GMT)</p>
-                        <input className={styles.dateInput} type="date" value={endDate.toISOString().substring(0, 10)} onChange={(e) => setEndDate(new Date(e.target.value))} />
+            {timeLimit == TimeLimitType.WithTimeLimit && (
+
+                <div className={styles.labelValueSection}>
+                    <div className={styles.selectSection}>
+                        <div className={styles.selectCard}>
+                            <p className={styles.label}>Start (GMT)</p>
+                            <input className={styles.dateInput} type="date" value={startDate.toISOString().substring(0, 10)} onChange={(e) => setStartDate(new Date(e.target.value))} />
+                        </div>
+                        <div className={styles.selectCard}>
+                            <p className={styles.label}>End (GMT)</p>
+                            <input className={styles.dateInput} type="date" value={endDate.toISOString().substring(0, 10)} onChange={(e) => setEndDate(new Date(e.target.value))} />
+                        </div>
                     </div>
                 </div>
-            </div>
+            )}
 
             <div className={styles.btnSection}>
                 <Button

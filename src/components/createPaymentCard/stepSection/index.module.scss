@@ -38,7 +38,7 @@
 }
 
 .text {
-  font-family: "Graphik";
+  font-family: "NeueMontreal";
   font-size: 24px;
   font-weight: 600;
   color: black;
@@ -47,7 +47,7 @@
 
 .breakLine {
   width: 100%;
-  height: 0px;
-  border: 1px solid #000000;
+  height: 1px;
+  background: linear-gradient(116.57deg, #000000 16.67%, #bf3ddb 100%);
   margin: 0rem 0;
 }

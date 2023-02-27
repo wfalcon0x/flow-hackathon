@@ -111,3 +111,28 @@ a {
   src: local("groupeMedium"),
     url(./fonts/groupemedium-8mxgn.otf) format("opentype");
 }
+
+@font-face {
+  font-family: "NeueMontreal";
+  font-weight: 700;
+  src: local("NeueMontreal"),
+    url(./fonts/NeueMontreal-Bold.otf) format("opentype");
+}
+@font-face {
+  font-family: "NeueMontreal";
+  font-weight: 300;
+  src: local("NeueMontreal"),
+    url(./fonts/NeueMontreal-Light.otf) format("opentype");
+}
+@font-face {
+  font-family: "NeueMontreal";
+  font-weight: 500;
+  src: local("NeueMontreal"),
+    url(./fonts/NeueMontreal-Medium.otf) format("opentype");
+}
+@font-face {
+  font-family: "NeueMontreal";
+  font-weight: 400;
+  src: local("NeueMontreal"),
+    url(./fonts/NeueMontreal-Regular.otf) format("opentype");
+}

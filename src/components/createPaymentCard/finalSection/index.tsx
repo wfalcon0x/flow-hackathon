@@ -29,13 +29,16 @@ const FinalSection = ({
             </div>
             <p className={styles.subTitle}>You’ve created your first checkout</p>
             <div className={styles.imgCard}>
-                <Image
-                    src={img}
-                    alt="nft"
-                    width={width < 551 ? 200 : 240}
-                    height={width < 551 ? 160 : 200}
-                    className={styles.nftImg}
-                />
+                {img.length > 0 && (
+
+                    <Image
+                        src={img}
+                        alt=""
+                        width={width < 551 ? 200 : 240}
+                        height={width < 551 ? 160 : 200}
+                        className={styles.nftImg}
+                    />
+                )}
             </div>
             <p className={styles.nftTitle}>{name}</p>
             <div className={styles.urlSection}>
