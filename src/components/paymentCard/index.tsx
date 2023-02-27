@@ -1,14 +1,18 @@
 
 import useWindowSize from "@/hooks/useWindowSize";
 import { NftType } from "@/types/nftType.type";
-import { PurchaseInit } from "@/types/purchaseInit.type";
+import { CheckoutFormOptions } from "@/types/checkoutFormOptions.type";
+import { PaymentDetails } from "@/types/paymentDetails.type";
 import { DiscordIcon, FlowIcon, TwitterIcon, WebIcon } from "@/utils/icons";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../ui/CustomButton";
 import ConfirmPurchaseDetails from "./confirmPurchaseDetails";
 import styles from "./index.module.scss";
 import NftDetail from "./nftDetail";
+import { Stripe, loadStripe } from '@stripe/stripe-js';
+import {Elements} from '@stripe/react-stripe-js';
+import CheckoutForm from "../ui/CheckoutForm";
 
 type Props = {
     step: number;
@@ -22,15 +26,19 @@ const PaymentCard = ({
 }: Props) => {
     const [quantity, setQuantity] = useState(1);
     const [walletAddress, setWalletAddress] = useState("");
-    const [purchaseInit, setPurchaseInit] = useState<PurchaseInit | undefined>();
     const [termsChecked, setTermsChecked] = useState(false);
-    const [cardWallet, setCardWallet] = useState("4242424242424242");
-    const [cardName, setCardName] = useState("Test Name");
-    const [cardDate, setCardDate] = useState("02/24");
-    const [cardCVC, setCardCVC] = useState("424");
-    const [cardPostCode, setCardPostCode] = useState("0000");
+    const [stripePromise, setStripePromise] = useState<Promise<Stripe | null>>(Promise.resolve(null));
+    const [paymentDetails, setPaymentDetails] = useState<PaymentDetails | null>(null);
+    const [checkoutFormOptions, setCheckoutFormOptions] = useState<CheckoutFormOptions | undefined>(undefined);
     const width = useWindowSize().width;
 
+
+    const initStripe = () => {
+        fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL ?? ""}config`).then(async (r) => {
+            const { publishableKey } = await r.json();
+            setStripePromise(loadStripe(publishableKey));
+        });
+    }
 
     const initPayment = () => {
 
@@ -39,8 +47,7 @@ const PaymentCard = ({
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-api-key': process.env.NEXT_PUBLIC_API_KEY ?? "",
-                    'Content-Length': '<calculated when request is sent>'
+                    'payglide-api-key': process.env.NEXT_PUBLIC_API_KEY ?? "",
                 },
                 body: JSON.stringify({
                     projectId: nft.id,
@@ -51,11 +58,59 @@ const PaymentCard = ({
                 .then(data => {
                     console.log(data)
                     onStepChange(3)
-                    setPurchaseInit(data)
+                    setPaymentDetails(data)
+                    const options = {
+                        clientSecret: data?.provider.clientSecret,
+                        appearance: {
+                            theme: 'flat',
+                            variables: {
+                                fontFamily: ' "Gill Sans", sans-serif',
+                                fontLineHeight: '1.5',
+                                borderRadius: '10px',
+                                colorBackground: '#F6F8FA',
+                                colorPrimaryText: '#262626'
+                            },
+                            rules: {
+                                '.Block': {
+                                    backgroundColor: 'var(--colorBackground)',
+                                    boxShadow: 'none',
+                                    padding: '12px'
+                                },
+                                '.Input': {
+                                    padding: '12px'
+                                },
+                                '.Input:disabled, .Input--invalid:disabled': {
+                                    color: 'lightgray'
+                                },
+                                '.Tab': {
+                                    padding: '10px 12px 8px 12px',
+                                    border: 'none'
+                                },
+                                '.Tab:hover': {
+                                    border: 'none',
+                                    boxShadow: '0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 7px rgba(18, 42, 66, 0.04)'
+                                },
+                                '.Tab--selected, .Tab--selected:focus, .Tab--selected:hover': {
+                                    border: 'none',
+                                    backgroundColor: '#fff',
+                                    boxShadow: '0 0 0 1.5px var(--colorPrimaryText), 0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 7px rgba(18, 42, 66, 0.04)'
+                                },
+                                '.Label': {
+                                    fontWeight: '500'
+                                }
+                            }
+                        },
+                    };
+                    console.log(options)
+                    setCheckoutFormOptions(options)
                 })
                 .catch(error => console.error(error));
         }
     }
+    
+    useEffect(() => {
+        initStripe();
+    }, []);
 
     return (
         <div className={styles.card}>
@@ -69,7 +124,7 @@ const PaymentCard = ({
                             <p className={styles.tryPayGlideTextCongratz} >Congratulations!</p>
                         </div>
                     </div>
-                    <p className={styles.tryPayGlideDescription} style={{ textAlign: "center", width: "100%", marginBottom: "3rem", marginTop: 30 }}>{`Your purchase is now in wallet ${purchaseInit?.recipient}`}</p>
+                    <p className={styles.tryPayGlideDescription} style={{ textAlign: "center", width: "100%", marginBottom: "3rem", marginTop: 30 }}>{`Your purchase is now in wallet ${paymentDetails?.session.recipient}`}</p>
                     <div className={styles.imgCard}>
                         <Image
                             src={nft.image}
@@ -172,17 +227,24 @@ const PaymentCard = ({
                                     </div>
                                 </div>
                             )}
-                            {(!!purchaseInit && step == 3) && (
+                            {(!!paymentDetails && step == 3) && (
                                 <div className={styles.thirdStepSection}>
                                     <p className={styles.stepTitle}>Enter Card Details</p>
                                     <p className={styles.stepDescription}>You’ll review details before paying</p>
-                                    <input placeholder="Cardholder Name" className={styles.walletInput} type="text" value={cardName} onChange={(e) => setCardName(e.target.value)} />
+                                    <>
+                                        {checkoutFormOptions?.clientSecret && stripePromise && (
+                                            <Elements stripe={stripePromise} options={checkoutFormOptions}>
+                                                <CheckoutForm />
+                                            </Elements>
+                                        )}
+                                    </>
+                                    {/* <input placeholder="Cardholder Name" className={styles.walletInput} type="text" value={cardName} onChange={(e) => setCardName(e.target.value)} />
                                     <div className={styles.cardsDetail}>
                                         <input placeholder="Card Number" className={styles.cardNumberInput} type="text" value={cardWallet} onChange={(e) => setCardWallet(e.target.value)} />
                                         <input placeholder="MM/YY" className={styles.cardDateInput} type="text" value={cardDate} onChange={(e) => setCardDate(e.target.value)} />
                                         <input placeholder="CVC" className={styles.cardCvcInput} type="text" value={cardCVC} onChange={(e) => setCardCVC(e.target.value)} />
                                         <input placeholder="Postcode" className={styles.cardPostcodeInput} type="text" value={cardPostCode} onChange={(e) => setCardPostCode(e.target.value)} />
-                                    </div>
+                                    </div> */}
                                     <div className={styles.btnsSection}>
                                         <div className={styles.backBtn} onClick={() => onStepChange(2)}>
                                             <p className={styles.backText}>{"< back"}</p>
@@ -204,12 +266,12 @@ const PaymentCard = ({
                             )}
                         </>
                     )}
-                    {(step == 4 && !!purchaseInit) && (
+                    {(step == 4 && !!paymentDetails) && (
                         <>
                             <div className={styles.breakLine} />
                             <div className={styles.fourthStepSection}>
                                 <ConfirmPurchaseDetails
-                                    purchaseInitDetails={purchaseInit}
+                                    purchaseInitDetails={paymentDetails.session}
                                     termsChecked={termsChecked}
                                     onTermsCheckedChange={(checked) => setTermsChecked(checked)} />
 
