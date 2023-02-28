@@ -35,6 +35,7 @@ const PaymentCard = ({
     const [checkoutFormOptions, setCheckoutFormOptions] = useState<CheckoutFormOptions | undefined>(undefined);
     const width = useWindowSize().width;
     const [showPopup, setShowPopup] = useState(false)
+    const [transactionHash, setTransactionHash] = useState("")
 
     const openTwitter = () => {
         window.open('https://twitter.com/payglide', '_blank');
@@ -50,7 +51,7 @@ const PaymentCard = ({
     }
 
     const openYourTransaction = () => {
-        window.open('https://testnet.floats.city/0xad6aa3b3eb3a0dd3/event/136396920', '_blank');
+        window.open(`https://testnet.flowscan.org/transaction/${transactionHash}`, '_blank');
     }
 
     const initStripe = () => {
@@ -334,7 +335,7 @@ const PaymentCard = ({
                                 <>
                                     {checkoutFormOptions?.clientSecret && stripePromise && (
                                         <Elements stripe={stripePromise} options={checkoutFormOptions}>
-                                            <CheckoutForm session={paymentDetails.session.id} onSuccess={() => onStepChange(5)} />
+                                            <CheckoutForm session={paymentDetails.session.id} onSuccess={(transactionHash) => { onStepChange(5); setTransactionHash(transactionHash) }} />
                                         </Elements>
                                     )}
                                 </>

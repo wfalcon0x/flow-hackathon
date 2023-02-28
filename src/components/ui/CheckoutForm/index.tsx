@@ -3,11 +3,12 @@ import {
 } from '@stripe/react-stripe-js'
 import { useEffect, useState } from 'react'
 import { useStripe, useElements } from '@stripe/react-stripe-js';
+import Loader from '../Loader';
 
 
 type Props = {
   session: string
-  onSuccess: () => void;
+  onSuccess: (transactionHash: string) => void;
 };
 
 
@@ -58,7 +59,7 @@ export default function CheckoutForm({
             setMessage("Payment completed successfully");
             setIsLoading(false);
             clearInterval(interval);
-            onSuccess();
+            onSuccess(data.transactionHash);
           }
         })
         .catch(error => console.error(error));
@@ -70,10 +71,11 @@ export default function CheckoutForm({
       <PaymentElement id="payment-element" />
       <button disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+          {isLoading ? <Loader /> : "Pay now"}
         </span>
       </button>
       {message && <div id="payment-message">{message}</div>}
+
     </form>
   )
 }

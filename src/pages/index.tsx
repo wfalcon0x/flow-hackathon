@@ -1,6 +1,7 @@
 import CreatePaymentCard from '@/components/createPaymentCard'
 import PaymentCard from '@/components/paymentCard'
 import Button from '@/components/ui/CustomButton'
+import Loader from '@/components/ui/Loader'
 import useWindowSize from '@/hooks/useWindowSize'
 import styles from '@/styles/Home.module.css'
 import { NftType } from '@/types/nftType.type'
