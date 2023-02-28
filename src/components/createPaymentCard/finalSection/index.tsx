@@ -34,8 +34,8 @@ const FinalSection = ({
                     <Image
                         src={img}
                         alt=""
-                        width={width < 1300 ? 180 : 240}
-                        height={width < 1300 ? 160 : 200}
+                        width={width < 1300 ? 140 : 240}
+                        height={width < 1300 ? 120 : 200}
                         className={styles.nftImg}
                     />
                 )}

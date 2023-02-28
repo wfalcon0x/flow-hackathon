@@ -3,7 +3,7 @@
   border-radius: 53px;
   background-color: white;
   padding: 32px 0;
-  height: 1350px;
+  height: fit-content;
 }
 
 .imageSection {
@@ -22,8 +22,8 @@
 
 @media screen and (max-width: 1300px) {
   .imgCard {
-    width: 180px;
-    height: 160px;
+    width: 140px;
+    height: 120px;
   }
 }
 
@@ -32,8 +32,8 @@
 }
 
 .descriptionSection {
-  width: 55%;
-  padding: 1rem;
+  width: 52%;
+  padding: 0 1rem;
 }
 
 .tryPayGlideText,
@@ -78,7 +78,6 @@
 .payWithCardCard {
   width: 100%;
   padding-top: 1rem;
-  margin-top: 4rem;
   padding: 1rem 4rem;
   display: flex;
   flex-direction: column;
@@ -87,7 +86,9 @@
 
 .poweredSection {
   width: 100%;
+  display: flex;
   justify-content: center;
+  flex-direction: row;
 }
 
 .poweredText {
@@ -134,10 +135,9 @@
   padding-left: 2rem;
   font-family: "NeueMontreal";
   font-weight: 400;
-  font-size: 18px;
+  font-size: 14px;
   color: black;
   border: none;
-  margin-top: 2rem;
   border-radius: 30px;
 }
 
@@ -250,8 +250,8 @@
   font-weight: 500;
   font-size: 25px;
   color: black;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .viewFlowScanSection {
@@ -259,13 +259,13 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 2rem 0;
+  margin: 0.5rem 0;
 }
 
 .buyAgainBtnSection {
   display: flex;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 0.5rem 0;
   width: 90%;
 }
 
@@ -288,7 +288,7 @@
 .cardDateInput,
 .cardCvcInput,
 .cardPostcodeInput {
-  font-size: 20px;
+  font-size: 17px;
   height: 52px;
   font-weight: 300;
 }
@@ -303,9 +303,6 @@
 }
 
 @media screen and (max-width: 550px) {
-  .card {
-    height: 1450px;
-  }
   .imageSection {
     flex-direction: column;
     justify-content: center;
@@ -323,8 +320,8 @@
     justify-content: center;
   }
   .imgCard {
-    width: 200px;
-    height: 160px;
+    width: 140px;
+    height: 120px;
   }
   .tryPayGlideText {
     font-size: 24px;

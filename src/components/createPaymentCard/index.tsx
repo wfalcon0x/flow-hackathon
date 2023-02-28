@@ -65,7 +65,7 @@ const CreatePaymentCard = ({
             {/* {step === 1 && (
                 <LoginPage onLogin={() => onStepChange(2)} />
             )} */}
-            {step < 6 && (
+            {step < 6 && step !== 0 && (
                 <>
                     <StepSection step={step} />
                     {step === 2 && <FloatInfoSection onNext={(result) => { setFloatInfo(result); onStepChange(step + 1) }} />}

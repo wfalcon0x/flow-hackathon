@@ -27,6 +27,16 @@ const PreviewSection = ({
 }: Props) => {
     const width = useWindowSize().width;
 
+    const openTwitter = () => {
+        window.open('https://twitter.com/payglide', '_blank');
+    }
+    const openDiscord = () => {
+        window.open('https://discord.gg/Ff328bUvdN', '_blank');
+    }
+    const openWeb = () => {
+        window.open('https://payglide.xyz/', '_blank');
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.previewCard}>
@@ -54,9 +64,9 @@ const PreviewSection = ({
                                 height={31}
                                 style={{ cursor: "pointer", marginRight: 5 }}
                             />
-                            <TwitterIcon width={46} height={47} style={{ cursor: "pointer", marginRight: 5 }} />
-                            <DiscordIcon width={50} height={50} style={{ cursor: "pointer", marginRight: 5 }} />
-                            <WebIcon width={39} height={38} style={{ cursor: "pointer", marginRight: 5 }} />
+                            <TwitterIcon onClick={openTwitter} width={46} height={47} style={{ cursor: "pointer", marginRight: 5 }} />
+                            <DiscordIcon onClick={openDiscord} width={50} height={50} style={{ cursor: "pointer", marginRight: 5 }} />
+                            <WebIcon onClick={openWeb} width={39} height={38} style={{ cursor: "pointer", marginRight: 5 }} />
                         </div>
                     </div>
                 </div>
@@ -79,6 +89,7 @@ const PreviewSection = ({
                     </div>
                     <div className={styles.poweredSection}>
                         <p className={styles.poweredText}>powered by PayGlide</p>
+                        <Image src={"/flowIcon.png"} alt="" width={35} height={31} style={{ marginLeft: 10 }} />
                     </div>
                 </div>
             </div>

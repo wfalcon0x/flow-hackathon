@@ -3,7 +3,7 @@
   border-radius: 53px;
   background-color: white;
   padding: 32px 0;
-  height: 1350px;
+  height: fit-content;
 }
 
 .circleSection {
@@ -23,6 +23,7 @@
 
 .createStepZero {
   height: 100%;
+  height: 200px;
   width: 100%;
   display: flex;
   justify-content: center;

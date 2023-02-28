@@ -37,6 +37,7 @@ export default function Home() {
     }
   }
 
+
   useEffect(() => {
     getNftDetail();
   }, [])
@@ -100,7 +101,7 @@ export default function Home() {
                     <p className={styles.bottomSectionTitle}>Privacy Policy</p>
                   </div>
                   <div>
-                    <p className={styles.bottomSectionTitle} style={{ textDecoration: "underline" }}>Get in touch</p>
+                    <a href='mailto:daniel@eucleides.com' className={styles.bottomSectionTitle}>Get in touch</a>
                   </div>
                 </div>
               )}
@@ -108,21 +109,9 @@ export default function Home() {
             {(!!nft) && !createFlowSelected && (
               <div className={styles.paymentCardSection} id="paymentCardSection">
                 <div className={styles.scrollContainer}>
-                  <p className={styles.demoText} style={{ color: "white" }}>DEMO WITH FLOAT</p>
+                  <p className={styles.demoText} style={{ color: "white" }}>Testnet Demo</p>
                   <PaymentCard step={step} onStepChange={setStep} nft={nft} />
-                  <div className={styles.bottomSectionBtn}>
-                    <Button
-                      color="white"
-                      onClick={() => { setCreateFlowSelected(true) }}
-                      width={width < 1300 ? "90%" : "65%"}
-                      height="60px"
-                      borderRadius={30}
-                      fontSize={20}
-                      fontWeight={500}
-                      bgColor='#BF3DDB'
-                      text={"CREATE FLOAT CHECKOUT"}
-                    ></Button>
-                  </div>
+
                   {width < 551 && (
                     <div className={styles.bottomSection}>
                       <div style={{ marginRight: 50 }}>
@@ -134,13 +123,26 @@ export default function Home() {
                     </div>
                   )}
                 </div>
+                <div className={styles.bottomSectionBtn}>
+                  <Button
+                    color="white"
+                    onClick={() => { setCreateFlowSelected(true) }}
+                    width={width < 1300 ? "90%" : "65%"}
+                    height="60px"
+                    borderRadius={30}
+                    fontSize={20}
+                    fontWeight={500}
+                    bgColor='#BF3DDB'
+                    text={"CREATE CHECKOUT"}
+                  ></Button>
+                </div>
               </div>
             )}
             {createFlowSelected && (
               <div className={styles.paymentCardSection} id="paymentCardSection">
                 <div className={styles.scrollContainer}>
 
-                  <p className={styles.demoText} style={{ color: "white" }}>DEMO WITH FLOAT</p>
+                  <p className={styles.demoText} style={{ color: "white" }}>Testnet Demo</p>
                   <CreatePaymentCard step={createStep} onStepChange={setCreateStep} />
                   {width < 551 && (
                     <div className={styles.bottomSection} style={{ flexDirection: "column", alignItems: "center" }}>
@@ -153,7 +155,7 @@ export default function Home() {
                         <p className={styles.bottomSectionTitle}>Privacy Policy</p>
                       </div>
                       <div>
-                        <p className={styles.bottomSectionTitle} style={{ textDecoration: "underline" }}>Get in touch</p>
+                        <a href='mailto:daniel@eucleides.com' className={styles.bottomSectionTitle}>Get in touch</a>
                       </div>
                     </div>
                   )}
