@@ -2,10 +2,10 @@ import * as fcl from "@onflow/fcl";
 
 fcl
   .config()
-  .put("discovery.wallet", "https://fcl-discovery.onflow.org/testnet/authn")
-  .put("accessNode.api", "https://rest-testnet.onflow.org")
-  .put("0xFLOAT", "0x0afe396ebc8eee65")
-  .put("0xFIND", "0x35717efbbce11c74")
+  .put("discovery.wallet", process.env.NEXT_PUBLIC_DISCOVERY_WALLET ?? "")
+  .put("accessNode.api", process.env.NEXT_PUBLIC_ACCESS_NODE_API ?? "")
+  .put("0xFLOAT", process.env.NEXT_PUBLIC_FLOAT_ADDRESS ?? "")
+  .put("0xFIND", process.env.NEXT_PUBLIC_FIND_ADDRESS ?? "")
 
 export const validateRecipient = async (recipient: string, host: string, eventId: string) => {
   const checkClaimedFromAddress = `
