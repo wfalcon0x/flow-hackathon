@@ -88,8 +88,9 @@ const PreviewSection = ({
                         ></Button>
                     </div>
                     <div className={styles.poweredSection}>
-                        <p className={styles.poweredText}>powered by PayGlide</p>
-                        <Image src={"/flowIcon.png"} alt="" width={35} height={31} style={{ marginLeft: 10 }} />
+                        <p className={styles.poweredText}>powered by </p>
+                        <Image src={"/flowIcon.png"} alt="" width={35} height={31} style={{ marginLeft: 5, marginRight: 5 }} />
+                        <p className={styles.poweredText}> PayGlide</p>
                     </div>
                 </div>
             </div>
