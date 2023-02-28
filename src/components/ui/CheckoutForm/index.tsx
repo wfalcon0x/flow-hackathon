@@ -4,6 +4,8 @@ import {
 import { useEffect, useState } from 'react'
 import { useStripe, useElements } from '@stripe/react-stripe-js';
 import Loader from '../Loader';
+import styles from "./checkout.module.scss";
+
 
 
 type Props = {
@@ -70,9 +72,12 @@ export default function CheckoutForm({
     <form id="payment-form" onSubmit={handleSubmit}>
       <PaymentElement id="payment-element" />
       <button disabled={isLoading || !stripe || !elements} id="submit">
-        <span id="button-text">
-          {isLoading ? <Loader /> : "Pay now"}
-        </span>
+        {isLoading ? (<Loader />) : (
+          <span className={styles.payBtn} id="button-text">
+            "Pay now"
+          </span>
+        )}
+
       </button>
       {message && <div id="payment-message">{message}</div>}
 
