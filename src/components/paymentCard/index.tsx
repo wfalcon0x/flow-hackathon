@@ -14,6 +14,7 @@ import { Stripe, loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from "../ui/CheckoutForm";
 import { toast } from "react-toastify";
+import { validateRecipient } from "@/utils/check-recipient";
 
 type Props = {
     step: number;
@@ -27,6 +28,7 @@ const PaymentCard = ({
 }: Props) => {
     const [quantity, setQuantity] = useState(1);
     const [walletAddress, setWalletAddress] = useState("");
+    const [walletAddressError, setWalletAddressError] = useState("");
     const [termsChecked, setTermsChecked] = useState(false);
     const [stripePromise, setStripePromise] = useState<Promise<Stripe | null>>(Promise.resolve(null));
     const [paymentDetails, setPaymentDetails] = useState<PaymentDetails | null>(null);
@@ -42,9 +44,11 @@ const PaymentCard = ({
         });
     }
 
-    const initPayment = () => {
-
-        if (walletAddress.length > 0) {
+    const initPayment = async () => {
+        const recipientValidation = await validateRecipient(walletAddress, nft.host, nft.id);
+        console.log(recipientValidation)
+        if (recipientValidation.ok) {
+            setWalletAddressError("")
             fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL ?? ""}init-nft-purchase`, {
                 method: 'POST',
                 headers: {
@@ -114,6 +118,8 @@ const PaymentCard = ({
                     setCheckoutFormOptions(options)
                 })
                 .catch(error => console.error(error));
+        } else {
+            setWalletAddressError(recipientValidation.message)
         }
     }
 
@@ -235,6 +241,7 @@ const PaymentCard = ({
                             {step == 2 && (
                                 <div className={styles.secondStepSection}>
                                     <p className={styles.stepTitle}>Your NFT will be delivered to this wallet address</p>
+                                    <p className={styles.inputError}>{walletAddressError}</p>
                                     <input placeholder="Enter Wallet Address" className={styles.walletInput} type="text" value={walletAddress} onChange={(e) => setWalletAddress(e.target.value)} />
                                     <div className={styles.btnsSection} style={{ marginTop: 100 }}>
                                         <div className={styles.backBtn} onClick={() => onStepChange(1)}>
