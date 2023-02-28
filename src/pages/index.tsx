@@ -86,7 +86,7 @@ export default function Home() {
                     ></Button>
                   </div>
                 </div>
-                <BigLogoIcon width={490} height={400} className={styles.animatedIcon} />
+                <BigLogoIcon width={width < 1300 ? 400 : 490} height={width < 1300 ? 310 : 400} className={styles.animatedIcon} />
 
               </div>
               {width > 551 && (
@@ -114,7 +114,7 @@ export default function Home() {
                     <Button
                       color="white"
                       onClick={() => { setCreateFlowSelected(true) }}
-                      width={width < 550 ? "90%" : "65%"}
+                      width={width < 1300 ? "90%" : "65%"}
                       height="60px"
                       borderRadius={30}
                       fontSize={20}

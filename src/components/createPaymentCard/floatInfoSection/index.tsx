@@ -83,8 +83,8 @@ const FloatInfoSection = ({
                             <Image
                                 src={image}
                                 alt="nft"
-                                width={221}
-                                height={181}
+                                width={width < 1300 ? 180 : 221}
+                                height={width < 1300 ? 160 : 181}
                                 className={styles.nftImg}
                             />
                         )}

@@ -158,6 +158,25 @@
   text-align: center;
 }
 
+@media screen and (max-width: 1300px) {
+  .tryPayGlideText {
+    font-size: 24px;
+  }
+
+  .tryPayGlideDescription {
+    font-size: 14px;
+  }
+
+  .imgCard {
+    width: 250px !important;
+    height: 140px;
+  }
+
+  .descriptionSection {
+    width: 50%;
+  }
+}
+
 @media screen and (max-width: 550px) {
   .card {
     height: 1150px;

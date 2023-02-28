@@ -67,6 +67,13 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 1300px) {
+  .imgCard {
+    width: 180px;
+    height: 160px;
+  }
+}
+
 .nftImg {
   border-radius: 20px;
 }

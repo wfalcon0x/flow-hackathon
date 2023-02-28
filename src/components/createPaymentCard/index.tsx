@@ -52,7 +52,7 @@ const CreatePaymentCard = ({
                     <Button
                         color="white"
                         onClick={() => { onStepChange(2) }}
-                        width={width < 550 ? "90%" : "70%"}
+                        width={width < 1300 ? "90%" : "70%"}
                         height="52px"
                         fontSize={20}
                         fontWeight={400}

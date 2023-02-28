@@ -20,6 +20,13 @@
   background-color: black;
 }
 
+@media screen and (max-width: 1300px) {
+  .imgCard {
+    width: 180px;
+    height: 160px;
+  }
+}
+
 .nftImg {
   border-radius: 20px;
 }
@@ -276,6 +283,15 @@
   font-size: 20px;
   height: 52px;
   font-weight: 300;
+}
+
+@media screen and (max-width: 1300px) {
+  .tryPayGlideText {
+    font-size: 24px;
+  }
+  .tryPayGlideDescription {
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 550px) {

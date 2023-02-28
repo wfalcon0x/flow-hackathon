@@ -37,8 +37,8 @@ const PreviewSection = ({
                             <Image
                                 src={nftPreview.image}
                                 alt=""
-                                width={width < 551 ? 200 : 210}
-                                height={width < 551 ? 160 : 170}
+                                width={width < 1300 ? 180 : 210}
+                                height={width < 1300 ? 160 : 170}
                                 className={styles.nftImg}
                             />
                         )}
@@ -50,8 +50,8 @@ const PreviewSection = ({
                             <Image
                                 src={"/socialIcons/floatIcon.png"}
                                 alt=""
-                                width={51}
-                                height={47}
+                                width={35}
+                                height={31}
                                 style={{ cursor: "pointer", marginRight: 5 }}
                             />
                             <TwitterIcon width={46} height={47} style={{ cursor: "pointer", marginRight: 5 }} />
@@ -69,7 +69,7 @@ const PreviewSection = ({
                         <Button
                             color="white"
                             onClick={() => { }}
-                            width={width < 550 ? "100%" : "60%"}
+                            width={width < 1300 ? "100%" : "60%"}
                             height="52px"
                             fontSize={20}
                             fontWeight={300}

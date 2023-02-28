@@ -19,6 +19,14 @@
   );
 }
 
+.mainTitle {
+  font-family: "groupeMedium";
+  font-size: 64px;
+  color: white;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
 .animatedIcon {
   -webkit-animation: mover 1.5s infinite alternate;
   animation: mover 1.5s infinite alternate;
@@ -100,50 +108,6 @@
   border-radius: 29px;
 }
 
-@media screen and (max-width: 1510px) {
-  .TitleSection {
-    width: 50%;
-  }
-  .paymentCardSection {
-    width: 50%;
-    padding: 6% 3%;
-  }
-}
-
-@media screen and (max-width: 1170px) {
-  .bgContainer {
-    flex-direction: column;
-  }
-  .animatedIcon {
-    margin-left: 5rem;
-  }
-  .TitleSection {
-    width: 100%;
-    min-height: 100vh;
-    padding: 1rem;
-  }
-  .paymentCardSection {
-    width: 100%;
-    /* height: 100%; */
-    height: 100vh;
-    overflow-y: inherit;
-    border-radius: 110px;
-  }
-  .scrollContainer {
-    overflow-y: inherit;
-  }
-  .mainTitle {
-    text-align: center;
-    font-size: 40px;
-  }
-  .mainTitleDescription {
-    text-align: center;
-  }
-  .btnContainer {
-    justify-content: center;
-  }
-}
-
 .firstHomeBtn {
   margin-right: 2rem;
 }
@@ -156,50 +120,6 @@
   background-image: linear-gradient(90deg, #bf3ddb 0%, #0cb6ec 143.48%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-@media screen and (max-width: 560px) {
-  .btnContainer {
-    flex-direction: column !important;
-    justify-content: center;
-    align-items: center;
-  }
-  .animatedIcon {
-    margin-left: -4rem;
-  }
-  .firstHomeBtn {
-    margin-right: 0;
-    margin-bottom: 2rem;
-  }
-  .TitleSection {
-    width: 100%;
-    min-height: 70vh;
-    padding: 1rem;
-  }
-
-  .mainTitle {
-    text-align: center;
-    font-size: 50px !important;
-  }
-
-  .mainTitleDescription {
-    font-size: 19px !important;
-  }
-
-  .paymentCardSection {
-    width: 100%;
-    /* height: 100%; */
-    height: 100vh;
-    overflow-y: inherit;
-    border-radius: 50px;
-  }
-  .bottomSectionTitle {
-    color: white;
-    margin: 2rem 0;
-  }
-  .textContainer {
-    padding-left: 0;
-  }
 }
 
 .tryNowTitle {
@@ -246,14 +166,6 @@
   padding-left: 1rem;
 }
 
-.mainTitle {
-  font-family: "groupeMedium";
-  font-size: 64px;
-  color: white;
-  margin-bottom: 2rem;
-  margin-top: 1rem;
-}
-
 .mainTitleDescription {
   font-family: "NeueMontreal";
   font-weight: 400;
@@ -286,4 +198,103 @@
   color: black;
   justify-content: center;
   font-family: "NeueMontreal";
+}
+
+@media screen and (max-width: 1510px) {
+  .TitleSection {
+    width: 60%;
+  }
+  .paymentCardSection {
+    width: 40%;
+    padding: 6% 3%;
+  }
+  .mainTitle {
+    font-size: 50px;
+    margin-bottom: 1rem;
+  }
+  .mainTitleDescription {
+    font-size: 22px;
+    margin-bottom: 2rem;
+  }
+  .animatedIcon {
+    margin-left: 15%;
+  }
+}
+
+@media screen and (max-width: 1170px) {
+  .bgContainer {
+    flex-direction: column;
+  }
+  .animatedIcon {
+    margin-left: 5rem;
+  }
+  .TitleSection {
+    width: 100%;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+  .paymentCardSection {
+    width: 100%;
+    /* height: 100%; */
+    height: 100vh;
+    overflow-y: inherit;
+    border-radius: 110px;
+  }
+  .scrollContainer {
+    overflow-y: inherit;
+  }
+  .mainTitle {
+    text-align: center;
+    font-size: 40px !important;
+  }
+  .mainTitleDescription {
+    text-align: center;
+  }
+  .btnContainer {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .btnContainer {
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .animatedIcon {
+    margin-left: -4rem;
+  }
+  .firstHomeBtn {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+  .TitleSection {
+    width: 100%;
+    min-height: 70vh;
+    padding: 1rem;
+  }
+
+  .mainTitle {
+    text-align: center;
+    font-size: 50px !important;
+  }
+
+  .mainTitleDescription {
+    font-size: 19px !important;
+  }
+
+  .paymentCardSection {
+    width: 100%;
+    /* height: 100%; */
+    height: 100vh;
+    overflow-y: inherit;
+    border-radius: 50px;
+  }
+  .bottomSectionTitle {
+    color: white;
+    margin: 2rem 0;
+  }
+  .textContainer {
+    padding-left: 0;
+  }
 }
