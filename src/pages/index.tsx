@@ -20,7 +20,7 @@ export default function Home() {
 
   const getNftDetail = () => {
 
-    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL ?? ""}project/float/nft-sale-details`, {
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL ?? ""}project/136396920/nft-sale-details`, {
       headers: {
         'x-api-key': process.env.NEXT_PUBLIC_API_KEY ?? ""
       }

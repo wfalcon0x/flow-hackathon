@@ -6,4 +6,5 @@ export interface NftType {
   amount: string;
   currency: string;
   remaining: number;
+  host: string;
 }
