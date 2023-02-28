@@ -49,6 +49,10 @@ const PaymentCard = ({
         window.open('https://testnet.floats.city/0xad6aa3b3eb3a0dd3/event/136396920', '_blank');
     }
 
+    const openYourTransaction = () => {
+        window.open('https://testnet.floats.city/0xad6aa3b3eb3a0dd3/event/136396920', '_blank');
+    }
+
     const initStripe = () => {
         fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL ?? ""}config`).then(async (r) => {
             const { publishableKey } = await r.json();
@@ -167,7 +171,7 @@ const PaymentCard = ({
                             <p className={styles.tryPayGlideDescription} style={{ marginTop: 0, fontWeight: 500 }}>View in flowscan here</p>
                         </div>
                         <div>
-                            <Image src="/flowIconImage.png" alt="flow" width={51} height={47} />
+                            <Image src="/flowIconImage.png" style={{ cursor: "pointer" }} alt="flow" width={51} height={47} onClick={openYourTransaction} />
                         </div>
                     </div>
                     <div className={styles.buyAgainBtnSection}>
@@ -330,7 +334,7 @@ const PaymentCard = ({
                                 <>
                                     {checkoutFormOptions?.clientSecret && stripePromise && (
                                         <Elements stripe={stripePromise} options={checkoutFormOptions}>
-                                            <CheckoutForm />
+                                            <CheckoutForm session={paymentDetails.session.id} onSuccess={() => onStepChange(5)} />
                                         </Elements>
                                     )}
                                 </>
