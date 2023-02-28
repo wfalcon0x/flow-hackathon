@@ -340,16 +340,9 @@ const PaymentCard = ({
                                     )}
                                 </>
                                 <div className={styles.btnsSection}>
-                                    <Button
-                                        color="white"
-                                        onClick={() => { onStepChange(2) }}
-                                        width="200px"
-                                        height="52px"
-                                        fontSize={20}
-                                        fontWeight={300}
-                                        bgColor='black'
-                                        text={"Back"}
-                                    ></Button>
+                                    <div className={styles.backBtn} onClick={() => onStepChange(2)}>
+                                        <p className={styles.backText}>{"< back"}</p>
+                                    </div>
                                     <div style={{ width: "30%" }}>
                                         {/* <Button
                                             color="white"
