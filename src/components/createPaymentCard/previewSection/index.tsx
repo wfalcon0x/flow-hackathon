@@ -36,6 +36,9 @@ const PreviewSection = ({
     const openWeb = () => {
         window.open('https://payglide.xyz/', '_blank');
     }
+    const openLink = () => {
+        window.open('https://testnet.floats.city/0xad6aa3b3eb3a0dd3/event/136396920', '_blank');
+    }
 
     return (
         <div className={styles.container}>
@@ -63,6 +66,7 @@ const PreviewSection = ({
                                 width={35}
                                 height={31}
                                 style={{ cursor: "pointer", marginRight: 5 }}
+                                onClick={openLink}
                             />
                             <TwitterIcon onClick={openTwitter} width={46} height={47} style={{ cursor: "pointer", marginRight: 5 }} />
                             <DiscordIcon onClick={openDiscord} width={50} height={50} style={{ cursor: "pointer", marginRight: 5 }} />

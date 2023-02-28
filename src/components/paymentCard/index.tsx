@@ -45,6 +45,9 @@ const PaymentCard = ({
     const openWeb = () => {
         window.open('https://payglide.xyz/', '_blank');
     }
+    const openLink = () => {
+        window.open('https://testnet.floats.city/0xad6aa3b3eb3a0dd3/event/136396920', '_blank');
+    }
 
     const initStripe = () => {
         fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL ?? ""}config`).then(async (r) => {
@@ -202,6 +205,8 @@ const PaymentCard = ({
                                     width={51}
                                     height={47}
                                     style={{ cursor: "pointer", marginRight: 5 }}
+                                    onClick={openLink}
+
                                 />
                                 <TwitterIcon onClick={openTwitter} width={40} height={41} style={{ cursor: "pointer", marginRight: 5 }} />
                                 <DiscordIcon onClick={openDiscord} width={45} height={45} style={{ cursor: "pointer", marginRight: 5 }} />
@@ -334,7 +339,7 @@ const PaymentCard = ({
                                         <p className={styles.backText}>{"< back"}</p>
                                     </div>
                                     <div style={{ width: "30%" }}>
-                                        <Button
+                                        {/* <Button
                                             color="white"
                                             onClick={() => { onStepChange(5); }}
                                             width="100%"
@@ -344,7 +349,7 @@ const PaymentCard = ({
                                             bgColor='black'
                                             text={"Pay"}
                                             disabled={!termsChecked}
-                                        ></Button>
+                                        ></Button> */}
                                     </div>
                                 </div>
                             </div>
