@@ -49,6 +49,7 @@ const CreatePaymentCard = ({
             </div>
             {step === 0 && (
                 <div className={styles.createStepZero}>
+                    <p className={styles.descriptionCreateText}>The following are non-functional wireframes of steps to create a checkout payment link for FLOATs</p>
                     <Button
                         color="white"
                         onClick={() => { onStepChange(2) }}
@@ -68,7 +69,7 @@ const CreatePaymentCard = ({
             {step < 6 && step !== 0 && (
                 <>
                     <StepSection step={step} />
-                    {step === 2 && <FloatInfoSection onNext={(result) => { setFloatInfo(result); onStepChange(step + 1) }} />}
+                    {step === 2 && <FloatInfoSection onNext={(result) => { setFloatInfo(result); onStepChange(step + 1) }} onBack={() => { onStepChange(0) }} />}
                     {step === 3 && <AdvancedSection onNext={(result) => { setAdvancedInfo(result); onStepChange(step + 1) }} onBack={() => { onStepChange(step - 1) }} />}
                     {step === 4 && <SocialsSection onNext={(result) => { setSocialResult(result); onStepChange(step + 1) }} onBack={() => { onStepChange(step - 1) }} />}
                     {step === 5 && <PreviewSection onNext={() => { onStepChange(step + 1) }} onBack={() => { onStepChange(step - 1) }}

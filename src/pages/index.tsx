@@ -37,6 +37,10 @@ export default function Home() {
     }
   }
 
+  const openWaitlistForm = () => {
+    window.open('https://forms.gle/YEgjp5wNJH4JXrty7', '_blank');
+  }
+
 
   useEffect(() => {
     getNftDetail();
@@ -62,7 +66,7 @@ export default function Home() {
                   <div className={styles.firstHomeBtn}>
                     <Button
                       color="white"
-                      onClick={() => { }}
+                      onClick={openWaitlistForm}
                       width="230px"
                       height="52px"
                       fontSize={20}
@@ -144,22 +148,36 @@ export default function Home() {
 
                   <p className={styles.demoText} style={{ color: "white" }}>Testnet Demo</p>
                   <CreatePaymentCard step={createStep} onStepChange={setCreateStep} />
-                  {width < 551 && (
-                    <div className={styles.bottomSection} style={{ flexDirection: "column", alignItems: "center" }}>
-                      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
-                        <p className={[styles.bottomSectionTitle, styles.gradientText].join(" ")}  >Made with </p>
-                        <HeartIcon width={19} height={19} style={{ margin: "0 1rem" }} />
-                        <p className={[styles.bottomSectionTitle, styles.gradientText].join(" ")}  >by PayGlide</p>
-                      </div>
-                      <div>
-                        <p className={styles.bottomSectionTitle}>Privacy Policy</p>
-                      </div>
-                      <div>
-                        <a href='mailto:daniel@eucleides.com' className={styles.bottomSectionTitle}>Get in touch</a>
-                      </div>
-                    </div>
-                  )}
+
                 </div>
+                <div className={styles.bottomSectionBtn}>
+                  <Button
+                    color="white"
+                    onClick={() => { setCreateFlowSelected(false) }}
+                    width={width < 1300 ? "90%" : "65%"}
+                    height="60px"
+                    borderRadius={30}
+                    fontSize={20}
+                    fontWeight={500}
+                    bgColor='#BF3DDB'
+                    text={"EXIT"}
+                  ></Button>
+                </div>
+                {width < 551 && (
+                  <div className={styles.bottomSection} style={{ flexDirection: "column", alignItems: "center" }}>
+                    <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+                      <p className={[styles.bottomSectionTitle, styles.gradientText].join(" ")}  >Made with </p>
+                      <HeartIcon width={19} height={19} style={{ margin: "0 1rem" }} />
+                      <p className={[styles.bottomSectionTitle, styles.gradientText].join(" ")}  >by PayGlide</p>
+                    </div>
+                    <div>
+                      <p className={styles.bottomSectionTitle}>Privacy Policy</p>
+                    </div>
+                    <div>
+                      <a href='mailto:daniel@eucleides.com' className={styles.bottomSectionTitle}>Get in touch</a>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
 

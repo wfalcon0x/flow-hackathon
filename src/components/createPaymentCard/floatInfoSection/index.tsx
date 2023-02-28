@@ -8,6 +8,7 @@ import styles from "./index.module.scss";
 
 type Props = {
     onNext: (result: FloatInfo) => void;
+    onBack: () => void;
 };
 
 export interface FloatInfo {
@@ -17,7 +18,8 @@ export interface FloatInfo {
     price: number;
 }
 const FloatInfoSection = ({
-    onNext
+    onNext,
+    onBack
 }: Props) => {
     const width = useWindowSize().width;
     const [eventName, setEventName] = useState("");
@@ -109,6 +111,16 @@ const FloatInfoSection = ({
                 <p className={styles.labelNotice}>Users will be redirected to purchase page for failed transactions</p>
             </div> */}
             <div className={styles.btnSection}>
+                <Button
+                    color="white"
+                    onClick={() => { onBack() }}
+                    width="200px"
+                    height="52px"
+                    fontSize={20}
+                    fontWeight={300}
+                    bgColor='black'
+                    text={"Back"}
+                ></Button>
                 <Button
                     color="white"
                     onClick={() => { onNextStepHandler() }}
