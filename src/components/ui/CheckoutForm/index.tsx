@@ -74,7 +74,7 @@ export default function CheckoutForm({
       <button disabled={isLoading || !stripe || !elements} id="submit">
         {isLoading ? (<Loader />) : (
           <span className={styles.payBtn} id="button-text">
-            "Pay now"
+            Pay now
           </span>
         )}
 
