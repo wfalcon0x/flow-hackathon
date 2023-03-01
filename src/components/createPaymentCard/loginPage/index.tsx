@@ -19,7 +19,7 @@ const LoginPage = ({
     return (
         <div className={styles.container}>
             <Image
-                src={"/loginLogo.png"}
+                src={"/payglide.png"}
                 alt="login logo"
                 width={140}
                 height={120}

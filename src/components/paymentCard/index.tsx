@@ -15,6 +15,8 @@ import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from "../ui/CheckoutForm";
 import { toast } from "react-toastify";
 import { validateRecipient } from "@/utils/check-recipient";
+import { supabase } from '@/utils/supabaseClient';
+import OtpField from 'react-otp-field';
 
 type Props = {
     step: number;
@@ -34,8 +36,13 @@ const PaymentCard = ({
     const [paymentDetails, setPaymentDetails] = useState<PaymentDetails | null>(null);
     const [checkoutFormOptions, setCheckoutFormOptions] = useState<CheckoutFormOptions | undefined>(undefined);
     const width = useWindowSize().width;
-    const [showPopup, setShowPopup] = useState(false)
-    const [transactionHash, setTransactionHash] = useState("")
+    const [showPopup, setShowPopup] = useState(false);
+    const [transactionHash, setTransactionHash] = useState("");
+    const [email, setEmail] = useState('');
+    const [showVerification, setShowVerification] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [loginError, setLoginError] = useState("");
+    const [token, setToken] = useState('');
 
     const openTwitter = () => {
         window.open('https://twitter.com/payglide', '_blank');
@@ -61,83 +68,121 @@ const PaymentCard = ({
         });
     }
 
-    const initPayment = async () => {
+    const handleLogin = async (email: string) => {
+        try {
+            setLoading(true)
+            const { error } = await supabase.auth.signInWithOtp({ email })
+            if (error) throw error
+            setShowVerification(true)
+        } catch (err) {
+            const error = err as Error
+            setLoginError(error.message)
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    const verifyCode = async (token: string) => {
+        try {
+            setLoading(true)
+            const { error: verifyError } = await supabase.auth.verifyOtp({
+                email,
+                token,
+                type: 'magiclink'
+            })
+            if (verifyError) throw verifyError
+            initNftPurchase('test') // TODO!!!
+        } catch (err) {
+            const error = err as Error
+            setLoginError(error.message)
+            setShowVerification(false)
+            setToken('')
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    const initPaymentWithAddress = async () => {
         const recipientValidation = await validateRecipient(walletAddress, nft.host, nft.id);
         console.log(recipientValidation)
         if (recipientValidation.ok) {
-            setWalletAddressError("")
-            fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL ?? ""}init-nft-purchase`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'payglide-api-key': process.env.NEXT_PUBLIC_API_KEY ?? "",
-                },
-                body: JSON.stringify({
-                    projectId: nft.id,
-                    recipient: walletAddress,
-                })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data)
-                    onStepChange(4)
-                    setPaymentDetails(data)
-                    const options = {
-                        clientSecret: data?.provider.clientSecret,
-                        appearance: {
-                            theme: 'flat',
-                            variables: {
-                                fontFamily: ' "Gill Sans", sans-serif',
-                                fontLineHeight: '1.5',
-                                borderRadius: '10px',
-                                colorBackground: '#F6F8FA',
-                                colorPrimaryText: '#262626'
-                            },
-                            rules: {
-                                '.Block': {
-                                    backgroundColor: 'var(--colorBackground)',
-                                    boxShadow: 'none',
-                                    padding: '12px'
-                                },
-                                '.Input': {
-                                    padding: '12px'
-                                },
-                                '.Input:disabled, .Input--invalid:disabled': {
-                                    color: 'lightgray'
-                                },
-                                '.Tab': {
-                                    padding: '10px 12px 8px 12px',
-                                    border: 'none'
-                                },
-                                '.Tab:hover': {
-                                    border: 'none',
-                                    boxShadow: '0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 7px rgba(18, 42, 66, 0.04)'
-                                },
-                                '.Tab--selected, .Tab--selected:focus, .Tab--selected:hover': {
-                                    border: 'none',
-                                    backgroundColor: '#fff',
-                                    boxShadow: '0 0 0 1.5px var(--colorPrimaryText), 0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 7px rgba(18, 42, 66, 0.04)'
-                                },
-                                '.Label': {
-                                    fontWeight: '500'
-                                },
-                                '.button-text': {
-                                    backgroundColor: 'var(--colorPrimaryText)',
-                                    color: 'white',
-                                    padding: '12px',
-                                    borderRadius: '10px',
-                                    boxShadow: '0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 7px rgba(18, 42, 66, 0.04)'
-                                },
-                            }
-                        },
-                    };
-                    console.log(options)
-                    setCheckoutFormOptions(options)
-                })
-                .catch(error => console.error(error));
+            initNftPurchase(walletAddress)
         } else {
             setWalletAddressError(recipientValidation.message)
         }
+    }
+
+    const initNftPurchase = async (walletAddress: string) => {
+        setWalletAddressError("")
+        fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL ?? ""}init-nft-purchase`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'payglide-api-key': process.env.NEXT_PUBLIC_API_KEY ?? "",
+            },
+            body: JSON.stringify({
+                projectId: nft.id,
+                recipient: walletAddress,
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                onStepChange(4)
+                setPaymentDetails(data)
+                const options = {
+                    clientSecret: data?.provider.clientSecret,
+                    appearance: {
+                        theme: 'flat',
+                        variables: {
+                            fontFamily: ' "Gill Sans", sans-serif',
+                            fontLineHeight: '1.5',
+                            borderRadius: '10px',
+                            colorBackground: '#F6F8FA',
+                            colorPrimaryText: '#262626'
+                        },
+                        rules: {
+                            '.Block': {
+                                backgroundColor: 'var(--colorBackground)',
+                                boxShadow: 'none',
+                                padding: '12px'
+                            },
+                            '.Input': {
+                                padding: '12px'
+                            },
+                            '.Input:disabled, .Input--invalid:disabled': {
+                                color: 'lightgray'
+                            },
+                            '.Tab': {
+                                padding: '10px 12px 8px 12px',
+                                border: 'none'
+                            },
+                            '.Tab:hover': {
+                                border: 'none',
+                                boxShadow: '0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 7px rgba(18, 42, 66, 0.04)'
+                            },
+                            '.Tab--selected, .Tab--selected:focus, .Tab--selected:hover': {
+                                border: 'none',
+                                backgroundColor: '#fff',
+                                boxShadow: '0 0 0 1.5px var(--colorPrimaryText), 0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 7px rgba(18, 42, 66, 0.04)'
+                            },
+                            '.Label': {
+                                fontWeight: '500'
+                            },
+                            '.button-text': {
+                                backgroundColor: 'var(--colorPrimaryText)',
+                                color: 'white',
+                                padding: '12px',
+                                borderRadius: '10px',
+                                boxShadow: '0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 7px rgba(18, 42, 66, 0.04)'
+                            },
+                        }
+                    },
+                };
+                console.log(options)
+                setCheckoutFormOptions(options)
+            })
+            .catch(error => console.error(error));
     }
 
     useEffect(() => {
@@ -261,9 +306,14 @@ const PaymentCard = ({
                             )}
                             {step == 2 && (
                                 <div className={styles.secondStepSection}>
+                                    { !showVerification ? 
+                                    <>
                                     <p className={styles.stepTitle}>Your NFT will be delivered to this wallet address</p>
                                     <p className={styles.inputError}>{walletAddressError}</p>
                                     <input placeholder="Enter wallet or .find address" className={styles.walletInput} type="text" value={walletAddress} onChange={(e) => setWalletAddress(e.target.value)} />
+                                    <p className={styles.stepTitle}>Or create your own wallet linked to your email</p>
+                                    <p className={styles.inputError}>{loginError}</p>
+                                    <input placeholder="email" className={styles.walletInput} type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                                     <div className={styles.btnsSection} style={{ marginTop: 100 }}>
                                         <div className={styles.backBtn} onClick={() => onStepChange(1)}>
                                             <p className={styles.backText}>{"< back"}</p>
@@ -271,7 +321,7 @@ const PaymentCard = ({
                                         <div style={{ width: width < 550 ? "40%" : "30%" }}>
                                             <Button
                                                 color="white"
-                                                onClick={() => { initPayment() }}
+                                                onClick={() => { email ? handleLogin(email) : initPaymentWithAddress() }}
                                                 width="100%"
                                                 height="52px"
                                                 fontSize={20}
@@ -281,6 +331,34 @@ const PaymentCard = ({
                                             ></Button>
                                         </div>
                                     </div>
+                                    </> : <>
+                                    <div className='row flex flex-center'>
+                                    <OtpField
+                                        value={token}
+                                        onChange={setToken}
+                                        numInputs={6}
+                                        onChangeRegex={/^([0-9]{0,})$/}
+                                        autoFocus
+                                        classNames = {styles.otpField}
+                                        separator={<span></span>}
+                                        isTypeNumber
+                                        inputProps={{ className: styles.otpFieldInput, disabled: false }}
+                                    />
+                                    </div>
+                                    <div>
+                                    <Button
+                                        color="white"
+                                        onClick={() => { verifyCode(token)}}
+                                        width="100%"
+                                        height="52px"
+                                        fontSize={20}
+                                        fontWeight={300}
+                                        bgColor='black'
+                                        disabled={loading}
+                                        text={loading ? <span>Loading</span> : <span>Verify</span>}
+                                    ></Button>
+                                    </div>
+                                    </> }
                                 </div>
                             )}
                             {(!!paymentDetails && step == 3) && (

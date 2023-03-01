@@ -1,3 +1,41 @@
+.otpField {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.otpFieldInput {
+  width: 4rem;
+  height: 4rem;
+  margin: 0.2rem;
+  box-sizing: border-box;
+  border: 0.2rem solid #aaa;
+  border-radius: 0.5rem;
+  color: #bf3ddb;
+  font-family: 'Rubik', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+.otpFieldInput::-webkit-outer-spin-button, .otpFieldInput::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+.otpFieldInput[type='number'] {
+  appearance: textfield;
+}
+.otpFieldInput:focus {
+  border-color: #bf3ddb;
+  outline: none;
+}
+.otpFieldInput:disabled {
+  background-color: #f3f3f3;
+  color: #aaa;
+}
+.otpFieldHasError .otpFieldInput {
+  border-color: #f0343e;
+}
+
+
 .card {
   width: 100%;
   border-radius: 53px;
