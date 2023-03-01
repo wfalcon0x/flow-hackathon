@@ -37,15 +37,14 @@ export default function CheckoutForm({
       confirmParams: {
         return_url: `${window.location.origin}`,
       },
+      redirect: 'if_required',
     });
-
-    if (error.type === "card_error" || error.type === "validation_error") {
+    
+    if (error !== undefined && (error.type === "card_error" || error.type === "validation_error")) {
+      console.log(error);
       setMessage(error.message);
-    } else {
-      setMessage("An unexpected error occured.");
+      setIsLoading(false);
     }
-
-    setIsLoading(false);
   }
 
   useEffect(() => {
@@ -59,6 +58,18 @@ export default function CheckoutForm({
         .then(data => {
           if (data.status == "TOKEN_TRANSFER_COMPLETED") {
             setMessage("Payment completed successfully");
+            setIsLoading(false);
+            clearInterval(interval);
+            onSuccess(data.transactionHash);
+          }
+          if (data.status == "PAYMENT_FAILED") {
+            setMessage("Payment failed");
+            setIsLoading(false);
+            clearInterval(interval);
+            onSuccess(data.transactionHash);
+          }
+          if (data.status == "TOKEN_TRANSFER_FAILED") {
+            setMessage("Token transfer failed");
             setIsLoading(false);
             clearInterval(interval);
             onSuccess(data.transactionHash);
