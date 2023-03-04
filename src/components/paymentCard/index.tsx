@@ -15,7 +15,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from "../ui/CheckoutForm";
 import { toast } from "react-toastify";
 import { validateRecipient } from "@/utils/check-recipient";
-import { supabase } from '@/utils/supabaseClient';
+import { useSupabaseClient } from '@supabase/auth-helpers-react'
 import OtpField from 'react-otp-field';
 
 type Props = {
@@ -28,6 +28,7 @@ const PaymentCard = ({
     onStepChange,
     nft,
 }: Props) => {
+    const supabaseClient = useSupabaseClient()
     const [quantity, setQuantity] = useState(1);
     const [walletAddress, setWalletAddress] = useState("");
     const [walletAddressError, setWalletAddressError] = useState("");
@@ -36,7 +37,6 @@ const PaymentCard = ({
     const [paymentDetails, setPaymentDetails] = useState<PaymentDetails | null>(null);
     const [checkoutFormOptions, setCheckoutFormOptions] = useState<CheckoutFormOptions | undefined>(undefined);
     const width = useWindowSize().width;
-    const [showPopup, setShowPopup] = useState(false);
     const [transactionHash, setTransactionHash] = useState("");
     const [email, setEmail] = useState('');
     const [showVerification, setShowVerification] = useState(false);
@@ -71,7 +71,7 @@ const PaymentCard = ({
     const handleLogin = async (email: string) => {
         try {
             setLoading(true)
-            const { error } = await supabase.auth.signInWithOtp({ email })
+            const { error } = await supabaseClient.auth.signInWithOtp({ email })
             if (error) throw error
             setShowVerification(true)
         } catch (err) {
@@ -85,13 +85,19 @@ const PaymentCard = ({
     const verifyCode = async (token: string) => {
         try {
             setLoading(true)
-            const { error: verifyError } = await supabase.auth.verifyOtp({
+            const { error: verifyError } = await supabaseClient.auth.verifyOtp({
                 email,
                 token,
                 type: 'magiclink'
             })
             if (verifyError) throw verifyError
-            initNftPurchase('test') // TODO!!!
+
+            fetch(`${process.env.NEXT_PUBLIC_APP_URL ?? ""}api/accounts`).then(async (r) => {
+                const account = await r.json();
+                console.log(account)
+                initNftPurchase(account.address)
+            });
+ 
         } catch (err) {
             const error = err as Error
             setLoginError(error.message)
