@@ -1,4 +1,4 @@
-Requirements to test the Pay with Card for FLOAT NFT on testnet:
+##Requirements to test the Pay with Card for FLOAT NFT on testnet:
 
 1. FLOW Wallet: we recommend using lilico, you can download one from their website: https://lilico.app/
 2. Wallet settings: Switch wallet to developer mode then testnet
@@ -6,6 +6,14 @@ Requirements to test the Pay with Card for FLOAT NFT on testnet:
 4. You will then be able to proceed with buying the 'Try PayGlide' float on testnet here: https://demo.payglide.xyz/
 5. You will need to enter STRIPE test card details: card number: 4242 4242 4242 4242. exipry: any future date CVC: any 3 digits Address: any address
 6. Once the purchase goes through, you will be able to see a link to the transaction on FLOWSCAN testnet and details on the event page: https://testnet.floats.city/0xad6aa3b3eb3a0dd3/event/136396920
+
+
+## Next Steps
+
+Merge walletless solution on branch to main
+Improve design of the checkout
+Handle more edge cases
+
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
