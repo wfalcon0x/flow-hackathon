@@ -49,14 +49,14 @@
 
 .imageSection {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: row;
-  padding: 0 40px;
+  padding: 0 20px;
 }
 
 .imgCard {
-  width: 210px;
-  height: 170px;
+  width: 200px;
+  height: 160px;
   border-radius: 20px;
   background-color: black;
 }
@@ -67,7 +67,7 @@
 
 .descriptionSection {
   width: 52%;
-  padding: 1rem;
+  padding: 0.8rem;
 }
 
 .tryPayGlideText,
@@ -82,9 +82,9 @@
   margin-top: 0.5rem;
   font-family: "NeueMontreal";
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   color: black;
   line-height: 1.3rem;
 }
@@ -137,12 +137,11 @@
 .payWithCardCard {
   width: 100%;
   padding-top: 1rem;
-  margin-top: 4rem;
-  padding: 1rem 4rem;
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 5rem;
+  margin: 1rem 0;
 }
 
 .poweredSection {
@@ -166,12 +165,12 @@
   }
 
   .tryPayGlideDescription {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .imgCard {
-    width: 250px !important;
-    height: 140px;
+    width: 180px !important;
+    height: 160px;
   }
 
   .descriptionSection {
@@ -207,6 +206,6 @@
     font-size: 24px;
   }
   .tryPayGlideDescription {
-    font-size: 14px;
+    font-size: 12px;
   }
 }

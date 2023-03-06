@@ -44,9 +44,9 @@ const CreatePaymentCard = ({
 
     return (
         <div className={styles.card}>
-            <div className={styles.circleSection}>
+            {/* <div className={styles.circleSection}>
                 <div className={styles.circle} />
-            </div>
+            </div> */}
             {step === 0 && (
                 <div className={styles.createStepZero}>
                     <p className={styles.descriptionCreateText}>The following are non-functional wireframes of steps to create a checkout payment link for FLOATs</p>

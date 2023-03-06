@@ -113,8 +113,8 @@ export default function Home() {
             </div>
             {(!!nft) && !createFlowSelected && (
               <div className={styles.paymentCardSection} id="paymentCardSection">
+                <p className={styles.demoText} style={{ color: "white" }}>Testnet Demo</p>
                 <div className={styles.scrollContainer}>
-                  <p className={styles.demoText} style={{ color: "white" }}>Testnet Demo</p>
                   <PaymentCard step={step} onStepChange={setStep} nft={nft} />
 
                   {width < 551 && (

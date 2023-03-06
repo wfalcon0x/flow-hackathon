@@ -50,8 +50,8 @@ const PreviewSection = ({
                             <Image
                                 src={nftPreview.image}
                                 alt=""
-                                width={width < 1300 ? 180 : 210}
-                                height={width < 1300 ? 160 : 170}
+                                width={width < 1300 ? 180 : 200}
+                                height={width < 1300 ? 160 : 160}
                                 className={styles.nftImg}
                             />
                         )}

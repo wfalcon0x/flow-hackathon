@@ -51,7 +51,7 @@ const SocialsSection = ({
             <p className={styles.subTitle}>Payment</p>
             <div className={styles.labelValueSection}>
                 <p className={styles.label}>Wallet address to receive FLOW <p className={styles.requiredDot}> *</p></p>
-                <input placeholder="Wallet Address" className={styles.eventInput} type="text" value={walletAddress} onChange={(e) => setWalletAddress(e.target.value)} />
+                <input placeholder="Wallet Address" className={styles.eventInput} style={{ marginTop: "0.5rem" }} type="text" value={walletAddress} onChange={(e) => setWalletAddress(e.target.value)} />
             </div>
             <div className={styles.btnSection}>
                 <Button

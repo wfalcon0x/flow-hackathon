@@ -38,7 +38,7 @@ const ConfirmPurchaseDetails = ({
                         </div>
                     );
                 })}
-                <div className={styles.labelValueRow} style={{ paddingLeft: 0, marginTop: "3rem", marginBottom: "4rem" }}>
+                <div className={styles.labelValueRow} style={{ paddingLeft: 0, marginTop: "1.5rem", marginBottom: "1.5rem" }}>
                     <div>
                         <p className={styles.label} style={{ fontWeight: 700 }}>Delivery Address:</p>
                     </div>

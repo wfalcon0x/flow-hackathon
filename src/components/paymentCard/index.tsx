@@ -97,7 +97,7 @@ const PaymentCard = ({
                 console.log(account)
                 initNftPurchase(account.address)
             });
- 
+
         } catch (err) {
             const error = err as Error
             setLoginError(error.message)
@@ -207,13 +207,13 @@ const PaymentCard = ({
                             <p className={styles.tryPayGlideTextCongratz} >Congratulations!</p>
                         </div>
                     </div>
-                    <p className={styles.tryPayGlideDescription} style={{ textAlign: "center", width: "100%" }}>{`Your purchase is now in wallet ${paymentDetails?.session.recipient}`}</p>
+                    <p className={styles.tryPayGlideDescription} style={{ textAlign: "center", width: "100%", marginBottom: "1rem" }}>{`Your purchase is now in wallet ${paymentDetails?.session.recipient}`}</p>
                     <div className={styles.imgCard}>
                         <Image
                             src={nft.image}
                             alt="nft"
-                            width={width < 1300 ? 140 : 240}
-                            height={width < 1300 ? 120 : 200}
+                            width={width < 1300 ? 140 : 200}
+                            height={width < 1300 ? 120 : 160}
                             className={styles.nftImg}
                         />
                     </div>
@@ -246,8 +246,8 @@ const PaymentCard = ({
                             <Image
                                 src={nft.image}
                                 alt="nft"
-                                width={width < 1300 ? 140 : 240}
-                                height={width < 1300 ? 120 : 200}
+                                width={width < 1300 ? 140 : 200}
+                                height={width < 1300 ? 120 : 160}
                                 className={styles.nftImg}
                             />
                         </div>
@@ -258,15 +258,15 @@ const PaymentCard = ({
                                 <Image
                                     src={"/socialIcons/floatIcon.png"}
                                     alt=""
-                                    width={51}
-                                    height={47}
+                                    width={40}
+                                    height={34}
                                     style={{ cursor: "pointer", marginRight: 5 }}
                                     onClick={openLink}
 
                                 />
-                                <TwitterIcon onClick={openTwitter} width={40} height={41} style={{ cursor: "pointer", marginRight: 5 }} />
-                                <DiscordIcon onClick={openDiscord} width={45} height={45} style={{ cursor: "pointer", marginRight: 5 }} />
-                                <WebIcon onClick={openWeb} width={40} height={39} style={{ cursor: "pointer", marginRight: 5 }} />
+                                <TwitterIcon onClick={openTwitter} width={31} height={32} style={{ cursor: "pointer", marginRight: 5 }} />
+                                <DiscordIcon onClick={openDiscord} width={36} height={36} style={{ cursor: "pointer", marginRight: 5 }} />
+                                <WebIcon onClick={openWeb} width={31} height={30} style={{ cursor: "pointer", marginRight: 5 }} />
                             </div>
                         </div>
                     </div>
@@ -311,60 +311,60 @@ const PaymentCard = ({
                                 </div>
                             )}
                             {step == 2 && (
-                                <div className={styles.secondStepSection}>
-                                    { !showVerification ? 
-                                    <>
-                                    <p className={styles.stepTitle}>Your NFT will be delivered to this wallet address</p>
-                                    <p className={styles.inputError}>{walletAddressError}</p>
-                                    <input placeholder="Enter wallet or .find address" className={styles.walletInput} type="text" value={walletAddress} onChange={(e) => setWalletAddress(e.target.value)} />
-                                    <p className={styles.stepTitle}>Or create your own wallet linked to your email</p>
-                                    <p className={styles.inputError}>{loginError}</p>
-                                    <input placeholder="email" className={styles.walletInput} type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                                    <div className={styles.btnsSection} style={{ marginTop: 100 }}>
-                                        <div className={styles.backBtn} onClick={() => onStepChange(1)}>
-                                            <p className={styles.backText}>{"< back"}</p>
-                                        </div>
-                                        <div style={{ width: width < 550 ? "40%" : "30%" }}>
-                                            <Button
-                                                color="white"
-                                                onClick={() => { email ? handleLogin(email) : initPaymentWithAddress() }}
-                                                width="100%"
-                                                height="52px"
-                                                fontSize={20}
-                                                fontWeight={300}
-                                                bgColor='black'
-                                                text={"Next"}
-                                            ></Button>
-                                        </div>
-                                    </div>
-                                    </> : <>
-                                    <div className='row flex flex-center'>
-                                    <OtpField
-                                        value={token}
-                                        onChange={setToken}
-                                        numInputs={6}
-                                        onChangeRegex={/^([0-9]{0,})$/}
-                                        autoFocus
-                                        classNames = {styles.otpField}
-                                        separator={<span></span>}
-                                        isTypeNumber
-                                        inputProps={{ className: styles.otpFieldInput, disabled: false }}
-                                    />
-                                    </div>
-                                    <div>
-                                    <Button
-                                        color="white"
-                                        onClick={() => { verifyCode(token)}}
-                                        width="100%"
-                                        height="52px"
-                                        fontSize={20}
-                                        fontWeight={300}
-                                        bgColor='black'
-                                        disabled={loading}
-                                        text={loading ? <span>Loading</span> : <span>Verify</span>}
-                                    ></Button>
-                                    </div>
-                                    </> }
+                                <div className={styles.secondStepSection} style={{ padding: showVerification ? "0.8rem 4%" : "0.8rem 10%" }}>
+                                    {!showVerification ?
+                                        <>
+                                            <p className={styles.stepTitle}>Your NFT will be delivered to this wallet address</p>
+                                            {walletAddressError && <p className={styles.inputError}>{walletAddressError}</p>}
+                                            <input placeholder="Enter wallet or .find address" className={styles.walletInput} type="text" value={walletAddress} onChange={(e) => setWalletAddress(e.target.value)} />
+                                            <p className={styles.stepTitle}>Or create your own wallet linked to your email</p>
+                                            {loginError && <p className={styles.inputError}>{loginError}</p>}
+                                            <input placeholder="email" className={styles.walletInput} type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                            <div className={styles.btnsSection} style={{ marginTop: 100 }}>
+                                                <div className={styles.backBtn} onClick={() => onStepChange(1)}>
+                                                    <p className={styles.backText}>{"< back"}</p>
+                                                </div>
+                                                <div style={{ width: width < 550 ? "40%" : "30%" }}>
+                                                    <Button
+                                                        color="white"
+                                                        onClick={() => { email ? handleLogin(email) : initPaymentWithAddress() }}
+                                                        width="100%"
+                                                        height="52px"
+                                                        fontSize={20}
+                                                        fontWeight={300}
+                                                        bgColor='black'
+                                                        text={"Next"}
+                                                    ></Button>
+                                                </div>
+                                            </div>
+                                        </> : <>
+                                            <div className={styles.otpSection}>
+                                                <OtpField
+                                                    value={token}
+                                                    onChange={setToken}
+                                                    numInputs={6}
+                                                    onChangeRegex={/^([0-9]{0,})$/}
+                                                    autoFocus
+                                                    classNames={styles.otpField}
+                                                    separator={<span></span>}
+                                                    isTypeNumber
+                                                    inputProps={{ className: styles.otpFieldInput, disabled: false }}
+                                                />
+                                            </div>
+                                            <div>
+                                                <Button
+                                                    color="white"
+                                                    onClick={() => { verifyCode(token) }}
+                                                    width="100%"
+                                                    height="52px"
+                                                    fontSize={20}
+                                                    fontWeight={300}
+                                                    bgColor='black'
+                                                    disabled={loading}
+                                                    text={loading ? <span>Loading</span> : <span>Verify</span>}
+                                                ></Button>
+                                            </div>
+                                        </>}
                                 </div>
                             )}
                             {(!!paymentDetails && step == 3) && (
