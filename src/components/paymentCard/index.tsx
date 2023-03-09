@@ -70,19 +70,16 @@ const PaymentCard = ({
 
     const handleLogin = async (email: string) => {
         try {
-            setLoading(true)
             const { error } = await supabaseClient.auth.signInWithOtp({ email })
             if (error) throw error
             setShowVerification(true)
         } catch (err) {
             const error = err as Error
             setLoginError(error.message)
-        } finally {
-            setLoading(false)
         }
     }
 
-    const verifyCode = async (token: string) => {
+    const verifyToken = async (token: string) => {
         try {
             setLoading(true)
             const { error: verifyError } = await supabaseClient.auth.verifyOtp({
@@ -103,8 +100,15 @@ const PaymentCard = ({
             setLoginError(error.message)
             setShowVerification(false)
             setToken('')
-        } finally {
             setLoading(false)
+        }
+    }
+
+    const setTokenAndVerify = async (token: string) => {
+        console.log(token)
+        setToken(token)
+        if (token && token.length === 6) {
+            verifyToken(token)
         }
     }
 
@@ -337,11 +341,11 @@ const PaymentCard = ({
                                                     ></Button>
                                                 </div>
                                             </div>
-                                        </> : <>
+                                        </> : <> {loading ? <span>Loading...</span> : 
                                             <div className={styles.otpSection}>
                                                 <OtpField
                                                     value={token}
-                                                    onChange={setToken}
+                                                    onChange={setTokenAndVerify}
                                                     numInputs={6}
                                                     onChangeRegex={/^([0-9]{0,})$/}
                                                     autoFocus
@@ -350,20 +354,7 @@ const PaymentCard = ({
                                                     isTypeNumber
                                                     inputProps={{ className: styles.otpFieldInput, disabled: false }}
                                                 />
-                                            </div>
-                                            <div>
-                                                <Button
-                                                    color="white"
-                                                    onClick={() => { verifyCode(token) }}
-                                                    width="100%"
-                                                    height="52px"
-                                                    fontSize={20}
-                                                    fontWeight={300}
-                                                    bgColor='black'
-                                                    disabled={loading}
-                                                    text={loading ? <span>Loading</span> : <span>Verify</span>}
-                                                ></Button>
-                                            </div>
+                                            </div>}
                                         </>}
                                 </div>
                             )}
