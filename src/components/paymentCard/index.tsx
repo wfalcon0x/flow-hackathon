@@ -17,6 +17,7 @@ import { toast } from "react-toastify";
 import { validateRecipient } from "@/utils/check-recipient";
 import { useSupabaseClient } from '@supabase/auth-helpers-react'
 import OtpField from 'react-otp-field';
+import NftImageCard from "../ui/NftCard";
 
 type Props = {
     step: number;
@@ -212,15 +213,7 @@ const PaymentCard = ({
                         </div>
                     </div>
                     <p className={styles.tryPayGlideDescription} style={{ textAlign: "center", width: "100%", marginBottom: "1rem" }}>{`Your purchase is now in wallet ${paymentDetails?.session.recipient}`}</p>
-                    <div className={styles.imgCard}>
-                        <Image
-                            src={nft.image}
-                            alt="nft"
-                            width={width < 1300 ? 140 : 200}
-                            height={width < 1300 ? 120 : 160}
-                            className={styles.nftImg}
-                        />
-                    </div>
+                    <NftImageCard img={nft.image} />
                     <p className={styles.tryText}>{nft.name}</p>
                     <div className={styles.viewFlowScanSection} style={{ cursor: "pointer" }}>
                         <div style={{ marginRight: "1rem", height: "100%", paddingTop: 10 }}>
@@ -244,42 +237,41 @@ const PaymentCard = ({
                     </div>
                 </div>
             ) : (
-                <div style={{ height: "55%" }}>
+                <div>
                     <div className={styles.imageSection}>
-                        <div className={styles.imgCard}>
-                            <Image
-                                src={nft.image}
-                                alt="nft"
-                                width={width < 1300 ? 140 : 200}
-                                height={width < 1300 ? 120 : 160}
-                                className={styles.nftImg}
-                            />
-                        </div>
+                        <NftImageCard img={nft.image} />
                         <div className={styles.descriptionSection}>
                             <p className={styles.tryPayGlideText}>{nft.name}</p>
                             <p className={styles.tryPayGlideDescription}>{nft.description}</p>
                             <div className={styles.socialSection}>
-                                <Image
-                                    src={"/socialIcons/floatIcon.png"}
-                                    alt=""
-                                    width={40}
-                                    height={34}
-                                    style={{ cursor: "pointer", marginRight: 5 }}
-                                    onClick={openLink}
+                                <div className={styles.socialFloatCard}>
+                                    <Image
+                                        src={"/socialIcons/float-icon.png"}
+                                        alt=""
+                                        width={22}
+                                        height={22}
+                                        className={styles.floatIcon}
+                                        onClick={openLink}
 
-                                />
-                                <TwitterIcon onClick={openTwitter} width={31} height={32} style={{ cursor: "pointer", marginRight: 5 }} />
-                                <DiscordIcon onClick={openDiscord} width={36} height={36} style={{ cursor: "pointer", marginRight: 5 }} />
-                                <WebIcon onClick={openWeb} width={31} height={30} style={{ cursor: "pointer", marginRight: 5 }} />
+                                    />
+                                </div>
+                                <div className={styles.socialTwitterCard}>
+                                    <TwitterIcon onClick={openTwitter} />
+                                </div>
+                                <div className={styles.socialDiscordCard}>
+                                    <DiscordIcon onClick={openDiscord} />
+                                </div>
+                                <div className={styles.socialWebCard}>
+                                    <WebIcon onClick={openWeb} />
+                                </div>
                             </div>
                         </div>
                     </div>
                     {step < 4 && (
-                        <>
+                        <div>
                             <div className={styles.nftDetail}>
                                 <NftDetail currency={nft.currency} onQuantityChange={setQuantity} quantity={quantity} price={nft.amount} remainingQuantity={nft.remaining} />
                             </div>
-                            <div className={styles.breakLine} />
                             {step == 1 && (
                                 <div className={styles.firstStepSection}>
                                     <div className={styles.payWithCardCard}>
@@ -287,14 +279,16 @@ const PaymentCard = ({
                                             color="white"
                                             onClick={() => { onStepChange(2); }}
                                             width="100%"
-                                            height="52px"
-                                            fontSize={20}
-                                            fontWeight={300}
+                                            height="50px"
+                                            fontSize={17}
+                                            fontWeight={700}
                                             bgColor='black'
                                             text={"Pay with Card"}
+
                                         ></Button>
                                         <div style={{ position: "relative" }}>
                                             <Button
+                                                gradientTextColor
                                                 color="white"
                                                 onClick={() => { toast.error("Coming Soon") }}
                                                 width="100%"
@@ -306,11 +300,6 @@ const PaymentCard = ({
                                                 marginTop={2}
                                             ></Button>
                                         </div>
-                                    </div>
-                                    <div className={styles.poweredSection}>
-                                        <p className={styles.poweredText}>powered by </p>
-                                        <Image src={"/flowIcon.png"} alt="" width={35} height={31} style={{ marginLeft: 5, marginRight: 5 }} />
-                                        <p className={styles.poweredText}> PayGlide</p>
                                     </div>
                                 </div>
                             )}
@@ -341,7 +330,7 @@ const PaymentCard = ({
                                                     ></Button>
                                                 </div>
                                             </div>
-                                        </> : <> {loading ? <span>Loading...</span> : 
+                                        </> : <> {loading ? <span>Loading...</span> :
                                             <div className={styles.otpSection}>
                                                 <OtpField
                                                     value={token}
@@ -395,7 +384,7 @@ const PaymentCard = ({
                                     </div>
                                 </div>
                             )}
-                        </>
+                        </div>
                     )}
                     {(step == 4 && !!paymentDetails) && (
                         <>

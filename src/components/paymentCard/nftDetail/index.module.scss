@@ -1,53 +1,98 @@
 .card {
   width: 100%;
-  padding: 0.4rem;
   display: flex;
+  align-items: center;
   flex-direction: column;
+}
+
+.quantityRemainingCard {
+  width: 140px;
+  height: 30px;
+  border: 2px solid #000000;
+  border-radius: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .quantityRemaining {
   font-family: "NeueMontreal";
-  font-weight: 700;
-  font-size: 20px;
+  font-weight: 500;
+  font-size: 14px;
   color: black;
-  margin-bottom: 0.3rem;
+}
+.cardsRowSection {
+  margin-top: 1.3rem;
+  width: 100%;
+  padding: 0 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
-.labelValueSection {
+.labelValueCard {
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  margin: 0.5rem 0;
+  width: 30%;
+  height: 70px;
+  justify-content: flex-start;
+  flex-direction: column;
+  background: #f6f7f9;
+  border-radius: 12px;
   align-items: center;
+  margin: 0 8px;
+  padding: 8px 6px 7px 10px;
 }
 
 .labelText {
   font-family: "NeueMontreal";
+  font-style: normal;
+  width: 100%;
+  text-align: left;
   font-weight: 400;
-  font-size: 18px;
-  color: #424242;
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 14px;
+  color: #6b6f80;
 }
 
 .labelValue {
   font-family: "NeueMontreal";
-  font-weight: 600;
-  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
   color: black;
+  margin: 3px 0;
+}
+.approxValue {
+  font-family: "NeueMontreal";
+  font-style: normal;
+  font-weight: 400;
+  width: 100%;
+  font-size: 9px;
+  line-height: 11px;
+  text-align: right;
+
+  color: #6b6f80;
 }
 
 .quantityInput {
-  width: 100px;
-  height: 40px;
+  width: 50px;
+  height: 25px;
   background-color: #d9d9d9;
   align-items: center;
   padding-left: 1rem;
   font-family: "NeueMontreal";
   font-weight: 700;
+  color: #000000;
+  caret-color: transparent;
+
   font-size: 18px;
-  color: black;
-  border-radius: 20px;
-  text-align: center;
-  border: none;
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+  border-radius: 25px;
+  // text-align: center;
   position: relative;
 }
 

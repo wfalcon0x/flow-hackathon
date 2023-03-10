@@ -22,6 +22,7 @@ type Props = {
     bgColor?: string;
     fontWeight?: number;
     border?: string;
+    gradientTextColor?: boolean;
 };
 
 const Button: React.FC<Props> = ({
@@ -41,9 +42,14 @@ const Button: React.FC<Props> = ({
     bgColor,
     width,
     fontWeight,
-    border
+    border,
+    gradientTextColor
 }) => {
-    return (
+    return !!gradientTextColor ? (
+        <div className={styles.gradientTextBtn}>
+            <p className={styles.gradientText}>{text}</p>
+        </div>
+    ) : (
         <button
             onClick={onClick}
             disabled={disabled}
@@ -61,8 +67,9 @@ const Button: React.FC<Props> = ({
                 marginTop: marginTop ? marginTop + "rem" : "0",
                 height: height ?? "unset",
                 cursor: "pointer",
+                letterSpacing: "0.5px",
             }}
-            className={styles.btn}
+            className={`${styles.btn} ${styles.linearGradientText}`}
         >
             {text}
         </button>

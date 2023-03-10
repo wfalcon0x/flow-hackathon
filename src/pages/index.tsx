@@ -15,7 +15,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   const [step, setStep] = useState(1);
   const [nft, setNft] = useState<NftType | undefined>(undefined);
-  const width = useWindowSize().width;
+  const { width, height } = useWindowSize();
   const [createStep, setCreateStep] = useState(0);
   const [createFlowSelected, setCreateFlowSelected] = useState(false);
 
@@ -114,7 +114,7 @@ export default function Home() {
             {(!!nft) && !createFlowSelected && (
               <div className={styles.paymentCardSection} id="paymentCardSection">
                 <p className={styles.demoText} style={{ color: "white" }}>Testnet Demo</p>
-                <div className={styles.scrollContainer}>
+                <div className={styles.scrollContainer} style={{ height: height * 0.85 }}>
                   <PaymentCard step={step} onStepChange={setStep} nft={nft} />
 
                   {width < 551 && (
@@ -145,11 +145,9 @@ export default function Home() {
             )}
             {createFlowSelected && (
               <div className={styles.paymentCardSection} id="paymentCardSection">
-                <div className={styles.scrollContainer}>
-
+                <div className={styles.scrollContainer} style={{ height: height * 0.95 }}>
                   <p className={styles.demoText} style={{ color: "white" }}>Testnet Demo</p>
                   <CreatePaymentCard step={createStep} onStepChange={setCreateStep} />
-
                 </div>
                 <div className={styles.bottomSectionBtn}>
                   <Button

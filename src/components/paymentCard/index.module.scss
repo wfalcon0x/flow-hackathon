@@ -48,63 +48,117 @@
 .imageSection {
   display: flex;
   justify-content: center;
-  flex-direction: row;
-  padding: 0 20px;
-}
-
-.imgCard {
-  width: 200px;
-  height: 160px;
-  border-radius: 20px;
-  background-color: black;
-}
-
-@media screen and (max-width: 1300px) {
-  .imgCard {
-    width: 140px;
-    height: 120px;
-  }
-}
-
-.nftImg {
-  border-radius: 20px;
+  flex-direction: column;
+  align-items: center;
 }
 
 .descriptionSection {
-  width: 52%;
-  padding: 0 0.8rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
 }
 
 .tryPayGlideText,
 .tryPayGlideTextCongratz {
   font-family: "NeueMontreal";
-  font-weight: 600;
-  font-size: 29px;
+  font-weight: 700;
+  font-size: 22px;
   color: black;
+  margin-bottom: 0.7rem;
 }
 
 .tryPayGlideDescription {
-  margin-top: 0.5rem;
   font-family: "NeueMontreal";
   font-weight: 400;
-  font-size: 14px;
-  width: 100%;
-  margin-bottom: 0.5rem;
-  color: black;
-  line-height: 1.3rem;
+  font-size: 12px;
+  line-height: 14.5px;
+  width: fit-content;
+  margin-bottom: 15px;
+  letter-spacing: 0.2px;
+  color: #9fa2b9;
+  width: 180px;
+  text-align: center;
 }
 
 .socialSection {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-direction: row;
   margin-top: 0rem;
   align-items: center;
+  margin-bottom: 0.7rem;
 }
 
+.socialFloatCard {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  margin: 0 2.5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0.389333px 0.583999px rgba(1, 45, 92, 0.3),
+    0px 1.94764px 2.336px rgba(0, 31, 65, 0.2),
+    inset 0.389333px 0.712479px 0.973331px #ffffff,
+    inset 1.82402px 2.79735px 4.54546px rgba(255, 255, 255, 0.8),
+    inset 0px -1.168px 1.55733px rgba(255, 255, 255, 0.5);
+}
+.socialTwitterCard {
+  border-radius: 7px;
+  width: 32px;
+  height: 32px;
+  margin: 0 2.5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1da1f2 0%, #1e99e6 100%);
+  box-shadow: 0px 5px 7.5px rgba(30, 153, 229, 0.3),
+    0px 2px 6px rgba(0, 0, 0, 0.14),
+    inset 0.389333px 0.712479px 0.973331px rgba(255, 255, 255, 0.2),
+    inset 1.82402px 2.79735px 4.54546px rgba(255, 255, 255, 0.2),
+    inset 0px -1.168px 1.55733px rgba(96, 96, 96, 0.1);
+  padding-top: 3px;
+}
+.socialDiscordCard {
+  border-radius: 7px;
+  width: 32px;
+  height: 32px;
+  margin: 0 2.5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #a11df2 0%, #461ee6 100%);
+  box-shadow: 0px 5px 7.5px rgba(201, 30, 229, 0.2),
+    0px 2px 6px rgba(0, 0, 0, 0.14),
+    inset 0.389333px 0.712479px 0.973331px rgba(255, 255, 255, 0.2),
+    inset 1.82402px 2.79735px 4.54546px rgba(255, 255, 255, 0.2),
+    inset 0px -1.168px 1.55733px rgba(96, 96, 96, 0.1);
+  padding-top: 3px;
+}
+.socialWebCard {
+  border-radius: 7px;
+  width: 32px;
+  height: 32px;
+  margin: 0 2.5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(136.53deg, #e87dff 0%, #1eaae6 146.2%);
+  box-shadow: 0px 5px 7.5px rgba(30, 153, 229, 0.3),
+    0px 2px 6px rgba(0, 0, 0, 0.14),
+    inset 0.389333px 0.712479px 0.973331px rgba(255, 255, 255, 0.2),
+    inset 1.82402px 2.79735px 4.54546px rgba(255, 255, 255, 0.2),
+    inset 0px -1.168px 1.55733px rgba(96, 96, 96, 0.1);
+  padding-top: 3px;
+}
 .nftDetail {
   width: 100%;
-  padding: 0 50px;
 }
 
 .breakLine {
@@ -116,11 +170,9 @@
 
 .payWithCardCard {
   width: 100%;
-  padding-top: 1rem;
-  padding: 1rem 4rem;
   display: flex;
+  padding: 20px;
   flex-direction: column;
-  margin-bottom: 1rem;
 }
 
 .poweredSection {
@@ -339,15 +391,6 @@
   font-weight: 300;
 }
 
-@media screen and (max-width: 1300px) {
-  .tryPayGlideText {
-    font-size: 24px;
-  }
-  .tryPayGlideDescription {
-    font-size: 12px;
-  }
-}
-
 @media screen and (max-width: 1250px) {
   .otpFieldInput {
     width: 3rem;
@@ -367,20 +410,6 @@
   }
   .backBtn {
     width: 40%;
-  }
-  .socialSection {
-    width: 100%;
-    justify-content: center;
-  }
-  .imgCard {
-    width: 140px;
-    height: 120px;
-  }
-  .tryPayGlideText {
-    font-size: 24px;
-  }
-  .tryPayGlideDescription {
-    font-size: 12px;
   }
   .walletInput,
   .cardNumberInput,
