@@ -16,14 +16,14 @@ const ConfirmPurchaseDetails = ({
     const width = useWindowSize().width;
     return (
         <div className={styles.card}>
-            <div style={{ width: width < 551 ? "100%" : "80%", fontFamily: "NeueMontreal" }}>
+            <div style={{ width: "100%", fontFamily: "NeueMontreal" }}>
                 <p className={styles.confirmText}>Confirm Purchase</p>
                 <div className={styles.labelValueRow}>
                     <div>
-                        <p className={styles.label} style={{ fontSize: 16 }}>{purchaseInitDetails.quote.total.description}</p>
+                        <p className={styles.totalText}>{purchaseInitDetails.quote.total.description}</p>
                     </div>
                     <div>
-                        <p className={styles.value} style={{ fontSize: 16 }}>{`${purchaseInitDetails.quote.total.currency == "USD" ? "$" : ""}${purchaseInitDetails.quote.total.amount}`}</p>
+                        <p className={styles.totalText} style={{ paddingRight: "1rem" }}>{`${purchaseInitDetails.quote.total.currency == "USD" ? "$ " : ""}${purchaseInitDetails.quote.total.amount}`}</p>
                     </div>
                 </div>
                 {purchaseInitDetails.quote.details.map((item, index) => {
@@ -38,12 +38,12 @@ const ConfirmPurchaseDetails = ({
                         </div>
                     );
                 })}
-                <div className={styles.labelValueRow} style={{ paddingLeft: 0, marginTop: "1.5rem", marginBottom: "1.5rem" }}>
+                <div className={styles.labelValueRow} style={{ paddingLeft: 0, marginTop: "1.5rem", marginBottom: "1rem", border: "none" }}>
                     <div>
-                        <p className={styles.label} style={{ fontWeight: 700 }}>Delivery Address:</p>
+                        <p className={styles.deliveryLabel} >Delivery Address</p>
                     </div>
                     <div>
-                        <p className={styles.value}>{purchaseInitDetails.recipient}</p>
+                        <p className={styles.deliveryValue}>{purchaseInitDetails.recipient}</p>
                     </div>
                 </div>
             </div>

@@ -23,6 +23,7 @@ type Props = {
     fontWeight?: number;
     border?: string;
     gradientTextColor?: boolean;
+    bg?: string;
 };
 
 const Button: React.FC<Props> = ({
@@ -43,7 +44,8 @@ const Button: React.FC<Props> = ({
     width,
     fontWeight,
     border,
-    gradientTextColor
+    gradientTextColor,
+    bg
 }) => {
     return !!gradientTextColor ? (
         <div className={styles.gradientTextBtn}>
@@ -58,6 +60,7 @@ const Button: React.FC<Props> = ({
                 border: border ? border : "none",
                 color: color ?? "var(--primary-color)",
                 backgroundColor: bgColor ?? "var(--text-color-light)",
+                background: bg ?? undefined,
                 width: width ?? "100%",
                 borderRadius: borderRadius ? borderRadius + "px" : "28px",
                 fontFamily: "NeueMontreal",

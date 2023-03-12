@@ -11,31 +11,57 @@
 }
 
 .confirmText {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   color: black;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .labelValueRow {
   display: flex;
+  height: 27px;
+  width: 100%;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 0.7rem;
-  padding-left: 1rem;
+  border-bottom: 2px dashed #eeeeee;
+  margin-bottom: 13px;
 }
 
 .label {
-  font-size: 14px;
+  font-family: "NeueMontreal";
+  font-size: 12px;
   font-weight: 400;
-  color: #424242;
+  color: #6b6f80;
+}
+
+.totalText {
+  font-family: "NeueMontreal";
+  font-size: 18px;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 16px;
 }
 
 .value {
+  font-size: 12px;
+  font-weight: 500;
+  color: black;
+  padding-right: 1rem;
+}
+
+.deliveryLabel {
+  font-family: "NeueMontreal";
   font-size: 14px;
+  font-weight: 500;
+  color: black;
+  margin-bottom: 16px;
+}
+.deliveryValue {
+  font-family: "NeueMontreal";
+  font-size: 15px;
   font-weight: 700;
   color: black;
-  min-width: 120px;
+  margin-bottom: 16px;
 }
 
 .checkBoxSection {
@@ -46,27 +72,32 @@
 }
 
 input.checkboxInput {
-  width: 55px;
+  width: 30px;
   height: 30px;
   background-color: #d9d9d9;
+  border: 2px solid #eeeeee;
+  border-radius: 10px;
 
   &:checked {
-    width: 55px;
+    width: 30px;
     height: 30px;
     background-color: #d9d9d9;
+    border: 2px solid #eeeeee;
+    border-radius: 10px;
   }
 }
 
 .terms {
   font-family: "NeueMontreal";
   font-weight: 400;
-  font-size: 16px;
+  font-size: 12px;
   color: black;
+  padding-left: 1rem;
 }
 
 .termsLinkText {
   font-family: "NeueMontreal";
-  font-size: 16px;
+  font-size: 13px;
   color: black;
   font-weight: 600;
   display: inline;
@@ -74,12 +105,5 @@ input.checkboxInput {
 
   &:hover {
     text-decoration: underline;
-  }
-}
-
-@media screen and (max-width: 550px) {
-  .labelValueRow {
-    width: 100%;
-    justify-content: space-between;
   }
 }

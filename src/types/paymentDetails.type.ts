@@ -13,6 +13,12 @@ export interface QuotedTotal {
   currency: string;
 }
 
+export enum PaymentType {
+  ADDRESS = "ADDRESS",
+  WALLET = "WALLET",
+  CREATE_WALLET = "CREATE_WALLET",
+}
+
 export interface PaymentSession {
   id: string;
   projectId: string;

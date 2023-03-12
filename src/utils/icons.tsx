@@ -38,12 +38,9 @@ export const EthIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
-
-
 export const FlowIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg id="svg" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0, 0, 400,368.6274509803922" {...props}><g id="svgg"><path id="path0" d="M123.529 76.463 L 62.745 111.939 62.797 183.420 L 62.849 254.902 128.557 292.157 C 207.709 337.034,203.922 336.731,203.922 298.184 C 203.922 267.536,205.011 266.336,262.662 233.478 C 330.933 194.568,330.497 195.398,292.246 177.158 C 260.610 162.072,262.412 157.243,310.246 128.929 C 322.817 121.487,270.459 84.601,188.235 42.972 C 186.078 41.880,156.961 56.951,123.529 76.463 M247.059 122.294 C 247.059 125.640,231.176 137.651,211.765 148.985 L 176.471 169.593 174.151 222.051 C 172.876 250.903,170.373 274.510,168.589 274.510 C 166.805 274.510,149.319 264.830,129.731 252.998 L 94.118 231.487 94.118 183.041 L 94.118 134.595 139.216 106.942 L 184.314 79.290 215.686 97.750 C 232.941 107.903,247.059 118.947,247.059 122.294 M238.574 185.153 C 256.542 192.048,253.992 198.760,227.451 214.439 L 203.922 228.338 203.922 208.940 C 203.922 198.271,208.333 187.762,213.725 185.587 C 219.118 183.411,224.123 181.352,224.849 181.011 C 225.574 180.671,231.751 182.534,238.574 185.153 " stroke="none" fill="#000000" fill-rule="evenodd"></path></g></svg>
 );
-
 
 export const TwitterIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -98,7 +95,6 @@ export const TwitterIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 
 );
 
-
 export const DiscordIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <g filter="url(#filter0_ddiii_402_4)">
@@ -151,7 +147,6 @@ export const DiscordIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 
 
 );
-
 
 export const WebIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 
@@ -228,7 +223,6 @@ export const MainLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => 
 
 );
 
-
 export const BigLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 
   <svg viewBox="0 0 543 468" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" {...props}>
@@ -243,7 +237,6 @@ export const BigLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 
 
 );
-
 
 export const ShowPasswordIcon: React.FC<ExampleSVGProps> = ({ className }) => (
   <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
@@ -282,4 +275,51 @@ export const HeartIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 
 export const CopyIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}><path fill="black" d="M5 22q-.825 0-1.413-.588T3 20V6h2v14h11v2H5Zm4-4q-.825 0-1.413-.588T7 16V4q0-.825.588-1.413T9 2h9q.825 0 1.413.588T20 4v12q0 .825-.588 1.413T18 18H9Zm0-2h9V4H9v12Zm0 0V4v12Z" /></svg>
+);
+
+export const AdrressWalletIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path opacity="0.4" d="M18.8885 2.33301H9.11183C4.86516 2.33301 2.3335 4.86467 2.3335 9.11134V18.8763C2.3335 23.1347 4.86516 25.6663 9.11183 25.6663H18.8768C23.1235 25.6663 25.6552 23.1347 25.6552 18.888V9.11134C25.6668 4.86467 23.1352 2.33301 18.8885 2.33301Z" stroke="#6B6F80" />
+    <path d="M18.375 11.375H9.625C9.14667 11.375 8.75 10.9783 8.75 10.5C8.75 10.0217 9.14667 9.625 9.625 9.625H18.375C18.8533 9.625 19.25 10.0217 19.25 10.5C19.25 10.9783 18.8533 11.375 18.375 11.375ZM18.375 18.375H9.625C9.14667 18.375 8.75 17.9783 8.75 17.5C8.75 17.0217 9.14667 16.625 9.625 16.625H18.375C18.8533 16.625 19.25 17.0217 19.25 17.5C19.25 17.9783 18.8533 18.375 18.375 18.375Z" stroke="#6B6F80" fill="black" />
+  </svg>
+);
+
+export const SelectedAdrressWalletIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path opacity="0.4" d="M18.8885 2.33301H9.11183C4.86516 2.33301 2.3335 4.86467 2.3335 9.11134V18.8763C2.3335 23.1347 4.86516 25.6663 9.11183 25.6663H18.8768C23.1235 25.6663 25.6552 23.1347 25.6552 18.888V9.11134C25.6668 4.86467 23.1352 2.33301 18.8885 2.33301Z" fill="url(#paint0_linear_459_109)" />
+    <path d="M18.375 11.375H9.625C9.14667 11.375 8.75 10.9783 8.75 10.5C8.75 10.0217 9.14667 9.625 9.625 9.625H18.375C18.8533 9.625 19.25 10.0217 19.25 10.5C19.25 10.9783 18.8533 11.375 18.375 11.375ZM18.375 18.375H9.625C9.14667 18.375 8.75 17.9783 8.75 17.5C8.75 17.0217 9.14667 16.625 9.625 16.625H18.375C18.8533 16.625 19.25 17.0217 19.25 17.5C19.25 17.9783 18.8533 18.375 18.375 18.375Z" fill="url(#paint1_linear_459_109)" />
+    <defs>
+      <linearGradient id="paint0_linear_459_109" x1="2.3335" y1="13.9997" x2="14.5014" y2="14.0405" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#EB98FD" />
+        <stop offset="1" stop-color="#6AB7FF" />
+      </linearGradient>
+      <linearGradient id="paint1_linear_459_109" x1="8.75" y1="14" x2="14.2283" y2="14.022" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#EB98FD" />
+        <stop offset="1" stop-color="#6AB7FF" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+export const ConnectWalletIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path d="M15.1665 10.5H8.1665M25.6665 12.7983V15.2017C25.6665 15.8433 25.1532 16.3683 24.4998 16.3917H22.2132C20.9532 16.3917 19.7982 15.47 19.6932 14.21C19.6232 13.475 19.9032 12.7867 20.3932 12.3083C20.8248 11.865 21.4198 11.6083 22.0732 11.6083H24.4998C25.1532 11.6317 25.6665 12.1567 25.6665 12.7983Z" stroke="#6B6F80" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M20.3935 12.308C19.9035 12.7863 19.6235 13.4747 19.6935 14.2097C19.7985 15.4697 20.9535 16.3913 22.2135 16.3913H24.5002V18.083C24.5002 21.583 22.1668 23.9163 18.6668 23.9163H8.16683C4.66683 23.9163 2.3335 21.583 2.3335 18.083V9.91634C2.3335 6.74301 4.24683 4.52634 7.22183 4.15301C7.52516 4.10634 7.84016 4.08301 8.16683 4.08301H18.6668C18.9702 4.08301 19.2618 4.09467 19.5418 4.14134C22.5518 4.49134 24.5002 6.71967 24.5002 9.91634V11.608H22.0735C21.4202 11.608 20.8252 11.8647 20.3935 12.308Z" stroke="#6B6F80" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+);
+
+export const SelectedConnectWalletIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path d="M15.1665 10.5H8.1665M25.6665 12.7983V15.2017C25.6665 15.8433 25.1532 16.3683 24.4998 16.3917H22.2132C20.9532 16.3917 19.7982 15.47 19.6932 14.21C19.6232 13.475 19.9032 12.7867 20.3932 12.3083C20.8248 11.865 21.4198 11.6083 22.0732 11.6083H24.4998C25.1532 11.6317 25.6665 12.1567 25.6665 12.7983Z" stroke="#6B6F80" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M20.3935 12.308C19.9035 12.7863 19.6235 13.4747 19.6935 14.2097C19.7985 15.4697 20.9535 16.3913 22.2135 16.3913H24.5002V18.083C24.5002 21.583 22.1668 23.9163 18.6668 23.9163H8.16683C4.66683 23.9163 2.3335 21.583 2.3335 18.083V9.91634C2.3335 6.74301 4.24683 4.52634 7.22183 4.15301C7.52516 4.10634 7.84016 4.08301 8.16683 4.08301H18.6668C18.9702 4.08301 19.2618 4.09467 19.5418 4.14134C22.5518 4.49134 24.5002 6.71967 24.5002 9.91634V11.608H22.0735C21.4202 11.608 20.8252 11.8647 20.3935 12.308Z" stroke="#6B6F80" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+);
+
+export const CreateWalletIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path d="M21.0465 15.8087C20.5565 16.287 20.2765 16.9753 20.3465 17.7103C20.4515 18.9703 21.6065 19.892 22.8665 19.892H25.0832V21.2803C25.0832 23.6953 23.1115 25.667 20.6965 25.667H8.9015C9.26317 25.3637 9.57817 24.9903 9.82317 24.5703C10.2548 23.8703 10.4998 23.042 10.4998 22.167C10.4997 21.2878 10.2513 20.4266 9.78301 19.6826C9.31476 18.9385 8.64581 18.3419 7.85324 17.9614C7.06068 17.581 6.17675 17.4322 5.30332 17.5323C4.42988 17.6324 3.6025 17.9772 2.9165 18.527V13.4287C2.9165 11.0137 4.88817 9.04199 7.30317 9.04199H20.6965C23.1115 9.04199 25.0832 11.0137 25.0832 13.4287V15.1087H22.7265C22.0732 15.1087 21.4782 15.3653 21.0465 15.8087Z" stroke="#6B6F80" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M2.9165 14.4787V9.14704C2.9165 7.75871 3.76817 6.52204 5.06317 6.03204L14.3265 2.53204C14.6621 2.40556 15.0235 2.36242 15.3794 2.40631C15.7354 2.4502 16.0754 2.57982 16.3703 2.78405C16.6651 2.98827 16.906 3.26099 17.0723 3.57881C17.2386 3.89662 17.3252 4.25003 17.3248 4.60871V9.04204M8.1665 14.0004H16.3332M26.3187 16.2987V18.702C26.3187 19.3437 25.8053 19.8687 25.152 19.892H22.8653C21.6053 19.892 20.4503 18.9704 20.3453 17.7104C20.2753 16.9754 20.5553 16.287 21.0453 15.8087C21.477 15.3654 22.072 15.1087 22.7253 15.1087H25.152C25.8053 15.132 26.3187 15.657 26.3187 16.2987Z" stroke="#6B6F80" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M7.57385 22.1427H4.09718M5.83318 20.4393V23.9277M10.4998 22.166C10.4998 23.041 10.2548 23.8693 9.82318 24.5693C9.57818 24.9893 9.26318 25.3627 8.90151 25.666C8.08485 26.401 7.01151 26.8327 5.83318 26.8327C5.02884 26.8343 4.23792 26.6265 3.5383 26.2296C2.83868 25.8328 2.25447 25.2606 1.84318 24.5693C1.39908 23.8465 1.16479 23.0144 1.16651 22.166C1.16651 20.696 1.84318 19.3777 2.91651 18.526C3.60251 17.9762 4.42989 17.6314 5.30333 17.5313C6.17676 17.4312 7.06069 17.58 7.85325 17.9604C8.64582 18.3409 9.31477 18.9375 9.78302 19.6816C10.2513 20.4256 10.4998 21.2868 10.4998 22.166Z" stroke="#6B6F80" stroke-width="1.75" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+
 );

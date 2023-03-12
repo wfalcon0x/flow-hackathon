@@ -2,7 +2,7 @@
 import useWindowSize from "@/hooks/useWindowSize";
 import { NftType } from "@/types/nftType.type";
 import { CheckoutFormOptions } from "@/types/checkoutFormOptions.type";
-import { PaymentDetails } from "@/types/paymentDetails.type";
+import { PaymentDetails, PaymentType } from "@/types/paymentDetails.type";
 import { DiscordIcon, EthIcon, FlowIcon, TwitterIcon, WebIcon } from "@/utils/icons";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -18,6 +18,8 @@ import { validateRecipient } from "@/utils/check-recipient";
 import { useSupabaseClient } from '@supabase/auth-helpers-react'
 import OtpField from 'react-otp-field';
 import NftImageCard from "../ui/NftCard";
+import DeliveryTypeSelectable from "./deliveryType";
+import WalletConnectList from "./walletConnectList";
 
 type Props = {
     step: number;
@@ -44,6 +46,7 @@ const PaymentCard = ({
     const [loading, setLoading] = useState(false);
     const [loginError, setLoginError] = useState("");
     const [token, setToken] = useState('');
+    const [deliveryType, setDeliveryType] = useState<PaymentType>(PaymentType.ADDRESS);
 
     const openTwitter = () => {
         window.open('https://twitter.com/payglide', '_blank');
@@ -237,7 +240,7 @@ const PaymentCard = ({
                     </div>
                 </div>
             ) : (
-                <div>
+                <div style={{ height: "75%" }}>
                     <div className={styles.imageSection}>
                         <NftImageCard img={nft.image} />
                         <div className={styles.descriptionSection}>
@@ -268,7 +271,7 @@ const PaymentCard = ({
                         </div>
                     </div>
                     {step < 4 && (
-                        <div>
+                        <div style={{ display: "flex", height: "100%", justifyContent: step == 1 ? "space-between" : "flex-start", flexDirection: "column" }}>
                             <div className={styles.nftDetail}>
                                 <NftDetail currency={nft.currency} onQuantityChange={setQuantity} quantity={quantity} price={nft.amount} remainingQuantity={nft.remaining} />
                             </div>
@@ -304,46 +307,62 @@ const PaymentCard = ({
                                 </div>
                             )}
                             {step == 2 && (
-                                <div className={styles.secondStepSection} style={{ padding: showVerification ? "0.8rem 4%" : "0.8rem 10%" }}>
+                                <div className={styles.secondStepSection}>
                                     {!showVerification ?
                                         <>
-                                            <p className={styles.stepTitle}>Your NFT will be delivered to this wallet address</p>
-                                            {walletAddressError && <p className={styles.inputError}>{walletAddressError}</p>}
-                                            <input placeholder="Enter wallet or .find address" className={styles.walletInput} type="text" value={walletAddress} onChange={(e) => setWalletAddress(e.target.value)} />
-                                            <p className={styles.stepTitle}>Or create your own wallet linked to your email</p>
-                                            {loginError && <p className={styles.inputError}>{loginError}</p>}
-                                            <input placeholder="email" className={styles.walletInput} type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                            <p className={styles.stepTitle}>Delivery Address For NFT:</p>
+                                            <DeliveryTypeSelectable deliveryType={deliveryType} onDeliveryTypeChange={(deliv) => setDeliveryType(deliv)} />
+                                            {deliveryType == PaymentType.ADDRESS && (
+                                                <>
+                                                    <p className={styles.stepTitle}>Enter wallet or .find address</p>
+                                                    {walletAddressError && <p className={styles.inputError}>{walletAddressError}</p>}
+                                                    <input placeholder="" className={styles.walletInput} type="text" value={walletAddress} onChange={(e) => setWalletAddress(e.target.value)} />
+                                                </>
+                                            )}
+                                            {deliveryType == PaymentType.WALLET && (
+                                                <WalletConnectList />
+                                            )}
+                                            {deliveryType == PaymentType.CREATE_WALLET && (
+                                                <>
+                                                    <p className={styles.stepTitle}>Create a magic wallet linked to your email</p>
+                                                    {loginError && <p className={styles.inputError}>{loginError}</p>}
+                                                    <input placeholder="" className={styles.walletInput} type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                                </>
+                                            )}
                                             <div className={styles.btnsSection} style={{ marginTop: 100 }}>
                                                 <div className={styles.backBtn} onClick={() => onStepChange(1)}>
-                                                    <p className={styles.backText}>{"< back"}</p>
+                                                    <p className={styles.backText}>{"Back"}</p>
                                                 </div>
-                                                <div style={{ width: width < 550 ? "40%" : "30%" }}>
+                                                <div style={{ width: "135px" }}>
                                                     <Button
                                                         color="white"
                                                         onClick={() => { email ? handleLogin(email) : initPaymentWithAddress() }}
                                                         width="100%"
-                                                        height="52px"
-                                                        fontSize={20}
-                                                        fontWeight={300}
-                                                        bgColor='black'
+                                                        height="50px"
+                                                        fontSize={16}
+                                                        fontWeight={700}
+                                                        bg='linear-gradient(90.19deg, #EB98FD 0.17%, #6AB7FF 52.17%)'
                                                         text={"Next"}
                                                     ></Button>
                                                 </div>
                                             </div>
                                         </> : <> {loading ? <span>Loading...</span> :
-                                            <div className={styles.otpSection}>
-                                                <OtpField
-                                                    value={token}
-                                                    onChange={setTokenAndVerify}
-                                                    numInputs={6}
-                                                    onChangeRegex={/^([0-9]{0,})$/}
-                                                    autoFocus
-                                                    classNames={styles.otpField}
-                                                    separator={<span></span>}
-                                                    isTypeNumber
-                                                    inputProps={{ className: styles.otpFieldInput, disabled: false }}
-                                                />
-                                            </div>}
+                                            <>
+                                                <p className={styles.stepTitleFont}>Verification Code</p>
+                                                <p className={styles.stepTitle}>Please enter the verification code sent to {email}</p>
+                                                <div className={styles.otpSection}>
+                                                    <OtpField
+                                                        value={token}
+                                                        onChange={setTokenAndVerify}
+                                                        numInputs={6}
+                                                        onChangeRegex={/^([0-9]{0,})$/}
+                                                        autoFocus
+                                                        classNames={styles.otpField}
+                                                        separator={<span></span>}
+                                                        isTypeNumber
+                                                        inputProps={{ className: styles.otpFieldInput, disabled: false }}
+                                                    />
+                                                </div></>}
                                         </>}
                                 </div>
                             )}
@@ -388,7 +407,6 @@ const PaymentCard = ({
                     )}
                     {(step == 4 && !!paymentDetails) && (
                         <>
-                            <div className={styles.breakLine} style={{ marginTop: "2rem" }} />
                             <div className={styles.fourthStepSection}>
                                 <ConfirmPurchaseDetails
                                     purchaseInitDetails={paymentDetails.session}
