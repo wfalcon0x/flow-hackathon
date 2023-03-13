@@ -3,7 +3,7 @@ import useWindowSize from "@/hooks/useWindowSize";
 import { NftType } from "@/types/nftType.type";
 import { CheckoutFormOptions } from "@/types/checkoutFormOptions.type";
 import { PaymentDetails, PaymentType } from "@/types/paymentDetails.type";
-import { DiscordIcon, EthIcon, FlowIcon, TwitterIcon, WebIcon } from "@/utils/icons";
+import { DiscordIcon, EthIcon, FlowIcon, FlowScanIcon, SelectedConnectWalletIcon, TwitterIcon, WebIcon } from "@/utils/icons";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Button from "../ui/CustomButton";
@@ -208,33 +208,28 @@ const PaymentCard = ({
             {step == 5 ? (
                 <div className={styles.finalStepSection}>
                     <div className={styles.finalStepTitleSection}>
-                        <div style={{ marginRight: "1rem" }}>
-                            <Image src="/uiIcons/celebrationIcon.png" alt="celebration" width={56} height={57} />
-                        </div>
-                        <div>
-                            <p className={styles.tryPayGlideTextCongratz} >Congratulations!</p>
-                        </div>
+                        <Image src={"/congratzImg.png"} alt="" width={220} height={17} style={{ marginBottom: "1rem" }} />
                     </div>
-                    <p className={styles.tryPayGlideDescription} style={{ textAlign: "center", width: "100%", marginBottom: "1rem" }}>{`Your purchase is now in wallet ${paymentDetails?.session.recipient}`}</p>
+                    <p className={styles.congratzText} style={{ textAlign: "center", width: "100%", marginBottom: "0.3rem" }}>{`Your purchase is now in wallet`}</p>
+                    <div className={styles.walletCardText}>
+                        <SelectedConnectWalletIcon height={28} width={28} />
+                        <p className={styles.walletText}>{paymentDetails?.session.recipient}</p>
+                    </div>
                     <NftImageCard img={nft.image} />
-                    <p className={styles.tryText}>{nft.name}</p>
-                    <div className={styles.viewFlowScanSection} style={{ cursor: "pointer" }}>
-                        <div style={{ marginRight: "1rem", height: "100%", paddingTop: 10 }}>
-                            <p className={styles.tryPayGlideDescription} style={{ marginTop: 0, fontWeight: 500 }}>View in flowscan here</p>
-                        </div>
-                        <div>
-                            <Image src="/flowIconImage.png" style={{ cursor: "pointer" }} alt="flow" width={51} height={47} onClick={openYourTransaction} />
-                        </div>
+                    <p className={styles.congratzNftName}>{nft.name}</p>
+                    <div className={styles.viewFlowScanSection}>
+                        <p className={styles.congratzText} >View in flowscan here</p>
+                        <FlowScanIcon width={68} height={70} onClick={openYourTransaction} style={{ cursor: "pointer" }} />
                     </div>
                     <div className={styles.buyAgainBtnSection}>
                         <Button
                             color="white"
                             onClick={() => { onStepChange(1) }}
-                            width="70%"
+                            width="100%"
                             height="52px"
                             fontSize={20}
-                            fontWeight={300}
-                            bgColor='black'
+                            fontWeight={700}
+                            bgColor='#000000'
                             text={"Return"}
                         ></Button>
                     </div>
@@ -285,7 +280,7 @@ const PaymentCard = ({
                                             height="50px"
                                             fontSize={17}
                                             fontWeight={700}
-                                            bgColor='black'
+                                            bgColor='#000000'
                                             text={"Pay with Card"}
 
                                         ></Button>
@@ -385,7 +380,7 @@ const PaymentCard = ({
                                         <input placeholder="Postcode" className={styles.cardPostcodeInput} type="text" value={cardPostCode} onChange={(e) => setCardPostCode(e.target.value)} />
                                     </div> */}
                                     <div className={styles.btnsSection}>
-                                        <div className={styles.backBtn} onClick={() => onStepChange(2)}>
+                                        <div className={styles.backBtn} onClick={() => { onStepChange(2); setShowVerification(false) }}>
                                             <p className={styles.backText}>{"< back"}</p>
                                         </div>
                                         <div style={{ width: width < 551 ? "40%" : "30%" }}>
@@ -417,28 +412,10 @@ const PaymentCard = ({
                                 <>
                                     {checkoutFormOptions?.clientSecret && stripePromise && (
                                         <Elements stripe={stripePromise} options={checkoutFormOptions}>
-                                            <CheckoutForm session={paymentDetails.session.id} onSuccess={(transactionHash) => { onStepChange(5); setTransactionHash(transactionHash) }} />
+                                            <CheckoutForm onBack={() => onStepChange(2)} session={paymentDetails.session.id} onSuccess={(transactionHash) => { onStepChange(5); setTransactionHash(transactionHash) }} />
                                         </Elements>
                                     )}
                                 </>
-                                <div className={styles.btnsSection}>
-                                    <div className={styles.backBtn} onClick={() => onStepChange(2)}>
-                                        <p className={styles.backText}>{"< back"}</p>
-                                    </div>
-                                    <div style={{ width: "30%" }}>
-                                        {/* <Button
-                                            color="white"
-                                            onClick={() => { onStepChange(5); }}
-                                            width="100%"
-                                            height="52px"
-                                            fontSize={20}
-                                            fontWeight={300}
-                                            bgColor='black'
-                                            text={"Pay"}
-                                            disabled={!termsChecked}
-                                        ></Button> */}
-                                    </div>
-                                </div>
                             </div>
                         </>
                     )}

@@ -54,7 +54,7 @@
   justify-content: center;
   flex-direction: row;
   align-items: center;
-  padding: 0 15px;
+  padding: 0 20px;
   gap: 1rem;
   margin-bottom: 1rem;
 }
@@ -353,11 +353,12 @@
 }
 
 .finalStepSection {
-  padding: 1rem 10%;
+  padding: 1rem 1%;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  justify-self: end;
 }
 
 .finalStepTitleSection {
@@ -365,6 +366,53 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+}
+
+.congratzText {
+  font-family: "NeueMontreal";
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b6f80;
+  text-align: center;
+  line-height: 17px;
+  width: 100%;
+}
+
+.walletCardText {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 14px;
+  background: #ffffff;
+  box-shadow: 0px 4px 36px rgba(0, 0, 0, 0.12);
+  border-radius: 21px;
+  height: 45px;
+  margin-bottom: 2rem;
+}
+
+.congratzNftName {
+  margin-top: 2rem;
+  font-family: "NeueMontreal";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  color: #010101;
+}
+
+.walletText {
+  padding-left: 0.7rem;
+  font-family: "NeueMontreal";
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  background: linear-gradient(90.19deg, #eb98fd 0.17%, #6ab7ff 52.17%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }
 
 .tryText {
@@ -378,10 +426,10 @@
 
 .viewFlowScanSection {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0.5rem 0;
+  margin: 1rem 0;
 }
 
 .buyAgainBtnSection {
@@ -422,11 +470,6 @@
 }
 
 @media screen and (max-width: 550px) {
-  .imageSection {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
   .descriptionSection {
     width: 100%;
     text-align: center;

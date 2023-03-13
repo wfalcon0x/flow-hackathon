@@ -23,7 +23,7 @@ const NftDetail = ({
             <div className={styles.cardsRowSection}>
                 <div className={styles.labelValueCard}>
                     <p className={styles.labelText}>Quantity</p>
-                    <input className={styles.quantityInput} title="You can only purchase 1 float" type="number" value={quantity} onChange={(e) => onQuantityChange(+e.target.value)} />
+                    <input disabled className={styles.quantityInput} title="You can only purchase 1 float" type="number" value={quantity} onChange={(e) => onQuantityChange(+e.target.value)} />
                 </div>
                 <div className={styles.labelValueCard}>
                     <p className={styles.labelText} style={{ marginBottom: "7px" }}>Price</p>

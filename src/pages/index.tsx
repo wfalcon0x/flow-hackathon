@@ -95,7 +95,7 @@ export default function Home() {
                 <BigLogoIcon width={width < 1300 ? 400 : 490} height={width < 1300 ? 310 : 400} className={styles.animatedIcon} />
 
               </div>
-              {width > 551 && (
+              {width > 900 && (
                 <div className={styles.bottomSection}>
                   <div style={{ marginRight: 50, display: "flex", flexDirection: "row" }}>
                     <p className={[styles.bottomSectionTitle, styles.gradientText].join(" ")}  >Made with </p>
@@ -137,7 +137,7 @@ export default function Home() {
                     borderRadius={30}
                     fontSize={20}
                     fontWeight={500}
-                    bgColor='#BF3DDB'
+                    bgColor={'#BF3DDB'}
                     text={"CREATE CHECKOUT"}
                   ></Button>
                 </div>
@@ -162,7 +162,7 @@ export default function Home() {
                     text={"EXIT"}
                   ></Button>
                 </div>
-                {width < 551 && (
+                {width < 900 && (
                   <div className={styles.bottomSection} style={{ flexDirection: "column", alignItems: "center" }}>
                     <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
                       <p className={[styles.bottomSectionTitle, styles.gradientText].join(" ")}  >Made with </p>

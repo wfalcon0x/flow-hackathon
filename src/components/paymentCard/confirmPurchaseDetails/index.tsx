@@ -1,4 +1,5 @@
 
+import TimerFetch from "@/components/ui/timerFetch";
 import useWindowSize from "@/hooks/useWindowSize";
 import { PaymentSession } from "@/types/paymentDetails.type";
 import styles from "./index.module.scss";
@@ -18,7 +19,7 @@ const ConfirmPurchaseDetails = ({
         <div className={styles.card}>
             <div style={{ width: "100%", fontFamily: "NeueMontreal" }}>
                 <p className={styles.confirmText}>Confirm Purchase</p>
-                <div className={styles.labelValueRow}>
+                <div className={styles.labelValueRow} style={{ border: "none", marginBottom: "0px" }}>
                     <div>
                         <p className={styles.totalText}>{purchaseInitDetails.quote.total.description}</p>
                     </div>
@@ -26,6 +27,7 @@ const ConfirmPurchaseDetails = ({
                         <p className={styles.totalText} style={{ paddingRight: "1rem" }}>{`${purchaseInitDetails.quote.total.currency == "USD" ? "$ " : ""}${purchaseInitDetails.quote.total.amount}`}</p>
                     </div>
                 </div>
+                <TimerFetch onTimeReset={() => { }} />
                 {purchaseInitDetails.quote.details.map((item, index) => {
                     return (
                         <div key={index} className={styles.labelValueRow}>

@@ -87,7 +87,7 @@ const PreviewSection = ({
                             height="52px"
                             fontSize={20}
                             fontWeight={300}
-                            bgColor='black'
+                            bgColor='#000000'
                             text={"Pay with Card"}
                         ></Button>
                     </div>

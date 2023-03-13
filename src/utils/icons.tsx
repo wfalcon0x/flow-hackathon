@@ -308,11 +308,28 @@ export const ConnectWalletIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props
   </svg>
 );
 
+
 export const SelectedConnectWalletIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-    <path d="M15.1665 10.5H8.1665M25.6665 12.7983V15.2017C25.6665 15.8433 25.1532 16.3683 24.4998 16.3917H22.2132C20.9532 16.3917 19.7982 15.47 19.6932 14.21C19.6232 13.475 19.9032 12.7867 20.3932 12.3083C20.8248 11.865 21.4198 11.6083 22.0732 11.6083H24.4998C25.1532 11.6317 25.6665 12.1567 25.6665 12.7983Z" stroke="#6B6F80" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
-    <path d="M20.3935 12.308C19.9035 12.7863 19.6235 13.4747 19.6935 14.2097C19.7985 15.4697 20.9535 16.3913 22.2135 16.3913H24.5002V18.083C24.5002 21.583 22.1668 23.9163 18.6668 23.9163H8.16683C4.66683 23.9163 2.3335 21.583 2.3335 18.083V9.91634C2.3335 6.74301 4.24683 4.52634 7.22183 4.15301C7.52516 4.10634 7.84016 4.08301 8.16683 4.08301H18.6668C18.9702 4.08301 19.2618 4.09467 19.5418 4.14134C22.5518 4.49134 24.5002 6.71967 24.5002 9.91634V11.608H22.0735C21.4202 11.608 20.8252 11.8647 20.3935 12.308Z" stroke="#6B6F80" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M25.6666 12.7984V15.2017C25.6666 15.8434 25.1533 16.3684 24.4999 16.3917H22.2133C20.9533 16.3917 19.7983 15.4701 19.6933 14.2101C19.6233 13.4751 19.9033 12.7867 20.3933 12.3084C20.8249 11.8651 21.4199 11.6084 22.0733 11.6084H24.4999C25.1533 11.6317 25.6666 12.1567 25.6666 12.7984Z" fill="url(#paint0_linear_459_314)" />
+    <path opacity="0.4" d="M20.393 12.308C19.903 12.7863 19.623 13.4747 19.693 14.2097C19.798 15.4697 20.953 16.3913 22.213 16.3913H24.4997V18.083C24.4997 21.583 22.1663 23.9163 18.6663 23.9163H8.16634C4.66634 23.9163 2.33301 21.583 2.33301 18.083V9.91634C2.33301 6.74301 4.24634 4.52634 7.22134 4.15301C7.52467 4.10634 7.83967 4.08301 8.16634 4.08301H18.6663C18.9697 4.08301 19.2613 4.09467 19.5413 4.14134C22.5513 4.49134 24.4997 6.71967 24.4997 9.91634V11.608H22.073C21.4197 11.608 20.8247 11.8647 20.393 12.308Z" fill="url(#paint1_linear_459_314)" />
+    <path d="M15.167 11.375H8.16699C7.68866 11.375 7.29199 10.9783 7.29199 10.5C7.29199 10.0217 7.68866 9.625 8.16699 9.625H15.167C15.6453 9.625 16.042 10.0217 16.042 10.5C16.042 10.9783 15.6453 11.375 15.167 11.375Z" fill="url(#paint2_linear_459_314)" />
+    <defs>
+      <linearGradient id="paint0_linear_459_314" x1="19.6826" y1="14.0001" x2="22.8047" y2="14.0132" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#EB98FD" />
+        <stop offset="1" stop-color="#6AB7FF" />
+      </linearGradient>
+      <linearGradient id="paint1_linear_459_314" x1="2.33301" y1="13.9997" x2="13.8983" y2="14.043" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#EB98FD" />
+        <stop offset="1" stop-color="#6AB7FF" />
+      </linearGradient>
+      <linearGradient id="paint2_linear_459_314" x1="7.29199" y1="10.5" x2="11.856" y2="10.5765" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#EB98FD" />
+        <stop offset="1" stop-color="#6AB7FF" />
+      </linearGradient>
+    </defs>
   </svg>
+
 );
 
 export const CreateWalletIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
@@ -320,6 +337,140 @@ export const CreateWalletIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props)
     <path d="M21.0465 15.8087C20.5565 16.287 20.2765 16.9753 20.3465 17.7103C20.4515 18.9703 21.6065 19.892 22.8665 19.892H25.0832V21.2803C25.0832 23.6953 23.1115 25.667 20.6965 25.667H8.9015C9.26317 25.3637 9.57817 24.9903 9.82317 24.5703C10.2548 23.8703 10.4998 23.042 10.4998 22.167C10.4997 21.2878 10.2513 20.4266 9.78301 19.6826C9.31476 18.9385 8.64581 18.3419 7.85324 17.9614C7.06068 17.581 6.17675 17.4322 5.30332 17.5323C4.42988 17.6324 3.6025 17.9772 2.9165 18.527V13.4287C2.9165 11.0137 4.88817 9.04199 7.30317 9.04199H20.6965C23.1115 9.04199 25.0832 11.0137 25.0832 13.4287V15.1087H22.7265C22.0732 15.1087 21.4782 15.3653 21.0465 15.8087Z" stroke="#6B6F80" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
     <path d="M2.9165 14.4787V9.14704C2.9165 7.75871 3.76817 6.52204 5.06317 6.03204L14.3265 2.53204C14.6621 2.40556 15.0235 2.36242 15.3794 2.40631C15.7354 2.4502 16.0754 2.57982 16.3703 2.78405C16.6651 2.98827 16.906 3.26099 17.0723 3.57881C17.2386 3.89662 17.3252 4.25003 17.3248 4.60871V9.04204M8.1665 14.0004H16.3332M26.3187 16.2987V18.702C26.3187 19.3437 25.8053 19.8687 25.152 19.892H22.8653C21.6053 19.892 20.4503 18.9704 20.3453 17.7104C20.2753 16.9754 20.5553 16.287 21.0453 15.8087C21.477 15.3654 22.072 15.1087 22.7253 15.1087H25.152C25.8053 15.132 26.3187 15.657 26.3187 16.2987Z" stroke="#6B6F80" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
     <path d="M7.57385 22.1427H4.09718M5.83318 20.4393V23.9277M10.4998 22.166C10.4998 23.041 10.2548 23.8693 9.82318 24.5693C9.57818 24.9893 9.26318 25.3627 8.90151 25.666C8.08485 26.401 7.01151 26.8327 5.83318 26.8327C5.02884 26.8343 4.23792 26.6265 3.5383 26.2296C2.83868 25.8328 2.25447 25.2606 1.84318 24.5693C1.39908 23.8465 1.16479 23.0144 1.16651 22.166C1.16651 20.696 1.84318 19.3777 2.91651 18.526C3.60251 17.9762 4.42989 17.6314 5.30333 17.5313C6.17676 17.4312 7.06069 17.58 7.85325 17.9604C8.64582 18.3409 9.31477 18.9375 9.78302 19.6816C10.2513 20.4256 10.4998 21.2868 10.4998 22.166Z" stroke="#6B6F80" stroke-width="1.75" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+
+);
+
+export const SelectedCreateWalletIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path opacity="0.4" d="M23.2688 14.7043H25.5636V13.0698C25.5612 11.9381 25.1105 10.8534 24.3103 10.0532C23.51 9.25294 22.4254 8.80227 21.2936 8.7998H8.25731C7.12559 8.80227 6.04093 9.25294 5.24068 10.0532C4.44044 10.8534 3.98977 11.9381 3.9873 13.0698V18.0316C4.65497 17.4962 5.46037 17.1603 6.31065 17.0628C7.16094 16.9652 8.02147 17.11 8.79305 17.4804C9.56462 17.8507 10.2158 18.4316 10.6715 19.156C11.1273 19.8805 11.369 20.7189 11.3688 21.5748C11.3688 22.4265 11.1296 23.2326 10.7096 23.914C10.4716 24.3223 10.1648 24.6863 9.81247 24.9815H21.2925C22.4242 24.979 23.5088 24.5283 24.3091 23.7281C25.1093 22.9278 25.56 21.8432 25.5625 20.7115V19.3605H23.4053C22.1791 19.3605 21.0545 18.4633 20.953 17.2371C20.9207 16.8972 20.9652 16.5544 21.0831 16.2339C21.201 15.9135 21.3894 15.6236 21.6343 15.3856C21.847 15.168 22.1013 14.9956 22.3822 14.8785C22.663 14.7614 22.9646 14.7022 23.2688 14.7043Z" fill="url(#paint0_linear_461_2)" />
+    <path d="M18.0124 4.48768V8.80318H8.2579C7.12619 8.80565 6.04153 9.25631 5.24128 10.0566C4.44103 10.8568 3.99037 11.9415 3.9879 13.0732V8.90585C3.9879 7.55368 4.81624 6.35085 6.07624 5.87252L15.0946 2.46585C16.5016 1.94435 18.0112 2.97802 18.0112 4.48768H18.0124ZM26.7659 15.865V18.2042C26.7639 18.507 26.6442 18.7972 26.4322 19.0134C26.2201 19.2295 25.9323 19.3548 25.6296 19.3627H23.4047C22.1774 19.3627 21.0539 18.4655 20.9512 17.2393C20.9191 16.8996 20.9637 16.557 21.0816 16.2368C21.1995 15.9165 21.3878 15.6268 21.6326 15.389C21.8453 15.1711 22.0998 14.9983 22.3808 14.881C22.6619 14.7637 22.9637 14.7044 23.2682 14.7065H25.6296C25.9323 14.7144 26.2201 14.8396 26.4322 15.0558C26.6442 15.272 26.7639 15.5622 26.7659 15.865ZM17.0452 14.479H9.09557C8.63007 14.479 8.2439 14.0917 8.2439 13.6273C8.2439 13.1607 8.63007 12.7757 9.09557 12.7757H17.0452C17.5107 12.7757 17.8969 13.1607 17.8969 13.6273C17.8969 14.0917 17.5107 14.479 17.0452 14.479ZM10.0394 18.3652C9.30849 17.6358 8.351 17.177 7.32457 17.0643C6.64809 16.987 5.96287 17.0639 5.32034 17.2891C4.6778 17.5144 4.09462 17.8823 3.61457 18.3652C3.02978 18.948 2.61857 19.6819 2.4269 20.485C2.23406 21.244 2.24227 22.0402 2.45073 22.7951C2.65919 23.55 3.06071 24.2375 3.61574 24.79C4.39092 25.5729 5.42986 26.0392 6.53007 26.0978C6.9874 26.1387 7.46107 26.0979 7.9184 25.9777C8.72202 25.7859 9.45641 25.3743 10.0394 24.7888C10.4614 24.3672 10.7961 23.8665 11.0245 23.3154C11.2529 22.7643 11.3704 22.1736 11.3704 21.577C11.3704 20.9805 11.2529 20.3898 11.0245 19.8387C10.7961 19.2876 10.4614 18.7869 10.0394 18.3652ZM5.99107 19.8748C5.99107 19.4093 6.37724 19.0232 6.84274 19.0232C7.3164 19.0325 7.6944 19.4093 7.70257 19.883L7.6944 20.7265L8.50524 20.7183C8.9789 20.7265 9.3569 21.1033 9.3639 21.577C9.36119 21.804 9.26988 22.021 9.10947 22.1816C8.94906 22.3422 8.73223 22.4338 8.50524 22.4369L7.6944 22.4287L7.70257 23.2722C7.69954 23.4992 7.60795 23.716 7.44731 23.8764C7.28668 24.0368 7.06973 24.1281 6.84274 24.1308C6.61908 24.1238 6.40651 24.0319 6.24829 23.8736C6.09006 23.7154 5.99808 23.5028 5.99107 23.2792V22.4275H5.11024C4.99831 22.4284 4.88732 22.407 4.78376 22.3646C4.68019 22.3221 4.58613 22.2594 4.50707 22.1802C4.42762 22.1012 4.36473 22.0072 4.32206 21.9036C4.27939 21.8001 4.25781 21.689 4.25857 21.577C4.25857 21.1115 4.64357 20.7253 5.11024 20.7253H5.9934V19.8748H5.99107Z" fill="url(#paint1_linear_461_2)" />
+    <defs>
+      <linearGradient id="paint0_linear_461_2" x1="3.9873" y1="16.8907" x2="15.2445" y2="16.941" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#EB98FD" />
+        <stop offset="1" stop-color="#6AB7FF" />
+      </linearGradient>
+      <linearGradient id="paint1_linear_461_2" x1="2.28809" y1="14.2212" x2="15.0592" y2="14.2652" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#EB98FD" />
+        <stop offset="1" stop-color="#6AB7FF" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+);
+
+export const FlowScanIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg width="68" height="70" viewBox="0 0 68 70" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <g filter="url(#filter0_ddiii_448_293)">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M40.9625 6C45.5805 6 47.8889 6 50.3749 6.78583C53.0889 7.77368 55.2263 9.91115 56.2142 12.6252C57 15.1107 57 17.4199 57 22.0375V35.9625C57 40.5805 57 42.8889 56.2142 45.3749C55.2263 48.0889 53.0889 50.2263 50.3749 51.2138C47.8889 52 45.5805 52 40.9625 52H27.0375C22.4195 52 20.1107 52 17.6252 51.2138C14.9112 50.2263 12.7737 48.0889 11.7858 45.3749C11 42.8889 11 40.5805 11 35.9625V22.0375C11 17.4199 11 15.1107 11.7858 12.6252C12.7737 9.91115 14.9112 7.77368 17.6252 6.78583C20.1107 6 22.4195 6 27.0375 6H40.9625Z" fill="url(#paint0_linear_448_293)" />
+      <path d="M40.9625 6.17969C45.5865 6.17969 47.8644 6.1814 50.317 6.956C52.9782 7.92583 55.0742 10.0218 56.044 12.683C56.8186 15.1353 56.8203 17.4139 56.8203 22.0375V35.9625C56.8203 40.5865 56.8186 42.8643 56.044 45.317C55.0742 47.9782 52.9782 50.0742 50.317 51.0436C47.8643 51.8186 45.5865 51.8203 40.9625 51.8203H27.0375C22.4135 51.8203 20.1353 51.8186 17.683 51.0436C15.0218 50.0742 12.9258 47.9782 11.956 45.317C11.1814 42.8644 11.1797 40.5865 11.1797 35.9625V22.0375C11.1797 17.4139 11.1814 15.1353 11.956 12.683C12.9258 10.0218 15.0218 7.92583 17.683 6.956C20.1353 6.1814 22.4135 6.17969 27.0375 6.17969H40.9625Z" stroke="url(#paint1_linear_448_293)" stroke-opacity="0.7" stroke-width="0.359375" />
+      <path d="M40.9625 6.17969C45.5865 6.17969 47.8644 6.1814 50.317 6.956C52.9782 7.92583 55.0742 10.0218 56.044 12.683C56.8186 15.1353 56.8203 17.4139 56.8203 22.0375V35.9625C56.8203 40.5865 56.8186 42.8643 56.044 45.317C55.0742 47.9782 52.9782 50.0742 50.317 51.0436C47.8643 51.8186 45.5865 51.8203 40.9625 51.8203H27.0375C22.4135 51.8203 20.1353 51.8186 17.683 51.0436C15.0218 50.0742 12.9258 47.9782 11.956 45.317C11.1814 42.8644 11.1797 40.5865 11.1797 35.9625V22.0375C11.1797 17.4139 11.1814 15.1353 11.956 12.683C12.9258 10.0218 15.0218 7.92583 17.683 6.956C20.1353 6.1814 22.4135 6.17969 27.0375 6.17969H40.9625Z" stroke="url(#paint2_linear_448_293)" stroke-opacity="0.5" stroke-width="0.359375" />
+    </g>
+    <g filter="url(#filter1_ddiii_448_293)">
+      <path d="M39.3611 26.4568L45 23.1447L32.763 16L22 22.2693V34.8317L34.237 42V36.0146L45 29.7216L39.3611 26.4568ZM31.2889 36.7716L24.9715 33.081V23.9964L32.763 19.454L39.057 23.121L31.2889 27.6633V36.7716ZM34.2604 29.4377L36.3896 28.1838L39.057 29.7216L34.2604 32.5605V29.4377Z" fill="url(#paint3_linear_448_293)" />
+      <path d="M39.2886 26.3332L39.0767 26.4577L39.2893 26.5808L44.7151 29.7222L34.1647 35.8909L34.0938 35.9324V36.0146V41.75L22.1433 34.7496V22.3517L32.7629 16.1659L44.7165 23.145L39.2886 26.3332ZM31.2166 36.8953L31.4322 37.0212V36.7716V27.7455L39.1293 23.2447L39.3412 23.1208L39.1291 22.9972L32.8351 19.3303L32.7629 19.2882L32.6908 19.3303L24.8994 23.8726L24.8282 23.914V23.9964V33.081V33.1632L24.8992 33.2047L31.2166 36.8953ZM34.1877 29.3142L34.1172 29.3558V29.4377V32.5605V32.8118L34.3334 32.6838L39.1299 29.8449L39.341 29.7199L39.1285 29.5974L36.4612 28.0597L36.3889 28.018L36.3169 28.0603L34.1877 29.3142Z" stroke="url(#paint4_linear_448_293)" stroke-width="0.286549" />
+    </g>
+    <defs>
+      <filter id="filter0_ddiii_448_293" x="0.218748" y="0.249999" width="67.5625" height="69.7188" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+        <feOffset dy="2.875" />
+        <feGaussianBlur stdDeviation="4.3125" />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14 0" />
+        <feBlend mode="multiply" in2="BackgroundImageFix" result="effect1_dropShadow_448_293" />
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+        <feOffset dy="7.1875" />
+        <feGaussianBlur stdDeviation="5.39063" />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0.117647 0 0 0 0 0.898039 0 0 0 0 0.148863 0 0 0 0.3 0" />
+        <feBlend mode="multiply" in2="effect1_dropShadow_448_293" result="effect2_dropShadow_448_293" />
+        <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_448_293" result="shape" />
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+        <feOffset dy="-1.679" />
+        <feGaussianBlur stdDeviation="1.11933" />
+        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0.375 0 0 0 0 0.375 0 0 0 0 0.375 0 0 0 0.1 0" />
+        <feBlend mode="normal" in2="shape" result="effect3_innerShadow_448_293" />
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+        <feOffset dx="2.62203" dy="4.0212" />
+        <feGaussianBlur stdDeviation="3.26705" />
+        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+        <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.2 0" />
+        <feBlend mode="normal" in2="effect3_innerShadow_448_293" result="effect4_innerShadow_448_293" />
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+        <feOffset dx="0.559666" dy="1.02419" />
+        <feGaussianBlur stdDeviation="0.699582" />
+        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+        <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.2 0" />
+        <feBlend mode="normal" in2="effect4_innerShadow_448_293" result="effect5_innerShadow_448_293" />
+      </filter>
+      <filter id="filter1_ddiii_448_293" x="18.642" y="14.321" width="29.716" height="33.8367" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+        <feOffset dy="2.79973" />
+        <feGaussianBlur stdDeviation="1.679" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.254167 0 0 0 0 0.0406667 0 0 0 0.2 0" />
+        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_448_293" />
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+        <feOffset dy="0.559666" />
+        <feGaussianBlur stdDeviation="0.419749" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0.00302082 0 0 0 0 0.3625 0 0 0 0 0.0821063 0 0 0 0.3 0" />
+        <feBlend mode="normal" in2="effect1_dropShadow_448_293" result="effect2_dropShadow_448_293" />
+        <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_448_293" result="shape" />
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+        <feOffset dy="-1.679" />
+        <feGaussianBlur stdDeviation="1.11933" />
+        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+        <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0" />
+        <feBlend mode="normal" in2="shape" result="effect3_innerShadow_448_293" />
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+        <feOffset dx="2.62203" dy="4.0212" />
+        <feGaussianBlur stdDeviation="3.26705" />
+        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+        <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.8 0" />
+        <feBlend mode="normal" in2="effect3_innerShadow_448_293" result="effect4_innerShadow_448_293" />
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+        <feOffset dx="0.559666" dy="1.02419" />
+        <feGaussianBlur stdDeviation="0.699582" />
+        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+        <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0" />
+        <feBlend mode="normal" in2="effect4_innerShadow_448_293" result="effect5_innerShadow_448_293" />
+      </filter>
+      <linearGradient id="paint0_linear_448_293" x1="11" y1="6" x2="57" y2="52" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1DF272" />
+        <stop offset="1" stop-color="#1EE692" />
+      </linearGradient>
+      <linearGradient id="paint1_linear_448_293" x1="11" y1="6" x2="56.9602" y2="51.9602" gradientUnits="userSpaceOnUse">
+        <stop stop-color="white" stop-opacity="0.5" />
+        <stop offset="0.471523" stop-color="white" stop-opacity="0" />
+      </linearGradient>
+      <linearGradient id="paint2_linear_448_293" x1="56.9602" y1="51.9602" x2="11" y2="6.00001" gradientUnits="userSpaceOnUse">
+        <stop stop-opacity="0.5" />
+        <stop offset="0.267412" stop-opacity="0" />
+      </linearGradient>
+      <linearGradient id="paint3_linear_448_293" x1="21.195" y1="14.7746" x2="46.2291" y2="32.1751" gradientUnits="userSpaceOnUse">
+        <stop stop-color="white" />
+        <stop offset="1" stop-color="#DADADA" />
+      </linearGradient>
+      <linearGradient id="paint4_linear_448_293" x1="22" y1="16" x2="50.4667" y2="32.6582" gradientUnits="userSpaceOnUse">
+        <stop stop-color="white" />
+        <stop offset="0.489291" stop-color="white" stop-opacity="0" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+);
+
+export const TimerIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path d="M4.5 0.53125C3.61617 0.53125 2.75218 0.793338 2.0173 1.28437C1.28242 1.7754 0.709644 2.47333 0.371415 3.28988C0.0331862 4.10644 -0.0553099 5.00496 0.117118 5.87181C0.289546 6.73866 0.715153 7.53492 1.34012 8.15988C1.96508 8.78485 2.76134 9.21046 3.62819 9.38288C4.49504 9.55531 5.39356 9.46682 6.21012 9.12859C7.02668 8.79036 7.7246 8.21759 8.21563 7.4827C8.70666 6.74782 8.96875 5.88384 8.96875 5C8.9675 3.8152 8.49629 2.67928 7.6585 1.8415C6.82072 1.00372 5.6848 0.532501 4.5 0.53125ZM4.5 8.78125C3.75214 8.78125 3.02108 8.55948 2.39925 8.14399C1.77743 7.72851 1.29278 7.13796 1.00658 6.44702C0.720389 5.75609 0.645507 4.99581 0.791408 4.26231C0.937308 3.52882 1.29744 2.85507 1.82625 2.32625C2.35507 1.79744 3.02883 1.43731 3.76232 1.29141C4.49581 1.14551 5.25609 1.22039 5.94702 1.50658C6.63796 1.79277 7.22851 2.27743 7.644 2.89925C8.05949 3.52107 8.28125 4.25214 8.28125 5C8.28012 6.0025 7.88137 6.96362 7.17249 7.67249C6.46362 8.38137 5.5025 8.78011 4.5 8.78125ZM7.25 5C7.25 5.09117 7.21379 5.1786 7.14932 5.24307C7.08485 5.30753 6.99742 5.34375 6.90625 5.34375H4.5C4.40883 5.34375 4.3214 5.30753 4.25693 5.24307C4.19247 5.1786 4.15625 5.09117 4.15625 5V2.59375C4.15625 2.50258 4.19247 2.41515 4.25693 2.35068C4.3214 2.28622 4.40883 2.25 4.5 2.25C4.59117 2.25 4.6786 2.28622 4.74307 2.35068C4.80754 2.41515 4.84375 2.50258 4.84375 2.59375V4.65625H6.90625C6.99742 4.65625 7.08485 4.69247 7.14932 4.75693C7.21379 4.8214 7.25 4.90883 7.25 5Z" fill="url(#paint0_linear_448_25)" />
+    <defs>
+      <linearGradient id="paint0_linear_448_25" x1="0.03125" y1="5.00001" x2="4.69432" y2="5.01564" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#EB98FD" />
+        <stop offset="1" stop-color="#6AB7FF" />
+      </linearGradient>
+    </defs>
   </svg>
 
 );
